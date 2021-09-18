@@ -1,0 +1,15 @@
+{
+  "name": "space-mkv25",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "mkv25.net",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^14.0.1"
+  }
+}
