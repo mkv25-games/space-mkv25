@@ -1,8 +1,10 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
 
+const { title } = require('./package.json')
+
 function createWindow () {
-  const win = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -10,7 +12,12 @@ function createWindow () {
     }
   })
 
-  win.loadFile('main.html')
+  mainWindow.loadFile('main.html')
+
+  mainWindow.webContents.on('did-finish-load', () => {
+    
+    mainWindow.setTitle(title)
+  })
 }
 
 app.whenReady().then(() => {

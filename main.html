@@ -5,13 +5,14 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <div class="stats">
+      <p>We are using:</p>
+      <ul><label>Node.js</label> <span id="node-version"></span></ul>
+      <ul><label>Chromium</label> <span id="chrome-version"></span></ul>
+      <ul><label>Electron</label> <span id="electron-version"></span></ul>
+    </div>
     <script src="./renderer.js"></script>
   </body>
 </html>
