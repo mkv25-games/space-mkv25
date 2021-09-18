@@ -1,7 +1,7 @@
 {
   "name": "space-mkv25",
   "version": "1.0.0",
-  "description": "",
+  "description": "An experiment in creating a cross-platform application using Electron JS.",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
