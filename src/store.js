@@ -7,16 +7,18 @@ let userDataFilePath
 function setup() {
   // sender - renderer process (web page)
   if (ipcRenderer) {
+    console.log('IPCR Setup', Date.now())
     ipcRenderer.on('request-user-data-reply', (event, reply) => {
-      console.log('IPCR Request User Data Reply', event, reply)
+      console.log('IPCR Request User Data, received reply:', reply)
       userDataFilePath = reply
     })
     ipcRenderer.send('request-user-data', { timestamp: Date.now() })
   }
   // receiver - main electron process
   if (ipcMain) {
+    console.log('IPCM Setup', Date.now())
     ipcMain.on('request-user-data', (event, message) => {
-      console.log('IPCM Request User Data', event, message)
+      console.log('IPCM Request User Data, received message:', message)
       event.reply('request-user-data-reply', app.getPath('userData'))
     })
   }
