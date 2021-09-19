@@ -11,7 +11,9 @@
     "make": "electron-forge make",
     "lint": "standard --fix"
   },
-  "keywords": [],
+  "keywords": [
+    "space game"
+  ],
   "author": "mkv25.net",
   "license": "UNLICENSED",
   "devDependencies": {
@@ -21,6 +23,7 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "electron": "^14.0.1",
+    "promise-path": "^1.4.1",
     "standard": "^16.0.3",
     "vue": "^2.6.14"
   },

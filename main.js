@@ -44,6 +44,7 @@ function selectApplicationMode ({ env }) {
 function loadFromLocalServer (mainWindow) {
   const winUrl = 'http://localhost:8080/'
   mainWindow.loadURL(winUrl)
+  mainWindow.webContents.openDevTools()
 }
 
 function loadFromLocalFileSystem (mainWindow) {
