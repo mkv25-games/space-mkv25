@@ -7,12 +7,14 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    useContentSize: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
-  mainWindow.loadFile('main.html')
+  const winUrl = 'http://localhost:8080/'
+  mainWindow.loadURL(winUrl)
 
   mainWindow.webContents.on('did-finish-load', () => {
     
