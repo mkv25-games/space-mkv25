@@ -28,10 +28,11 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
+- Link persistent storage model to vuex store
 - Build a settings page to show version
 - Allow developer console to be enabled from settings page
 - Build a debug page that can be enabled from settings
-- Build a persistent storage model
+- Introduce concept of Save and Load
 - Tidy up the UI and CSS
 - Introduce Font Awesome
 - Replace default image assets
@@ -40,6 +41,7 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
+- Build a persistent storage model
 - Add a Settings page to the router
 - Implement build automation, and document commands in README
 - Set up basic Electron wrapper
