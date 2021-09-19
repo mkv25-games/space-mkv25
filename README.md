@@ -28,6 +28,9 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
+- Build a settings page to show version
+- Allow developer console to be enabled from settings page
+- Build a debug page that can be enabled from settings
 - Build a persistent storage model
 - Tidy up the UI and CSS
 - Introduce Font Awesome
@@ -37,6 +40,8 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
+- Add a Settings page to the router
+- Implement build automation, and document commands in README
 - Set up basic Electron wrapper
 - Set up basic Vue application with Routing
 - Build a full page interactive application
