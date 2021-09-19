@@ -21,7 +21,7 @@ function createWindow () {
   })
 }
 
-function selectApplicationMode({ env }) {
+function selectApplicationMode ({ env }) {
   const config = env.APP_MODE || false
   console.log('App Mode:', config)
   const modes = {
@@ -31,12 +31,12 @@ function selectApplicationMode({ env }) {
   return modes[config] || modes.default
 }
 
-function loadFromLocalServer(mainWindow) {
+function loadFromLocalServer (mainWindow) {
   const winUrl = 'http://localhost:8080/'
   mainWindow.loadURL(winUrl)
 }
 
-function loadFromLocalFileSystem(mainWindow) {
+function loadFromLocalFileSystem (mainWindow) {
   const winFilepath = path.join(__dirname, 'mainui/dist/index.html')
   mainWindow.loadFile(winFilepath)
   mainWindow.webContents.openDevTools()
