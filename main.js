@@ -1,5 +1,6 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
+const store = require('./src/store')
 
 const { title, version } = require('./package.json')
 
@@ -9,7 +10,7 @@ function createWindow () {
     height: 600,
     useContentSize: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, 'src/preload.js')
     }
   })
 
