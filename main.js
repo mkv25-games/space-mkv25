@@ -1,7 +1,7 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
 
-const { title } = require('./package.json')
+const { title, version } = require('./package.json')
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -14,7 +14,8 @@ function createWindow () {
   })
 
   const mode = selectApplicationMode(process)
-  mode(mainWindow)
+  console.log('App Mode:', mode.name)
+  mode.fn(mainWindow)
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.setTitle(title)
@@ -23,10 +24,19 @@ function createWindow () {
 
 function selectApplicationMode ({ env }) {
   const config = env.APP_MODE || false
-  console.log('App Mode:', config)
   const modes = {
-    default: loadFromLocalFileSystem,
-    dev: loadFromLocalServer
+    default: {
+      name: `Build: ${version}`,
+      fn: loadFromLocalFileSystem
+    },
+    'local-dist': {
+      name: `Local Distribution Build (${version})`,
+      fn: loadFromLocalFileSystem
+    },
+    'local-dev': {
+      name: `Local Development Build (${version})`,
+      fn: loadFromLocalServer
+    }
   }
   return modes[config] || modes.default
 }
