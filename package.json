@@ -5,7 +5,8 @@
   "description": "An experiment in creating a cross-platform application using Electron JS.",
   "main": "main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "APP_MODE=dev electron-forge start",
+    "start-local": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
   },

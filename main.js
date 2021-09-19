@@ -13,13 +13,33 @@ function createWindow () {
     }
   })
 
-  const winUrl = 'http://localhost:8080/'
-  mainWindow.loadURL(winUrl)
+  const mode = selectApplicationMode(process)
+  mode(mainWindow)
 
   mainWindow.webContents.on('did-finish-load', () => {
-    
     mainWindow.setTitle(title)
   })
+}
+
+function selectApplicationMode({ env }) {
+  const config = env.APP_MODE || false
+  console.log('App Mode:', config)
+  const modes = {
+    default: loadFromLocalFileSystem,
+    dev: loadFromLocalServer
+  }
+  return modes[config] || modes.default
+}
+
+function loadFromLocalServer(mainWindow) {
+  const winUrl = 'http://localhost:8080/'
+  mainWindow.loadURL(winUrl)
+}
+
+function loadFromLocalFileSystem(mainWindow) {
+  const winFilepath = path.join(__dirname, 'mainui/dist/index.html')
+  mainWindow.loadFile(winFilepath)
+  mainWindow.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {

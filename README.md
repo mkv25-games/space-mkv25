@@ -12,7 +12,6 @@ This should open up an electron window, with the template, list of dependencies 
 
 ## TODO
 
-- Configure Electron to work with the file based version of the compiled Vue application
 - Build a persistent storage model
 - Tidy up the UI and CSS
 - Introduce Font Awesome
@@ -25,3 +24,4 @@ This should open up an electron window, with the template, list of dependencies 
 - Set up basic Electron wrapper
 - Set up basic Vue application with Routing
 - Build a full page interactive application
+- Configure Electron to work with the file based version of the compiled Vue application
