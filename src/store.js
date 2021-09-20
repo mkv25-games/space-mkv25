@@ -4,22 +4,17 @@ const { read, write, make, position } = require('promise-path')
 
 let userDataFilePath
 
-function setup() {
+async function setup() {
   // sender - renderer process (web page)
   if (ipcRenderer) {
-    console.log('IPCR Setup', Date.now())
-    ipcRenderer.on('request-user-data-reply', (event, reply) => {
-      console.log('IPCR Request User Data, received reply:', reply)
-      userDataFilePath = reply
-    })
-    ipcRenderer.send('request-user-data', { timestamp: Date.now() })
+    userDataFilePath = await ipcRenderer.invoke('request-user-data', { timestamp: Date.now() })
+    console.log('IPCR Request User Data:', userDataFilePath)
   }
   // receiver - main electron process
   if (ipcMain) {
-    console.log('IPCM Setup', Date.now())
-    ipcMain.on('request-user-data', (event, message) => {
+    ipcMain.handle('request-user-data', async (event, message) => {
       console.log('IPCM Request User Data, received message:', message)
-      event.reply('request-user-data-reply', app.getPath('userData'))
+      return app.getPath('userData')
     })
   }
 }
