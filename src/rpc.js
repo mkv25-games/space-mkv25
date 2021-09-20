@@ -56,6 +56,7 @@ async function sendDataToBrowser(key) {
   const userDataFilePath = await getUserPath()
   const userDataPath = position(userDataFilePath, 'savedata')
   await make(userDataPath('./'))
+  console.log('User Data Path', userDataPath('./'))
   const timestamp = Date.now()
   try {
     const body = await read(userDataPath(`${key}.json`), 'utf8')
