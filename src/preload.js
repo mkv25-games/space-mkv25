@@ -1,10 +1,11 @@
 const { contextBridge } = require('electron')
-const store = require('./store')
+const store = require('./rpc')
 
 contextBridge.exposeInMainWorld('electron', {
   desktop: true,
   requestData: store.sendDataToBrowser,
-  sendData: store.receiveDataFromBrowser
+  sendData: store.receiveDataFromBrowser,
+  updateDeveloperTools: store.updateDeveloperTools
 })
 
 window.addEventListener('DOMContentLoaded', () => {

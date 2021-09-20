@@ -1,6 +1,6 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
-const store = require('./src/store')
+const store = require('./src/rpc')
 
 const { title, version } = require('./package.json')
 
@@ -21,6 +21,8 @@ function createWindow () {
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.setTitle(title)
   })
+
+  return mainWindow
 }
 
 function selectApplicationMode ({ env }) {
@@ -45,21 +47,21 @@ function selectApplicationMode ({ env }) {
 function loadFromLocalServer (mainWindow) {
   const winUrl = 'http://localhost:8080/'
   mainWindow.loadURL(winUrl)
-  mainWindow.webContents.openDevTools()
 }
 
 function loadFromLocalFileSystem (mainWindow) {
   const winFilepath = path.join(__dirname, 'mainui/dist/index.html')
   mainWindow.loadFile(winFilepath)
-  mainWindow.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {
-  createWindow()
+  const mainWindow = createWindow()
+  store.setupRPC(mainWindow)
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow()
+      const mainWindow = createWindow()
+      store.setupRPC(mainWindow)
     }
   })
 })
