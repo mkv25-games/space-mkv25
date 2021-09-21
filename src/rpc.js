@@ -4,13 +4,13 @@ const { read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[RPC]', ...messages) }
 
 let currentMainWindow
-async function setupRPC(mainWindow) {
+async function setupRPC (mainWindow) {
   currentMainWindow = mainWindow
   registerIPCEvents()
 }
 
 let ipcEventsRegistered = false
-function registerIPCEvents() {
+function registerIPCEvents () {
   if (ipcEventsRegistered) {
     return
   }
@@ -23,7 +23,7 @@ function registerIPCEvents() {
 
   ipcMain.handle('update-developer-tools', async (event, visible) => {
     const webContents = currentMainWindow.webContents
-    if(visible) {
+    if (visible) {
       report('Open Dev Tools')
       webContents.openDevTools()
     } else if (webContents.isDevToolsOpened()) {
@@ -35,15 +35,15 @@ function registerIPCEvents() {
   })
 }
 
-async function getUserPath() {
+async function getUserPath () {
   return ipcRenderer.invoke('request-user-data', { timestamp: Date.now() })
 }
 
-async function updateDeveloperTools(visible) {
+async function updateDeveloperTools (visible) {
   return ipcRenderer.invoke('update-developer-tools', visible)
 }
 
-async function receiveDataFromBrowser(key, data) {
+async function receiveDataFromBrowser (key, data) {
   const userDataFilePath = await getUserPath()
   const userDataPath = position(userDataFilePath, 'savedata')
   await make(userDataPath('./'))
@@ -53,8 +53,7 @@ async function receiveDataFromBrowser(key, data) {
     return {
       message: `Received ${body.length} characters of data for ${key}.`
     }
-  }
-  catch(ex) {
+  } catch (ex) {
     return {
       message: `Received ${body.length} characters of data for ${key}.`,
       error: ex.message
@@ -62,7 +61,7 @@ async function receiveDataFromBrowser(key, data) {
   }
 }
 
-async function sendDataToBrowser(key) {
+async function sendDataToBrowser (key) {
   const userDataFilePath = await getUserPath()
   const userDataPath = position(userDataFilePath, 'savedata')
   await make(userDataPath('./'))

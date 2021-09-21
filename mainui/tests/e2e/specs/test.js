@@ -5,7 +5,7 @@ module.exports = {
   'default e2e tests': browser => {
     browser
       .init()
-      .waitForElementVisible('#app')
+      .waitForElementVisible('#mainui-app')
       .assert.elementPresent('.hello')
       .assert.containsText('h1', 'Welcome to Your Vue.js App')
       .assert.elementCount('img', 1)

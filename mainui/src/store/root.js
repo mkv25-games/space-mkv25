@@ -17,7 +17,7 @@ const main = createStore({
     showDeveloperTools (state) {
       state.developerTools.visible = true
     },
-    setUserPreferences(state, newState) {
+    setUserPreferences (state, newState) {
       Object.assign(state, newState)
     }
   },
@@ -33,11 +33,10 @@ const main = createStore({
       commit('showDeveloperTools')
       await window.electron.updateDeveloperTools(state.developerTools.visible)
     },
-    async loadUserPreferences({ commit, state }) {
+    async loadUserPreferences ({ commit, state }) {
       const preferences = (await window.electron.requestData('userPreferences')) || {}
       console.log('Load User Preferences:', preferences)
       commit('setUserPreferences', preferences.data)
-
     }
   },
   modules: {

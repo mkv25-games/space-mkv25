@@ -15,13 +15,13 @@ module.exports = {
 
   // A page object can have elements
   elements: {
-    appContainer: '#app'
+    appContainer: '#mainui-app'
   },
 
   // Or a page objects can also have sections
   sections: {
     app: {
-      selector: '#app',
+      selector: '#mainui-app',
 
       elements: {
         logo: 'img'
@@ -40,8 +40,8 @@ module.exports = {
           selector: 'div.hello',
 
           elements: {
-            cliPluginLinks: {
-              selector: 'ul',
+            welcomeMessage: {
+              selector: 'p',
               index: 0
             }
           }

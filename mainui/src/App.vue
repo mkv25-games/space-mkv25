@@ -11,7 +11,7 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  setup(props) {
+  setup (props) {
     return {}
   },
   mounted () {
@@ -19,7 +19,6 @@ export default defineComponent({
   }
 })
 </script>
-
 
 <style>
 #mainui-app {
