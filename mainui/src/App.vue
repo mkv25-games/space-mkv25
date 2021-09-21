@@ -7,6 +7,20 @@
   </div>
 </template>
 
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  setup(props) {
+    return {}
+  },
+  mounted () {
+    this.$store.dispatch('loadUserPreferences')
+  }
+})
+</script>
+
+
 <style>
 #mainui-app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

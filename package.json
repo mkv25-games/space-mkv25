@@ -22,6 +22,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.61",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "@vue/composition-api": "^1.1.5",
     "electron": "^14.0.1",
     "promise-path": "^1.4.1",
     "standard": "^16.0.3",

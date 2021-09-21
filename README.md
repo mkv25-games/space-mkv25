@@ -28,7 +28,6 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Link persistent storage model to vuex store
 - Build a settings page to show version
 - Allow developer console to be enabled from settings page
 - Build a debug page that can be enabled from settings
@@ -41,6 +40,7 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
+- Link persistent storage model to vuex store
 - Build a persistent storage model
 - Add a Settings page to the router
 - Implement build automation, and document commands in README

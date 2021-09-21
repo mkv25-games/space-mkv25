@@ -8,5 +8,8 @@
       <button v-on:click="$store.dispatch('hideDeveloperTools')" v-if="$store.state.developerTools.visible">Hide Developer Tools</button>
       <button v-on:click="$store.dispatch('showDeveloperTools')" v-else>Show Developer Tools</button>
     </p>
+    <p>
+      <button v-on:click="$store.dispatch('loadUserPreferences')">Load User Preferences</button>
+    </p>
   </div>
 </template>

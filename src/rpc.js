@@ -6,6 +6,16 @@ const report = (...messages) => { console.log('[RPC]', ...messages) }
 let currentMainWindow
 async function setupRPC(mainWindow) {
   currentMainWindow = mainWindow
+  registerIPCEvents()
+}
+
+let ipcEventsRegistered = false
+function registerIPCEvents() {
+  if (ipcEventsRegistered) {
+    return
+  }
+  ipcEventsRegistered = true
+
   ipcMain.handle('request-user-data', async (event, message) => {
     report('IPCM Request User Data, received message:', message)
     return app.getPath('userData')

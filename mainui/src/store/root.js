@@ -8,14 +8,17 @@ const main = createStore({
     }
   },
   mutations: {
-    increment: (state) => {
+    increment (state) {
       state.count++
     },
-    hideDeveloperTools: (state) => {
+    hideDeveloperTools (state) {
       state.developerTools.visible = false
     },
-    showDeveloperTools: (state) => {
+    showDeveloperTools (state) {
       state.developerTools.visible = true
+    },
+    setUserPreferences(state, newState) {
+      Object.assign(state, newState)
     }
   },
   actions: {
@@ -29,6 +32,12 @@ const main = createStore({
     async showDeveloperTools ({ commit, state }) {
       commit('showDeveloperTools')
       await window.electron.updateDeveloperTools(state.developerTools.visible)
+    },
+    async loadUserPreferences({ commit, state }) {
+      const preferences = (await window.electron.requestData('userPreferences')) || {}
+      console.log('Load User Preferences:', preferences)
+      commit('setUserPreferences', preferences.data)
+
     }
   },
   modules: {
