@@ -1,20 +1,14 @@
-const { contextBridge } = require('electron')
-const store = require('./rpc')
+const rpc = require('./rpc')
+const report = (...messages) => { console.log('[preload.js]', ...messages) }
 
-contextBridge.exposeInMainWorld('electron', {
-  desktop: true,
-  requestData: store.sendDataToBrowser,
-  sendData: store.receiveDataFromBrowser,
-  updateDeveloperTools: store.updateDeveloperTools
-})
+window.mainuiRunning = function () {
+  report('Received notification from [mainui.js] that Main UI Running')
+}
 
 window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
-
-  for (const dependency of ['chrome', 'node', 'electron']) {
-    replaceText(`${dependency}-version`, process.versions[dependency])
+  rpc.setupBrowserRPC()
+  if (typeof window.preloadComplete === 'function') {
+    report('Preload Complete')
+    window.preloadComplete()
   }
 })

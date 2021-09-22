@@ -2,28 +2,30 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store/root'
+import rpcActions from './actions/rpcActions'
 
-createApp(App).use(store).use(router).mount('#mainui-app')
-
-function clone (data) {
-  return JSON.parse(JSON.stringify(data))
+let mainUIStarted = false
+function startMainUI () {
+  if (mainUIStarted) {
+    return
+  }
+  mainUIStarted = true
+  createApp(App).use(store).use(router).mount('#mainui-app')
 }
 
-const noop = () => {}
-const history = []
-const subscriptions = {
-  increment: (state) => {
-    console.log('Incrementing data based on user preference', state)
-    window.electron.sendData('userPreferences', state)
-  }
+function glueSystemsTogether () {
+  const rpc = require('./api/rpc')(window)
+  rpcActions.setup(store, rpc)
 }
-store.subscribeAction({
-  before: (action, state) => {
-    history.push({ timestamp: Date.now(), type: action.type, state })
-  },
-  after: (action, state) => {
-    console.log('Action', action, state)
-    const fn = (subscriptions[action.type] || noop)
-    fn(clone(state))
+
+function raceStartupEvent () {
+  window.preloadComplete = startMainUI
+  if (typeof window.mainuiRunning === 'function') {
+    console.log('[mainui.js] Main UI Running')
+    window.mainuiRunning()
   }
-})
+  setTimeout(startMainUI, 500)
+}
+
+glueSystemsTogether()
+raceStartupEvent()

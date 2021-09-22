@@ -1,6 +1,6 @@
 const path = require('path')
 const { app, BrowserWindow } = require('electron')
-const store = require('./src/rpc')
+const rpc = require('./src/rpc')
 
 const { title, version } = require('./package.json')
 
@@ -20,6 +20,9 @@ function createWindow () {
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.setTitle(title)
+    if (process.env.FORCE_OPEN_DEV_TOOLS) {
+      mainWindow.webContents.openDevTools()
+    }
   })
 
   return mainWindow
@@ -56,12 +59,12 @@ function loadFromLocalFileSystem (mainWindow) {
 
 app.whenReady().then(() => {
   const mainWindow = createWindow()
-  store.setupRPC(mainWindow)
+  rpc.setupProcessRPC(mainWindow)
 
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       const mainWindow = createWindow()
-      store.setupRPC(mainWindow)
+      rpc.setupProcessRPC(mainWindow)
     }
   })
 })
