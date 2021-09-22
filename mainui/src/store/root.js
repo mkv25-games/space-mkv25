@@ -1,12 +1,16 @@
 import { createStore } from 'vuex'
 
-const main = createStore({
-  state: {
+function defaultUserPreferences() {
+  return {
     count: 0,
     developerTools: {
       visible: false
     }
-  },
+  }
+}
+
+const main = createStore({
+  state: defaultUserPreferences(),
   mutations: {
     increment (state) {
       state.count++
@@ -33,6 +37,9 @@ const main = createStore({
     },
     async loadUserPreferences ({ commit, state }) {
 
+    },
+    async resetUserPreferences({ commit, state }) {
+      commit('setUserPreferences', defaultUserPreferences())
     }
   },
   modules: {

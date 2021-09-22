@@ -20,7 +20,7 @@ function setup (store, rpc) {
 
   const afterEvents = {
     increment: async (state) => {
-      report('Incrementing data based on user preference', state)
+      report('Incrementing data and storing in user preferences', state)
       rpc.sendData('userPreferences', state)
     },
     hideDeveloperTools: async (state) => {
@@ -28,6 +28,10 @@ function setup (store, rpc) {
     },
     showDeveloperTools: async (state) => {
       return rpc.updateDeveloperTools(state.developerTools.visible)
+    },
+    resetUserPreferences: async (state) => {
+      report('Resetting user preference data', state)
+      rpc.sendData('userPreferences', state)
     }
   }
 
