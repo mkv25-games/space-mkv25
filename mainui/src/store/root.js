@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 
-function defaultUserPreferences() {
+function defaultUserPreferences () {
   return {
     count: 0,
     developerTools: {
@@ -38,7 +38,7 @@ const main = createStore({
     async loadUserPreferences ({ commit, state }) {
 
     },
-    async resetUserPreferences({ commit, state }) {
+    async resetUserPreferences ({ commit, state }) {
       commit('setUserPreferences', defaultUserPreferences())
     }
   },
