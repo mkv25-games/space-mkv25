@@ -23,6 +23,9 @@ const main = createStore({
     },
     setUserPreferences (state, newState) {
       Object.assign(state, newState)
+    },
+    setVersion (state, version) {
+      state.version = version
     }
   },
   actions: {
@@ -40,6 +43,9 @@ const main = createStore({
     },
     async resetUserPreferences ({ commit, state }) {
       commit('setUserPreferences', defaultUserPreferences())
+    },
+    async getVersion ({ commit, state }) {
+    
     }
   },
   modules: {

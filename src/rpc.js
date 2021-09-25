@@ -2,6 +2,7 @@
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
 const { read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
+const packageJson = require('../package.json')
 
 let currentMainWindow
 async function setupProcessRPC (mainWindow) {
@@ -85,11 +86,17 @@ function setupBrowserRPC () {
     }
   }
 
+  async function version() {
+    const { name, version } = packageJson
+    return `${name} : ${version}`
+  }
+
   contextBridge.exposeInMainWorld('electron', {
     desktop: true,
     requestData: sendDataToBrowser,
     sendData: receiveDataFromBrowser,
-    updateDeveloperTools: updateDeveloperTools
+    updateDeveloperTools: updateDeveloperTools,
+    version
   })
 }
 

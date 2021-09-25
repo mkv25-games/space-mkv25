@@ -1,6 +1,7 @@
 <template>
   <div class="settings">
     <h1>Interface Settings</h1>
+    <p>Build Information: {{ $store.state.version }}</p>
     <h2>Interactions</h2>
     <p>
       <button v-on:click="$store.dispatch('increment')">Increment</button>

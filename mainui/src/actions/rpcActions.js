@@ -32,6 +32,10 @@ function setup (store, rpc) {
     resetUserPreferences: async (state) => {
       report('Resetting user preference data', state)
       rpc.sendData('userPreferences', state)
+    },
+    getVersion: async (state) => {
+      const version = await rpc.version()
+      store.commit('setVersion', version)
     }
   }
 

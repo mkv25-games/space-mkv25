@@ -28,11 +28,8 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Build a settings page to show version
-- Allow developer console to be enabled from settings page
 - Build a debug page that can be enabled from settings
 - Introduce concept of Save and Load
-- Tidy up the UI and CSS
 - Introduce Font Awesome
 - Replace default image assets
 - Add Start, Game, and End screens
@@ -40,6 +37,9 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
+- 
+- Allow developer console to be enabled from settings page
+- Tidy up the UI and CSS
 - Link persistent storage model to vuex store
 - Build a persistent storage model
 - Add a Settings page to the router

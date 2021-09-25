@@ -9,7 +9,8 @@ function setup (window) {
   Object.assign(singleton, {
     sendData: (...args) => api().sendData(...args),
     requestData: (...args) => api().requestData(...args),
-    updateDeveloperTools: (...args) => api().updateDeveloperTools(...args)
+    updateDeveloperTools: (...args) => api().updateDeveloperTools(...args),
+    version: (...args) => api().version(...args)
   })
   return singleton
 }

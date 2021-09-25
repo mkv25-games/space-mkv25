@@ -15,6 +15,7 @@ export default defineComponent({
   },
   mounted () {
     this.$store.dispatch('loadUserPreferences')
+    this.$store.dispatch('getVersion')
   }
 })
 </script>
