@@ -9,8 +9,12 @@
       </div>
       <p class="actions">
         <router-link to="/universe">Cancel</router-link>
-        <button>Connect</button>
+        <button v-on:click="submitForm">Connect</button>
       </p>
+      <div v-if="formErrors.length" class="form-errors">
+        <h2>Contact Disconnects</h2>
+        <p class="form-error" v-for="message in formErrors" :key="message">{{ message }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -20,7 +24,21 @@ export default {
   name: 'SaveGameManagement',
   data: () => {
     return {
-      filename: ''
+      filename: '',
+      formErrors: []
+    }
+  },
+  methods: {
+    validateForm() {
+      this.formErrors = []
+      this.filename ? false : this.formErrors.push('No contact name assigned')
+    },
+    submitForm() {
+      return this.validateForm() ? this.createContact(this) : false
+    },
+    createContact(data) {
+      console.log('Creating contact:', data.filename)
+      return true
     }
   }
 }
