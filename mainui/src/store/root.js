@@ -38,13 +38,11 @@ const main = createStore({
     async showDeveloperTools ({ commit, state }) {
       commit('showDeveloperTools')
     },
-    async loadUserPreferences ({ commit, state }) {
-
-    },
     async resetUserPreferences ({ commit, state }) {
       commit('setUserPreferences', defaultUserPreferences())
     },
-    async getVersion ({ commit, state }) {}
+    async getVersion ({ commit, state }) {},
+    async loadUserPreferences ({ commit, state }) {}
   },
   modules: {
   }

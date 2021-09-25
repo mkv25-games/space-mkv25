@@ -1,6 +1,6 @@
 
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
-const { read, write, make, position } = require('promise-path')
+const { find, read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
 const packageJson = require('../package.json')
 
@@ -18,7 +18,6 @@ function registerIPCEvents () {
   ipcEventsRegistered = true
 
   ipcMain.handle('request-user-data', async (event, message) => {
-    report('IPCM Request User Data, received message:', message)
     return app.getPath('userData')
   })
 
@@ -86,7 +85,26 @@ function setupBrowserRPC () {
     }
   }
 
-  async function version() {
+  async function findFiles (query) {
+    report('Trying to find file', query)
+
+    const userDataFilePath = await getUserPath()
+    report('User data file path', userDataFilePath)
+
+    const userDataPath = position(userDataFilePath, 'savedata')
+
+    const fullQueryPath = userDataPath(query)
+    report('Full query path', fullQueryPath)
+
+    const filepaths = await find(fullQueryPath)
+    report('Found files', filepaths)
+
+    const localizedFilepaths = filepaths.map(filepath => filepath.replace(userDataFilePath, ''))
+
+    return localizedFilepaths
+  }
+
+  async function version () {
     const { name, version } = packageJson
     return `${name} : ${version}`
   }
@@ -95,7 +113,8 @@ function setupBrowserRPC () {
     desktop: true,
     requestData: sendDataToBrowser,
     sendData: receiveDataFromBrowser,
-    updateDeveloperTools: updateDeveloperTools,
+    findFiles,
+    updateDeveloperTools,
     version
   })
 }

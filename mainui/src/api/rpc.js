@@ -10,6 +10,7 @@ function setup (window) {
     sendData: (...args) => api().sendData(...args),
     requestData: (...args) => api().requestData(...args),
     updateDeveloperTools: (...args) => api().updateDeveloperTools(...args),
+    findFiles: (...args) => api().findFiles(...args),
     version: (...args) => api().version(...args)
   })
   return singleton
