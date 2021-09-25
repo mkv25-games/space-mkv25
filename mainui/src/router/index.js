@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import Debug from '../views/Debug.vue'
 import Designer from '../views/Designer.vue'
 import GalaxyView from '../views/GalaxyView.vue'
 import Home from '../views/Home.vue'
@@ -13,6 +14,10 @@ const routes = [{
   path: '/',
   name: 'Home',
   component: Home
+}, {
+  path: '/debug',
+  name: 'Debug Tools',
+  component: Debug
 }, {
   path: '/designer',
   name: 'Designer',

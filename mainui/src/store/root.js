@@ -44,9 +44,7 @@ const main = createStore({
     async resetUserPreferences ({ commit, state }) {
       commit('setUserPreferences', defaultUserPreferences())
     },
-    async getVersion ({ commit, state }) {
-    
-    }
+    async getVersion ({ commit, state }) {}
   },
   modules: {
   }

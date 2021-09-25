@@ -28,7 +28,6 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Build a debug page that can be enabled from settings
 - Introduce concept of Save and Load
 - Introduce Font Awesome
 - Replace default image assets
@@ -37,7 +36,7 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
-- 
+- Build a debug page that can be enabled from settings
 - Allow developer console to be enabled from settings page
 - Tidy up the UI and CSS
 - Link persistent storage model to vuex store
