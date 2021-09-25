@@ -9,6 +9,9 @@
         <div class="delete-label">[delete]</div>
       </li>
     </ul>
+    <p>
+      <router-link to="/universe">&lt; Back</router-link>
+    </p>
   </div>
 </template>
 
@@ -67,7 +70,6 @@ li > div {
   padding: 4px;
   display: inline-block;
   cursor: pointer;
-  background: #333;
 }
 li:hover > div:hover {
   background: #633;

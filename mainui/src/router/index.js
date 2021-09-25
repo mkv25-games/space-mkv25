@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Debug from '../views/Debug.vue'
 import Designer from '../views/Designer.vue'
+import EstablishContact from '../views/EstablishContact.vue'
 import GalaxyView from '../views/GalaxyView.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
@@ -22,6 +23,10 @@ const routes = [{
   path: '/designer',
   name: 'Designer',
   component: Designer
+}, {
+  path: '/establish-contact',
+  name: 'Establish Contact',
+  component: EstablishContact
 }, {
   path: '/galaxy-view',
   name: 'Galaxy View',
