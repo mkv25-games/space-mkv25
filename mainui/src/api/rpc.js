@@ -1,7 +1,7 @@
 const report = (...messages) => { console.log('[api/rpc.js]', ...messages) }
 const singleton = {}
 
-const exposedMethods = ['sendData', 'requestData', 'updateDeveloperTools', 'findFiles', 'version']
+const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'version']
 
 function setup (window) {
   function api () {

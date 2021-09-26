@@ -1,6 +1,6 @@
-
+const fs = require('fs/promises')
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
-const { find, read, write, make, position } = require('promise-path')
+const { clean, find, read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
 const packageJson = require('../package.json')
 
@@ -44,6 +44,25 @@ function setupBrowserRPC () {
     return ipcRenderer.invoke('update-developer-tools', visible)
   }
 
+  async function clearData (key) {
+    report('Clear data', key)
+    const userDataFilePath = await getUserPath()
+    report('Clear data', userDataFilePath)
+    const userDataPath = position(userDataFilePath, 'savedata')
+    try {
+      await clean(userDataPath(`${key}.json`))
+      report('Clean path', userDataPath(`${key}.json`))
+      return {
+        message: `Cleared data for ${key}.`
+      }
+    } catch (ex) {
+      return {
+        message: `Unable to clear data for ${key}.`,
+        error: ex.message
+      }
+    }
+  }
+
   async function receiveDataFromBrowser (key, data) {
     const userDataFilePath = await getUserPath()
     const userDataPath = position(userDataFilePath, 'savedata')
@@ -66,7 +85,6 @@ function setupBrowserRPC () {
     const userDataFilePath = await getUserPath()
     const userDataPath = position(userDataFilePath, 'savedata')
     await make(userDataPath('./'))
-    report('User Data Path', userDataPath('./'))
     const timestamp = Date.now()
     try {
       const body = await read(userDataPath(`${key}.json`), 'utf8')
@@ -86,22 +104,21 @@ function setupBrowserRPC () {
   }
 
   async function findFiles (query) {
-    report('Trying to find file', query)
-
     const userDataFilePath = await getUserPath()
-    report('User data file path', userDataFilePath)
-
     const userDataPath = position(userDataFilePath, 'savedata')
-
     const fullQueryPath = userDataPath(query)
-    report('Full query path', fullQueryPath)
-
     const filepaths = await find(fullQueryPath)
-    report('Found files', filepaths)
 
-    const localizedFilepaths = filepaths.map(filepath => filepath.replace(userDataFilePath, ''))
+    const work = filepaths.map(async (filepath) => {
+      const localizedFilepath = filepath.replace(userDataFilePath, '')
+      const { atime, ctime, mtime } = await fs.stat(filepath)
+      return {
+        fileinfo: { atime, ctime, mtime },
+        filepath: localizedFilepath
+      }
+    })
 
-    return localizedFilepaths
+    return Promise.all(work)
   }
 
   async function version () {
@@ -113,6 +130,7 @@ function setupBrowserRPC () {
     desktop: true,
     requestData: sendDataToBrowser,
     sendData: receiveDataFromBrowser,
+    clearData,
     findFiles,
     updateDeveloperTools,
     version

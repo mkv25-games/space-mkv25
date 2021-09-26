@@ -2,11 +2,12 @@
   <div class="save-game-management">
     <h1>Local Contacts</h1>
     <p>Ordered linearly by access time</p>
-    <p>Process or erradicate existing contacts from the system</p>
+    <p>Process or erradicate existing contacts from the system.</p>
     <ul>
       <li v-for="savefile in savefiles" :key="savefile.filepath">
-        <div class="load-label">{{ savefile.name }}</div>
-        <div class="delete-label">[delete]</div>
+        <div class="name-label">{{ savefile.name }}</div>
+        <div class="date-label">{{ formatDate(savefile.fileinfo.mtime) }}</div>
+        <div class="delete-label" v-on:click="deleteContact(savefile.name)">[delete]</div>
       </li>
     </ul>
     <p>
@@ -20,7 +21,7 @@ export default {
   name: 'SaveGameManagement',
   data: () => {
     return {
-      filepaths: ['No file']
+      files: [{ name: 'No contacts', fileinfo: { mtime: new Date() }, filepath: '/' }]
     }
   },
   computed: {
@@ -28,25 +29,40 @@ export default {
       return window.electron
     },
     savefiles() {
-      const userSaveFilepaths = this.filepaths
-        .filter(filepath => filepath.includes('/savedata/'))
-        .filter(filepath => !filepath.includes('userPreferences.json'))
+      console.log('Save files', this.files)
+      const userSaveFiles = this.files
+        .filter(file => file.filepath.includes('/savedata/'))
+        .filter(file => !file.filepath.includes('userPreferences.json'))
 
-      return userSaveFilepaths.map(filepath => {
-        const name = filepath
+      return userSaveFiles.map(file => {
+        file.name = file.filepath
           .replace('/savedata/', '')
           .replace('.json', '')
-          .toUpperCase()
-        return {
-          filepath,
-          name
-        }
+        return file
+      }).sort((a, b) => {
+        const mtimea = Date.parse(a.fileinfo.mtime)
+        const mtimeb = Date.parse(b.fileinfo.mtime)
+        return mtimeb - mtimea
       })
     }
   },
+  methods: {
+    async deleteContact(key) {
+      await electron.clearData(key)
+      return this.findContacts()
+    },
+    async findContacts() {
+      this.files = await this.electron.findFiles('**/*')
+    },
+    formatDate(dateString) {
+      const date = new Date(dateString)
+      const yyyymmdd = date.toISOString().substring(0, 10)
+      const hhmm = date.toISOString().substring(11, 19)
+      return [yyyymmdd, hhmm].join(' ')
+    }
+  },
   async mounted () {
-    console.log('Mounted Save Game Management')
-    this.filepaths = await this.electron.findFiles('**/*')
+    this.findContacts()
   }
 }
 </script>
@@ -56,7 +72,7 @@ ul {
   margin: 0;
   padding: 0;
   display: inline-block;
-  min-width: 500px;
+  min-width: 700px;
   border: 4px solid black;
   background: #555;
 }
@@ -74,8 +90,10 @@ li > div {
 li:hover > div:hover {
   background: #633;
 }
-li > div.load-label {
+li > div.name-label {
+  text-align: left;
   flex: 1 1;
   margin-right: 4px;
+  text-transform: uppercase;
 }
 </style>

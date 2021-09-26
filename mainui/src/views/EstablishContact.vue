@@ -20,6 +20,15 @@
 </template>
 
 <script>
+
+function newContact(name) {
+  const lastUpdated = new Date()
+  return {
+    lastUpdated,
+    name
+  }
+}
+
 export default {
   name: 'SaveGameManagement',
   data: () => {
@@ -46,7 +55,7 @@ export default {
     async createContact(data) {
       console.log('Creating contact:', data.filename)
       try {
-        await this.electron.sendData(data.filename, { name: data.filename })
+        await this.electron.sendData(data.filename, newContact(data.filename))
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {
         this.formErrors.push('Unable to create contact:', ex.message)
