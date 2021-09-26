@@ -28,16 +28,29 @@ export default {
       formErrors: []
     }
   },
+  computed: {
+    electron() {
+      return window.electron
+    }
+  },
   methods: {
     validateForm() {
       this.formErrors = []
       this.filename ? false : this.formErrors.push('No contact name assigned')
+
+      return this.formErrors.length === 0
     },
     submitForm() {
       return this.validateForm() ? this.createContact(this) : false
     },
-    createContact(data) {
+    async createContact(data) {
       console.log('Creating contact:', data.filename)
+      try {
+        await this.electron.sendData(data.filename, { name: data.filename })
+        this.$router.push({ path: 'galaxy-view' })
+      } catch (ex) {
+        this.formErrors.push('Unable to create contact:', ex.message)
+      }
       return true
     }
   }
