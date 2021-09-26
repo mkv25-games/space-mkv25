@@ -11,7 +11,7 @@
       <h2>Expand</h2>
       <p>Continue [Contact Name]</p>
       <p><router-link to="/establish-contact">Establish Contact</router-link></p>
-      <p><router-link to="/save-game-management">Recover Contact</router-link></p>
+      <p><router-link to="/contact-management">Recover Contact</router-link></p>
     </div>
     <div class="column">
       <h2>Exploit</h2>

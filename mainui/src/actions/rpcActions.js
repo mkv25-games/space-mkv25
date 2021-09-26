@@ -15,6 +15,12 @@ function setup (store, rpc) {
       const preferences = (await rpc.requestData('userPreferences')) || {}
       report('Load User Preferences:', preferences)
       store.commit('setUserPreferences', preferences.data)
+    },
+    loadContact: async (state, payload) => {
+      report('Attempting to load contact:', payload)
+      const contact = await rpc.requestData(payload.name)
+      report('Contact received:', contact)
+      store.commit('assignContact', contact.data)
     }
   }
 
@@ -41,15 +47,17 @@ function setup (store, rpc) {
 
   store.subscribeAction({
     before: async (action, state) => {
-      report('Before', action.type)
+      const { type, payload } = action
+      report('Before', type, payload)
       history.push({ timestamp: Date.now(), type: action.type, state })
       const fn = (beforeEvents[action.type] || noop)
-      return fn(clone(state))
+      return fn(clone(state), payload)
     },
     after: async (action, state) => {
-      report('After', action.type)
-      const fn = (afterEvents[action.type] || noop)
-      return fn(clone(state))
+      const { type, payload } = action
+      report('After', type, payload)
+      const fn = (afterEvents[type] || noop)
+      return fn(clone(state), payload)
     }
   })
 

@@ -1,17 +1,22 @@
 import { createStore } from 'vuex'
+import newContact from '@/models/contact.js'
 
 function defaultUserPreferences () {
   return {
     count: 0,
     developerTools: {
       visible: false
-    }
+    },
+    contact: newContact()
   }
 }
 
 const main = createStore({
   state: defaultUserPreferences(),
   mutations: {
+    assignContact (state, contact) {
+      state.contact = contact
+    },
     increment (state) {
       state.count++
     },
@@ -42,7 +47,8 @@ const main = createStore({
       commit('setUserPreferences', defaultUserPreferences())
     },
     async getVersion ({ commit, state }) {},
-    async loadUserPreferences ({ commit, state }) {}
+    async loadUserPreferences ({ commit, state }) {},
+    async loadContact ({ commit, state }) {}
   },
   modules: {
   }

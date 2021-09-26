@@ -5,7 +5,7 @@ import EstablishContact from '../views/EstablishContact.vue'
 import GalaxyView from '../views/GalaxyView.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
-import SaveGameManagement from '../views/SaveGameManagement.vue'
+import ContactManagement from '../views/ContactManagement.vue'
 import Settings from '../views/Settings.vue'
 import SystemView from '../views/SystemView.vue'
 import Template from '../views/Template.vue'
@@ -36,9 +36,9 @@ const routes = [{
   name: 'Location View',
   component: LocationView
 }, {
-  path: '/save-game-management',
-  name: 'Save Game Management',
-  component: SaveGameManagement
+  path: '/contact-management',
+  name: 'ContactManagement',
+  component: ContactManagement
 }, {
   path: '/settings',
   name: 'Settings',

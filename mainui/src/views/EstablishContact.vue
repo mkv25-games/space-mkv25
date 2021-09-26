@@ -21,13 +21,7 @@
 
 <script>
 
-function newContact(name) {
-  const lastUpdated = new Date()
-  return {
-    lastUpdated,
-    name
-  }
-}
+import newContact from '@/models/contact.js'
 
 export default {
   name: 'SaveGameManagement',
@@ -55,10 +49,12 @@ export default {
     async createContact(data) {
       console.log('Creating contact:', data.filename)
       try {
-        await this.electron.sendData(data.filename, newContact(data.filename))
+        const contact = newContact({ name: data.filename })
+        await this.electron.sendData(data.filename, contact)
+        await this.$store.dispatch('loadContact', contact.name)
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {
-        this.formErrors.push('Unable to create contact:', ex.message)
+        this.formErrors.push('Unable to create contact:', ex.message, newContact)
       }
       return true
     }
