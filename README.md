@@ -28,7 +28,6 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Introduce concept of Save and Load
 - Introduce Font Awesome
 - Replace default image assets
 - Add Start, Game, and End screens
@@ -36,6 +35,7 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## Done
 
+- Introduce concept of Save and Load
 - Build a debug page that can be enabled from settings
 - Allow developer console to be enabled from settings page
 - Tidy up the UI and CSS
