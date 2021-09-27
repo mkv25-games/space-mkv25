@@ -51,7 +51,7 @@ export default {
       try {
         const contact = newContact({ name: data.filename })
         await this.electron.sendData(data.filename, contact)
-        await this.$store.dispatch('loadContact', contact.name)
+        await this.$store.dispatch('loadContact', contact)
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {
         this.formErrors.push('Unable to create contact:', ex.message, newContact)
