@@ -7,6 +7,7 @@ function clone (data) {
 }
 
 function setup (store, rpc) {
+  report('Setup RPC actions')
   const noop = async () => {}
   const history = []
 
@@ -50,7 +51,7 @@ function setup (store, rpc) {
   store.subscribeAction({
     before: async (action, state) => {
       const { type, payload } = action
-      history.push({ timestamp: Date.now(), type: action.type, state })
+      history.push({ timestamp: Date.now(), type, state })
       const fn = (beforeEvents[action.type] || noop)
       return fn(clone(state), payload)
     },

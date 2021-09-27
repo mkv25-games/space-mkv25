@@ -4,13 +4,22 @@ import router from './router'
 import store from './store/root'
 import rpcActions from './actions/rpcActions'
 
+import setupFontAwesome from './components/FontAwesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 let mainUIStarted = false
 async function startMainUI () {
   if (mainUIStarted) {
     return
   }
   mainUIStarted = true
-  createApp(App).use(store).use(router).mount('#mainui-app')
+  setupFontAwesome(App)
+  createApp(App)
+    .use(store)
+    .use(router)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#mainui-app')
+
   store.dispatch('refreshContactList')
 }
 

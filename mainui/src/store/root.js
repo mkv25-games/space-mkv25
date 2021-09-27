@@ -53,7 +53,7 @@ const main = createStore({
     async getVersion ({ commit, state }) {},
     async loadUserPreferences ({ commit, state }) {},
     async loadContact ({ commit, state }) {},
-    async refreshContactList({ commit, state }) {}
+    async refreshContactList ({ commit, state }) {}
   },
   modules: {
   }

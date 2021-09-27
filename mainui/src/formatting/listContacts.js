@@ -1,4 +1,4 @@
-function listContacts(contactList) {
+function listContacts (contactList) {
   const contacts = contactList.map(file => {
     file.name = file.filepath
       .replace('/savedata/', '')

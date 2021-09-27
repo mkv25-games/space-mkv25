@@ -1,4 +1,4 @@
-function createDefault() {
+function createDefault () {
   const lastUpdated = new Date()
   return {
     lastUpdated,
@@ -6,7 +6,7 @@ function createDefault() {
   }
 }
 
-function create(source) {
+function create (source) {
   const result = Object.assign(createDefault(), source || {})
 
   return result

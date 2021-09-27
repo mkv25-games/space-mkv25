@@ -28,13 +28,13 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Introduce Font Awesome
 - Replace default image assets
 - Add Start, Game, and End screens
 - Save, and Load screens
 
 ## Done
 
+- Introduce Font Awesome
 - Add current game context to Home and Universe pages
 - Introduce concept of Save and Load
 - Build a debug page that can be enabled from settings
