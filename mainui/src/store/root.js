@@ -7,7 +7,8 @@ function defaultUserPreferences () {
     developerTools: {
       visible: false
     },
-    contact: newContact()
+    contact: newContact(),
+    contactList: []
   }
 }
 
@@ -16,6 +17,9 @@ const main = createStore({
   mutations: {
     assignContact (state, contact) {
       state.contact = contact
+    },
+    contactList (state, contactList) {
+      state.contactList = contactList
     },
     increment (state) {
       state.count++
@@ -48,7 +52,8 @@ const main = createStore({
     },
     async getVersion ({ commit, state }) {},
     async loadUserPreferences ({ commit, state }) {},
-    async loadContact ({ commit, state }) {}
+    async loadContact ({ commit, state }) {},
+    async refreshContactList({ commit, state }) {}
   },
   modules: {
   }

@@ -5,12 +5,13 @@ import store from './store/root'
 import rpcActions from './actions/rpcActions'
 
 let mainUIStarted = false
-function startMainUI () {
+async function startMainUI () {
   if (mainUIStarted) {
     return
   }
   mainUIStarted = true
   createApp(App).use(store).use(router).mount('#mainui-app')
+  store.dispatch('refreshContactList')
 }
 
 function glueSystemsTogether () {

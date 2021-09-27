@@ -12,6 +12,9 @@ export default {
   name: 'Home',
   components: {
     GameTitle
+  },
+  async mounted() {
+    await this.$store.dispatch('refreshContactList')
   }
 }
 </script>

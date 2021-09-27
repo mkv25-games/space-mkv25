@@ -13,20 +13,23 @@ function setup (store, rpc) {
   const beforeEvents = {
     loadUserPreferences: async (state) => {
       const preferences = (await rpc.requestData('userPreferences')) || {}
-      report('Load User Preferences:', preferences)
       store.commit('setUserPreferences', preferences.data)
     },
     loadContact: async (state, payload) => {
-      report('Attempting to load contact:', payload)
       const contact = await rpc.requestData(payload.name)
-      report('Contact received:', contact)
       store.commit('assignContact', contact.data)
+    },
+    refreshContactList: async (state) => {
+      const files = await rpc.findFiles('**/*')
+      const contactList = files
+        .filter(file => file.filepath.includes('/savedata/'))
+        .filter(file => !file.filepath.includes('userPreferences.json'))
+      store.commit('contactList', contactList)
     }
   }
 
   const afterEvents = {
     increment: async (state) => {
-      report('Incrementing data and storing in user preferences', state)
       rpc.sendData('userPreferences', state)
     },
     hideDeveloperTools: async (state) => {
@@ -36,7 +39,6 @@ function setup (store, rpc) {
       return rpc.updateDeveloperTools(state.developerTools.visible)
     },
     resetUserPreferences: async (state) => {
-      report('Resetting user preference data', state)
       rpc.sendData('userPreferences', state)
     },
     getVersion: async (state) => {
@@ -48,14 +50,12 @@ function setup (store, rpc) {
   store.subscribeAction({
     before: async (action, state) => {
       const { type, payload } = action
-      report('Before', type, payload)
       history.push({ timestamp: Date.now(), type: action.type, state })
       const fn = (beforeEvents[action.type] || noop)
       return fn(clone(state), payload)
     },
     after: async (action, state) => {
       const { type, payload } = action
-      report('After', type, payload)
       const fn = (afterEvents[type] || noop)
       return fn(clone(state), payload)
     }

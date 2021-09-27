@@ -6,7 +6,12 @@
       <p>Gravitational waves pulsing; vibrating through the fabric of time and space; 
         folding back and force into a rolling susurration.</p>
       <p>...</p>
-      <router-link to="/universe">A contact has been made.</router-link>
+      <div v-if="$store.state.contactList.length > 0">
+        <router-link to="/universe">A contact has been made.</router-link>
+      </div>
+      <div v-else>
+        <router-link to="/universe">A contact is waiting to be established.</router-link>
+      </div>
     </div>
   </div>
 </template>

@@ -29,13 +29,14 @@
 
 <script>
 
+import formatDate from '@/formatting/formatDate'
+import listContacts from '@/formatting/listContacts'
 const exampleContacts = [{ name: 'Loading contacts', fileinfo: { mtime: new Date() }, filepath: '/' }]
 
 export default {
   name: 'ContactManagement',
   data: () => {
     return {
-      files: [],
       errors: [],
       loading: true
     }
@@ -45,23 +46,7 @@ export default {
       return window.electron
     },
     contacts() {
-      console.log('Save files', this.files)
-      const userSaveFiles = this.files
-        .filter(file => file.filepath.includes('/savedata/'))
-        .filter(file => !file.filepath.includes('userPreferences.json'))
-
-      const contacts = userSaveFiles.map(file => {
-        file.name = file.filepath
-          .replace('/savedata/', '')
-          .replace('.json', '')
-        return file
-      }).sort((a, b) => {
-        const mtimea = Date.parse(a.fileinfo.mtime)
-        const mtimeb = Date.parse(b.fileinfo.mtime)
-        return mtimeb - mtimea
-      })
-
-      return contacts
+      return listContacts(this.$store.state.contactList)
     }
   },
   methods: {
@@ -79,15 +64,10 @@ export default {
     },
     async findContacts() {
       this.loading = true
-      this.files = await this.electron.findFiles('**/*')
+      await this.$store.dispatch('refreshContactList')
       this.loading = false
     },
-    formatDate(dateString) {
-      const date = new Date(dateString)
-      const yyyymmdd = date.toISOString().substring(0, 10)
-      const hhmm = date.toISOString().substring(11, 19)
-      return [yyyymmdd, hhmm].join(' ')
-    }
+    formatDate
   },
   async mounted () {
     this.findContacts()
