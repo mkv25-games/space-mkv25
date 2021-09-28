@@ -1,21 +1,23 @@
 <template>
   <div class="home">
-    <GameTitle msg="Space : Infinite"/>
+    <GameTitle msg="Space : Infinite" />
     <br />
     <div class="icons" v-on:click="selectIcons">
       <font-awesome-icon v-for="icon in icons" :icon="['fas', icon]" class="title-icon" :title="icon" :key="icon" />
     </div>
+    <TileGrid :tiles="iconTiles" style="width: 40%; margin: auto;" />
   </div>
 </template>
 
 <script>
 import GameTitle from '@/components/GameTitle.vue'
+import TileGrid from '@/components/ui/TileGrid.vue'
 import icons from '@/models/icons'
 
 export default {
   name: 'Home',
   components: {
-    GameTitle
+    GameTitle, TileGrid
   },
   data() {
     return { icons: [] }
@@ -23,6 +25,16 @@ export default {
   async mounted() {
     await this.$store.dispatch('refreshContactList')
     this.selectIcons()
+  },
+  computed: {
+    iconTiles() {
+      return icons().map((icon) => {
+        return {
+          id: icon,
+          icon: icon
+        }
+      })
+    }
   },
   methods: {
     pickRandomIcon() {
