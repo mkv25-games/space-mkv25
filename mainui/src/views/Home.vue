@@ -5,7 +5,7 @@
     <div class="icons" v-on:click="selectIcons">
       <font-awesome-icon v-for="icon in icons" :icon="['fas', icon]" class="title-icon" :title="icon" :key="icon" />
     </div>
-    <TileGrid :tiles="iconTiles" style="width: 40%; margin: auto;" />
+    <TileGrid :tiles="iconTiles" :columns="12" :rows="4" :tileWidth="60" :tileHeight="60" style="font-size: 2em;" />
   </div>
 </template>
 
