@@ -9,6 +9,9 @@
       <button v-on:click="$store.dispatch('loadUserPreferences')">Reload User Preferences</button>
     </p>
     <p>
+      <router-link to="/debug/component-tests">Component Tests</router-link>
+    </p>
+    <p>
       <router-link to="/settings">&lt; Back</router-link>
     </p>
   </div>

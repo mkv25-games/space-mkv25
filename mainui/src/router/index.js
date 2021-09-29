@@ -3,6 +3,7 @@ import Debug from '../views/Debug.vue'
 import Designer from '../views/Designer.vue'
 import EstablishContact from '../views/EstablishContact.vue'
 import GalaxyView from '../views/GalaxyView.vue'
+import ComponentTests from '../views/debug/ComponentTests.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
 import ContactManagement from '../views/ContactManagement.vue'
@@ -31,6 +32,10 @@ const routes = [{
   path: '/galaxy-view',
   name: 'Galaxy View',
   component: GalaxyView
+}, {
+  path: '/debug/component-tests',
+  name: 'Component Tests',
+  component: ComponentTests
 }, {
   path: '/location-view',
   name: 'Location View',

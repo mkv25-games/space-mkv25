@@ -1,91 +1,50 @@
 <template>
   <div class="home">
-    <GameTitle msg="Space : Infinite" />
-    <br />
-    <div class="icons" v-on:click="selectIcons">
-      <font-awesome-icon v-for="icon in icons" :icon="['fas', icon]" class="title-icon" :title="icon" :key="icon" />
+    <h1>Space : Infinite</h1>
+    <p>
+      <font-awesome-icon :icon="['fas', 'sun']" class="title-icon" />
+      <font-awesome-icon :icon="['fas', 'infinity']" class="title-icon" />
+      <font-awesome-icon :icon="['fas', 'virus']" class="title-icon" />
+    </p>
+    <div class="excerpt">
+      <p>A heartbeat, a conciousness, a thought; pondering.</p>
+      <p>Gravitational waves pulsing; vibrating through the fabric of time and space; 
+        folding back and force into a rolling susurration.</p>
+      <p>...</p>
+      <div v-if="$store.state.contactList.length > 0">
+        <router-link to="/universe">A contact has been made.</router-link>
+      </div>
+      <div v-else>
+        <router-link to="/universe">A contact is waiting to be established.</router-link>
+      </div>
     </div>
-    <HorizontalTileGrid :tiles="iconTiles" :columns="12" :rows="2" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
-    <br />
-    <VerticalTileGrid :tiles="iconTiles" :columns="4" :rows="6" :tileWidth="135" :tileHeight="60" style="font-size: 2em;" />
   </div>
 </template>
 
 <script>
-import GameTitle from '@/components/GameTitle.vue'
-import HorizontalTileGrid from '@/components/ui/HorizontalTileGrid.vue'
-import VerticalTileGrid from '@/components/ui/VerticalTileGrid.vue'
-import icons from '@/models/icons'
-
 export default {
-  name: 'Home',
-  components: {
-    GameTitle, HorizontalTileGrid, VerticalTileGrid
-  },
-  data() {
-    return { icons: [] }
-  },
   async mounted() {
     await this.$store.dispatch('refreshContactList')
-    this.selectIcons()
-  },
-  computed: {
-    iconTiles() {
-      return icons().map((icon) => {
-        return {
-          id: icon,
-          icon: icon
-        }
-      })
-    }
-  },
-  methods: {
-    pickRandomIcon() {
-      const iconList = icons()
-      const index = Math.floor(iconList.length * Math.random())
-      return iconList[index]
-    },
-    selectIcons() {
-      this.icons = [
-        this.pickRandomIcon(),
-        this.pickRandomIcon(),
-        this.pickRandomIcon(),
-        this.pickRandomIcon(),
-        this.pickRandomIcon()
-      ]
-    }
   }
 }
 </script>
 
 <style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+
 .title-icon {
-  color: black;
+  font-size: 10em;
   margin: 0.1em;
-  vertical-align: middle;
-  width: 1.5em;
+  color: #222;
 }
-.title-icon:nth-child(1) {
-  font-size: 2em;
-  opacity: 0.4;
-  color: blue;
-}
-.title-icon:nth-child(2) {
-  font-size: 3em;
-  opacity: 0.8;
-  color: red;
-}
-.title-icon:nth-child(3) {
-  font-size: 5em;
-}
-.title-icon:nth-child(4) {
-  font-size: 3em;
-  opacity: 0.8;
-  color: red;
-}
-.title-icon:nth-child(5) {
-  font-size: 2em;
-  opacity: 0.4;
-  color: blue;
+
+.excerpt {
+  display: inline-block;
+  width: 60%;
+  padding: 0 20px;
+  border-left: 4px solid #eee;
+  border-right: 4px solid #eee;
 }
 </style>
