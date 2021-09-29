@@ -4,7 +4,7 @@
     <h2>Story Teller</h2>
     <StoryTeller />
     <h2>Horizontal Tile Grid</h2>
-    <HorizontalTileGrid :tiles="iconTiles" :columns="12" :rows="2" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
+    <HorizontalTileGrid :tiles="iconTiles" :columns="20" :rows="14" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
     <h2>Vertical Tile Grid</h2>
     <VerticalTileGrid :tiles="iconTiles" :columns="4" :rows="6" :tileWidth="135" :tileHeight="60" style="font-size: 2em;" />
   </div>
