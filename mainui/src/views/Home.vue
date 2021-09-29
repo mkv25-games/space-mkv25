@@ -5,19 +5,22 @@
     <div class="icons" v-on:click="selectIcons">
       <font-awesome-icon v-for="icon in icons" :icon="['fas', icon]" class="title-icon" :title="icon" :key="icon" />
     </div>
-    <TileGrid :tiles="iconTiles" :columns="12" :rows="4" :tileWidth="60" :tileHeight="60" style="font-size: 2em;" />
+    <HorizontalTileGrid :tiles="iconTiles" :columns="12" :rows="2" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
+    <br />
+    <VerticalTileGrid :tiles="iconTiles" :columns="4" :rows="6" :tileWidth="135" :tileHeight="60" style="font-size: 2em;" />
   </div>
 </template>
 
 <script>
 import GameTitle from '@/components/GameTitle.vue'
-import TileGrid from '@/components/ui/TileGrid.vue'
+import HorizontalTileGrid from '@/components/ui/HorizontalTileGrid.vue'
+import VerticalTileGrid from '@/components/ui/VerticalTileGrid.vue'
 import icons from '@/models/icons'
 
 export default {
   name: 'Home',
   components: {
-    GameTitle, TileGrid
+    GameTitle, HorizontalTileGrid, VerticalTileGrid
   },
   data() {
     return { icons: [] }

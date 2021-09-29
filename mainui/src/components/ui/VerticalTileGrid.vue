@@ -13,19 +13,18 @@
       <div :class="nextPageClass()" v-on:click="nextPage">
          <font-awesome-icon :icon="['fas', 'caret-down']" />
       </div>
-      <div class="page-markers">
-        <font-awesome-icon
-          v-for="page in pages" :icon="['fas', page.icon]"
-          :key="page.id" :class="page.className"
-          v-on:click="gotoPage(page.id)" />
-      </div>
+    </div>
+    <div v-if="showPageMarkers" class="page-markers">
+      <font-awesome-icon
+        v-for="page in pages" :icon="['fas', page.icon]"
+        :key="page.id" :class="page.className"
+        v-on:click="gotoPage(page.id)" />
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TileGrid',
   data() {
     return {
       viewPosition: 0
@@ -36,7 +35,8 @@ export default {
     columns: Number,
     rows: Number,
     tileWidth: Number,
-    tileHeight: Number
+    tileHeight: Number,
+    showPageMarkers: Boolean
   },
   computed: {
     tilesInView() {
@@ -94,11 +94,11 @@ export default {
     },
     previousPageClass() {
       const disabled = this.previousPageDisabled ? 'disabled' : false
-      return ['scroll-up', 'grid-button', disabled].filter(n => n).join(' ')
+      return ['scroll-prev', 'grid-button', disabled].filter(n => n).join(' ')
     },
     nextPageClass() {
       const disabled = this.nextPageDisabled ? 'disabled' : false
-      return ['scroll-down', 'grid-button', disabled].filter(n => n).join(' ')
+      return ['scroll-next', 'grid-button', disabled].filter(n => n).join(' ')
     },
     previousPage() {
       this.viewPosition = Math.max(0, this.viewPosition - this.pageSize)
@@ -128,7 +128,7 @@ export default {
   border-radius: 4px;
 }
 
-.scroll-up {
+.scroll-prev {
   border-radius: 4px 4px 0 0;
 }
 
@@ -146,7 +146,7 @@ export default {
   color: #333;
 }
 
-.scroll-down {
+.scroll-next {
   border-radius: 0 0 4px 4px;
 }
 
