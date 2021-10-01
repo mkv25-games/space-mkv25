@@ -2,6 +2,12 @@
 
 An experiment in creating a cross-platform application using [Electron JS](https://www.electronjs.org/docs/latest/tutorial/quick-start).
 
+This project will eventually be named "Space Infinite" once it reaches critical mass to replace my 2004-2006 project of the same name.
+
+## Preview
+
+![Galaxy Map](./docs/images/galaxy.png)
+
 ## Quick Start for Local Development
 
 Run:
