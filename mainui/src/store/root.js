@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import newContact from '@/models/contact.js'
+import newGalaxy from '@/models/galaxy.js'
 
 function defaultUserPreferences () {
   return {
@@ -8,6 +9,7 @@ function defaultUserPreferences () {
       visible: false
     },
     contact: newContact(),
+    galaxy: newGalaxy(),
     contactList: []
   }
 }
