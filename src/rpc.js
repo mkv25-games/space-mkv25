@@ -112,7 +112,6 @@ function setupBrowserRPC () {
 
     const work = filepaths.map(f => path.resolve(f)).map(async (filepath) => {
       const localizedFilepath = filepath.replace(userDataFilePath, '')
-      console.log('Filepath', filepath, userDataFilePath, localizedFilepath)
       const { atime, ctime, mtime } = await fs.stat(filepath)
       return {
         fileinfo: { atime, ctime, mtime },
