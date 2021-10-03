@@ -72,6 +72,7 @@ export default {
 }
 .frame {
   flex: auto;
+  overflow-y: scroll;
 }
 
 </style>

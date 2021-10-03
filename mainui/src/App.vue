@@ -45,7 +45,7 @@ html, body {
 }
 .router-view {
   flex: auto;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
