@@ -1,7 +1,9 @@
 import perlin from '../utils/perlin'
 
-function createQuadrant (x, y) {
-  const factor = 0.12
+function createQuadrant (x, y, seed) {
+  const seedFactor = (seed % 1000) / 10000
+  const factor = 0.07 + seedFactor
+  perlin.seed(seed)
   const density = perlin.perlin2(x * factor, y * factor)
   const mass = perlin.perlin3(x * factor, y * factor, density)
   const composition = perlin.perlin3(density * factor, mass * factor, x * y)
@@ -16,11 +18,12 @@ function createQuadrant (x, y) {
   }
 }
 
-function createGalaxy ({ w, h }) {
+function createGalaxy ({ size, seed }) {
+  const { w, h } = size
   const quadrants = []
   for (let i = 0; i < w; i++) {
     for (let j = 0; j < h; j++) {
-      const q = createQuadrant(i, j)
+      const q = createQuadrant(i, j, seed)
       quadrants.push(q)
     }
   }
@@ -47,15 +50,17 @@ function createGalaxy ({ w, h }) {
 
 function createDefault () {
   const size = { w: 50, h: 50 }
-  const galaxy = createGalaxy(size)
-  console.log('Galaxy:', galaxy)
-  return galaxy
+  const seed = 1
+  return { size, seed }
 }
 
 function create (source) {
-  const result = Object.assign(createDefault(), source || {})
+  const galaxySettings = Object.assign(createDefault(), source || {})
 
-  return result
+  const galaxy = createGalaxy(galaxySettings)
+  console.log('Galaxy:', galaxy)
+
+  return galaxy
 }
 
 export default create

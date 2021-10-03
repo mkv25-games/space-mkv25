@@ -15,6 +15,11 @@
           <input v-model="createGalaxyHeight" type="number" min="5" max="50" >
         </p>
         <p>
+          <label>Galaxy Seed:</label>
+          <input v-model="createGalaxySeed" type="number" min="0" max="65536" >
+          <font-awesome-icon :icon="['fas', 'dice']" class="title-icon" v-on:click="randomizeSeed" />
+        </p>
+        <p>
           <label>Tile Size:</label>
           <input v-model="tileSize" type="number" min="5" max="50" >
         </p>
@@ -51,9 +56,10 @@ export default {
   components: { GalaxyNav },
   data() {
     return {
-      createGalaxyWidth: 10,
-      createGalaxyHeight: 10,
-      tileSize: 10
+      createGalaxySeed: 0,
+      createGalaxyWidth: 40,
+      createGalaxyHeight: 40,
+      tileSize: 12
     }
   },
   computed: {
@@ -62,14 +68,18 @@ export default {
     }, 
     galaxy() {
       let galaxy = this.$store.state.galaxy || newGalaxy()
+      const seedDifference = galaxy.seed !== this.createGalaxySeed
       const heightDifference = galaxy.size.h !== this.createGalaxyHeight
       const widthDifference = galaxy.size.w !== this.createGalaxyWidth
-      const sizeDifference = widthDifference || heightDifference
+      const sizeDifference = widthDifference || heightDifference || seedDifference
       if (sizeDifference) {
-        galaxy = newGalaxy({ size: {
-          w: this.createGalaxyWidth,
-          h: this.createGalaxyHeight
-        }})
+        galaxy = newGalaxy({ 
+          size: {
+            w: this.createGalaxyWidth,
+            h: this.createGalaxyHeight
+          },
+          seed: this.createGalaxySeed
+        })
       }
       return galaxy
     },
@@ -88,7 +98,10 @@ export default {
       const mass = Math.round(125 + (125 * quadrant.mass))
       const density = Math.round(125 + (125 * quadrant.density))
       const composition = Math.round(125 + (125 * quadrant.composition))
-      return `rgba(${mass},${composition},${composition},${density})`
+      return `rgba(${mass},${composition},${density},${density})`
+    },
+    randomizeSeed() {
+      this.createGalaxySeed = Math.round(Math.random() * 65536)
     }
   },
 }
