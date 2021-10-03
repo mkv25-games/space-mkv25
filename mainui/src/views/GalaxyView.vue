@@ -6,6 +6,18 @@
         <h1>Galaxy</h1>
         <h2>{{ contact.name }}</h2>
         <pre>{{ contact.lastUpdated }}</pre>
+        <p>
+          <label>Galaxy width:</label>
+          <input v-model="createGalaxyWidth" type="number" min="5" max="50" >
+        </p>
+        <p>
+          <label>Galaxy Height:</label>
+          <input v-model="createGalaxyHeight" type="number" min="5" max="50" >
+        </p>
+        <p>
+          <label>Tile Size:</label>
+          <input v-model="tileSize" type="number" min="5" max="50" >
+        </p>
         <svg :width="galaxyWidth" :height="galaxyHeight" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
@@ -37,12 +49,29 @@ import GalaxyNav from '@/components/GalaxyNav.vue'
 
 export default {
   components: { GalaxyNav },
+  data() {
+    return {
+      createGalaxyWidth: 10,
+      createGalaxyHeight: 10,
+      tileSize: 10
+    }
+  },
   computed: {
     contact() {
       return this.$store.state.contact || newContact()
     }, 
     galaxy() {
-      return this.$store.state.galaxy || newGalaxy()
+      let galaxy = this.$store.state.galaxy || newGalaxy()
+      const heightDifference = galaxy.size.h !== this.createGalaxyHeight
+      const widthDifference = galaxy.size.w !== this.createGalaxyWidth
+      const sizeDifference = widthDifference || heightDifference
+      if (sizeDifference) {
+        galaxy = newGalaxy({ size: {
+          w: this.createGalaxyWidth,
+          h: this.createGalaxyHeight
+        }})
+      }
+      return galaxy
     },
     galaxyWidth() {
       return (this.galaxy.size.w * this.tile.size) + 1
@@ -51,7 +80,7 @@ export default {
       return (this.galaxy.size.h * this.tile.size) + 1
     },
     tile() {
-      return { size: 10 }
+      return { size: this.tileSize }
     }
   },
   methods: {
