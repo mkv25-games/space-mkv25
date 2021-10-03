@@ -1,4 +1,5 @@
 const fs = require('fs/promises')
+const path = require('path')
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
 const { clean, find, read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
@@ -109,8 +110,9 @@ function setupBrowserRPC () {
     const fullQueryPath = userDataPath(query)
     const filepaths = await find(fullQueryPath)
 
-    const work = filepaths.map(async (filepath) => {
+    const work = filepaths.map(f => path.resolve(f)).map(async (filepath) => {
       const localizedFilepath = filepath.replace(userDataFilePath, '')
+      console.log('Filepath', filepath, userDataFilePath, localizedFilepath)
       const { atime, ctime, mtime } = await fs.stat(filepath)
       return {
         fileinfo: { atime, ctime, mtime },

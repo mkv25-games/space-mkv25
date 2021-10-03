@@ -2,6 +2,7 @@ function listContacts (contactList) {
   const contacts = contactList.map(file => {
     file.name = file.filepath
       .replace('/savedata/', '')
+      .replace('\\savedata\\', '')
       .replace('.json', '')
     return file
   }).sort((a, b) => {

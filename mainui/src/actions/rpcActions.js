@@ -23,7 +23,7 @@ function setup (store, rpc) {
     refreshContactList: async (state) => {
       const files = await rpc.findFiles('**/*')
       const contactList = files
-        .filter(file => file.filepath.includes('/savedata/'))
+        .filter(file => file.filepath.includes('/savedata/') || file.filepath.includes('\\savedata\\'))
         .filter(file => !file.filepath.includes('userPreferences.json'))
       store.commit('contactList', contactList)
     }
