@@ -75,10 +75,10 @@ export default {
       if (sizeDifference) {
         galaxy = newGalaxy({ 
           size: {
-            w: this.createGalaxyWidth,
-            h: this.createGalaxyHeight
+            w: Math.min(this.createGalaxyWidth, 50),
+            h: Math.min(this.createGalaxyHeight, 50)
           },
-          seed: this.createGalaxySeed
+          seed: Math.min(this.createGalaxySeed, 65536)
         })
       }
       return galaxy
