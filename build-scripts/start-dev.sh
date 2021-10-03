@@ -5,7 +5,7 @@ run() {
     npm install
     npm run serve &
     cd ..
-    APP_MODE=local-dev electron-forge start
+    APP_MODE=local-dev npm run forge-start
 }
 
 scriptCancelled="false"
