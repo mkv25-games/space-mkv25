@@ -39,9 +39,24 @@
               :width="tile.size" :height="tile.size"
               :fill="quadrantColour(q)"
               :key="q.key"
-              :x="q.x * tile.size" :y="q.y * tile.size" />
+              :x="q.x * tile.size" :y="q.y * tile.size" v-on:mouseover="showQuadrantInfo(q)" />
           </g>
         </svg>
+        <div v-if="highlightedQuadrant">
+          <h3>Highlighted Quadrant</h3>
+          <p>
+            <label>Quadrant Mass:</label>
+            <b>{{ highlightedQuadrant.mass }}</b>
+          </p>
+          <p>
+            <label>Quadrant Density:</label>
+            <b>{{ highlightedQuadrant.density }}</b>
+          </p>
+          <p>
+            <label>Quadrant Composition:</label>
+            <b>{{ highlightedQuadrant.composition }}</b>
+          </p>
+        </div>
       </slot>
     </div>
   </div>
@@ -57,9 +72,10 @@ export default {
   data() {
     return {
       createGalaxySeed: 0,
-      createGalaxyWidth: 40,
-      createGalaxyHeight: 40,
-      tileSize: 12
+      createGalaxyWidth: 10,
+      createGalaxyHeight: 10,
+      tileSize: 40,
+      highlightedQuadrant: false
     }
   },
   computed: {
@@ -102,6 +118,9 @@ export default {
     },
     randomizeSeed() {
       this.createGalaxySeed = Math.round(Math.random() * 65536)
+    },
+    showQuadrantInfo(quadrant) {
+      this.highlightedQuadrant = quadrant
     }
   },
 }
