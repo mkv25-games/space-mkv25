@@ -1,13 +1,10 @@
-import { expect } from 'chai'
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+const { expect } = require('chai')
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      props: { msg }
-    })
-    expect(wrapper.text()).to.include(msg)
+describe('Example', () => {
+  it('tests for something', () => {
+    const expected = '2021'
+    const date = new Date()
+    const actual = date.toISOString().slice(0, 4)
+    expect(actual).to.deep.equal(expected)
   })
 })
