@@ -25,15 +25,14 @@
         </p>
         <svg :width="galaxyWidth" :height="galaxyHeight" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5"/>
+            <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
+              <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="gray" stroke-width="0.5"/>
             </pattern>
-            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-              <rect width="50" height="50" fill="url(#smallGrid)"/>
-              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="gray" stroke-width="1"/>
+            <pattern id="grid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse">
+              <rect :width="tile.size" :height="tile.size" fill="url(#smallGrid)"/>
+              <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="gray" stroke-width="1"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
           <g>
             <rect v-for="q in galaxy.quadrants"
               :width="tile.size" :height="tile.size"
@@ -41,20 +40,22 @@
               :key="q.key"
               :x="q.x * tile.size" :y="q.y * tile.size" v-on:mouseover="showQuadrantInfo(q)" />
           </g>
+          <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;" />
         </svg>
-        <div v-if="highlightedQuadrant">
-          <h3>Highlighted Quadrant</h3>
-          <p>
-            <label>Quadrant Mass:</label>
-            <b>{{ highlightedQuadrant.mass }}</b>
+        <div></div>
+        <div v-if="highlightedQuadrant" style="display: inline-block; text-align: left;">
+          <h3 :style="`border-bottom: 5px solid ${quadrantColour(highlightedQuadrant)};`">Highlighted Quadrant</h3>
+          <p :style="`background: ${massColour(highlightedQuadrant, 0.4)};`">
+            <label style="padding: 5px;">Quadrant Mass:</label>
+            <b>{{ highlightedQuadrant.mass.toFixed(3) }}</b>
           </p>
-          <p>
-            <label>Quadrant Density:</label>
-            <b>{{ highlightedQuadrant.density }}</b>
+          <p :style="`background: ${densityColour(highlightedQuadrant, 0.4)};`">
+            <label style="padding: 5px;`">Quadrant Density:</label>
+            <b>{{ highlightedQuadrant.density.toFixed(3) }}</b>
           </p>
-          <p>
-            <label>Quadrant Composition:</label>
-            <b>{{ highlightedQuadrant.composition }}</b>
+          <p :style="`background: ${compositionColour(highlightedQuadrant, 0.4)};`">
+            <label style="padding: 5px;`">Quadrant Composition:</label>
+            <b>{{ highlightedQuadrant.composition.toFixed(3) }}</b>
           </p>
         </div>
       </slot>
@@ -106,15 +107,28 @@ export default {
       return (this.galaxy.size.h * this.tile.size) + 1
     },
     tile() {
-      return { size: this.tileSize }
+      return { size: this.tileSize, divider: this.tileSize / 5 }
     }
   },
   methods: {
     quadrantColour(quadrant) {
-      const mass = Math.round(125 + (125 * quadrant.mass))
-      const density = Math.round(125 + (125 * quadrant.density))
-      const composition = Math.round(125 + (125 * quadrant.composition))
-      return `rgba(${mass},${composition},${density},${density})`
+      const mass = Math.round(255 * quadrant.mass)
+      const density = Math.round(255 * quadrant.density)
+      const composition = Math.round(255 * quadrant.composition)
+      const alpha = 1.0 - (quadrant.density / 2)
+      return `rgba(${mass},${composition},${density},${alpha})`
+    },
+    massColour(quadrant, alpha=1.0) {
+      const mass = Math.round(255 * quadrant.mass)
+      return `rgba(${mass},0,0,${alpha})`
+    },
+    compositionColour(quadrant, alpha=1.0) {
+      const composition = Math.round(255 * quadrant.composition)
+      return `rgba(0,${composition},0,${alpha})`
+    },
+    densityColour(quadrant, alpha=1.0) {
+      const density = Math.round(255 * quadrant.density)
+      return `rgba(0,0,${density},${alpha})`
     },
     randomizeSeed() {
       this.createGalaxySeed = Math.round(Math.random() * 65536)

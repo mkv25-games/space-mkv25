@@ -3,10 +3,12 @@ import perlin from '../utils/perlin'
 function createQuadrant (x, y, seed) {
   const seedFactor = (seed % 1000) / 10000
   const factor = 0.07 + seedFactor
+  const xseed = (seed + x) * factor
+  const yseed = (seed + y) * factor
   perlin.seed(seed)
-  const density = perlin.perlin2(x * factor, y * factor)
-  const mass = perlin.perlin3(x * factor, y * factor, density)
-  const composition = perlin.perlin3(density * factor, mass * factor, x * y)
+  const density = Math.abs(perlin.perlin2(xseed, yseed))
+  const mass = Math.abs(perlin.perlin3(xseed, yseed, density))
+  const composition = Math.abs(perlin.perlin3(density, mass, x * y))
   return {
     x,
     y,
