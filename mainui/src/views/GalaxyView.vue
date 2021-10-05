@@ -3,19 +3,19 @@
     <GalaxyNav />
     <div class="frame">
       <slot>
-        <column-layout>
+        <column-layout class="fixed-width-right">
           <template v-slot:left>
             <galaxy-svg :galaxy="galaxy" :tileSize="tileSize" v-on:quadrantHover="showQuadrantInfo" />
             <quadrant-breakdown :galaxy="galaxy" />
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>
-            <pre>{{ contact.lastUpdated }}</pre>
+            <p>{{ contact.lastUpdated }}</p>
             <galaxy-inputs v-on:inputsChanged="regenerateGalaxy" />
-            <p>
-              <label>Tile Size:</label>
+            <property label="Tile size">
               <input v-model="tileSize" type="number" min="5" max="50">
-            </p>
+              <icon :icon="chess-board" />
+            </property>
             <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
           </template>
         </column-layout>
@@ -33,9 +33,15 @@ import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue
 import QuadrantBreakdown from '@/components/ui/QuadrantBreakdown.vue'
 import GalaxyInputs from '@/components/ui/GalaxyInputs.vue'
 import GalaxySvg from '@/components/ui/GalaxySVG.vue'
+import Property from '@/components/ui/Property.vue'
+import Icon from '@/components/ui/Icon.vue'
 
 export default {
-  components: { GalaxyNav, ColumnLayout, HighlightedQuadrantInfo, QuadrantBreakdown, GalaxyInputs, GalaxySvg },
+  components: {
+    GalaxyNav, ColumnLayout,
+    HighlightedQuadrantInfo, QuadrantBreakdown,
+    GalaxyInputs, GalaxySvg, Property, Icon
+  },
   data() {
     return {
       highlightedQuadrant: false,

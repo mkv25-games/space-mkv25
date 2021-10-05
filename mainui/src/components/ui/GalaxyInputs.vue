@@ -1,24 +1,28 @@
 <template>
   <div class="galaxy-input">
-    <p>
-      <label>Galaxy width:</label>
+    <property label="Galaxy width">
       <input v-model="createGalaxyWidth" type="number" min="5" max="50" v-on:change="checkForm">
-    </p>
-    <p>
-      <label>Galaxy Height:</label>
+      <icon icon="arrows-alt-h" />
+    </property>
+    <property label="Galaxy height">
       <input v-model="createGalaxyHeight" type="number" min="5" max="50" v-on:change="checkForm">
-    </p>
-    <p>
-      <label>Galaxy Seed:</label>
+     <icon icon="arrows-alt-v" />
+    </property>
+    <property label="Galaxy seed">
       <input v-model="createGalaxySeed" type="number" min="0" max="65536" v-on:change="checkForm">
-      <font-awesome-icon :icon="['fas', 'dice']" class="title-icon" v-on:click="randomizeSeed" />
-    </p>
+      <icon icon="dice" v-on:click="randomizeSeed" />
+    </property>
   </div>
 </template>
 
 <script>
+import Property from '@/components/ui/Property.vue'
+import Icon from '@/components/ui/Icon.vue'
 
 export default {
+  components: {
+    Property, Icon
+  },
   data() {
     return {
       createGalaxySeed: 0,
@@ -43,3 +47,9 @@ export default {
   })
 }
 </script>
+
+<style scoped>
+.galaxy-input {
+  display: block;
+}
+</style>

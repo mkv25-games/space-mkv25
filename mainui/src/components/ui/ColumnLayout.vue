@@ -19,4 +19,11 @@
 .column.right {
   flex: 1 1;
 }
+.fixed-width-right > .column.right {
+  flex: auto;
+  min-width: 400px;
+  max-width: 400px;
+  border-left: 2px solid #999;
+  margin-left: -2px;
+}
 </style>
