@@ -51,17 +51,14 @@ function createGalaxy ({ size, seed }) {
 }
 
 function createDefault () {
-  const size = { w: 50, h: 50 }
+  const size = { w: 10, h: 10 }
   const seed = 1
   return { size, seed }
 }
 
 function create (source) {
   const galaxySettings = Object.assign(createDefault(), source || {})
-
   const galaxy = createGalaxy(galaxySettings)
-  console.log('Galaxy:', galaxy)
-
   return galaxy
 }
 

@@ -24,13 +24,12 @@
 import quadrantColourMethods from '@/utils/quadrantColourMethods'
 
 export default {
-  data() {
-    return {
-      tileSize: 40
-    }
-  },
   props: {
-    galaxy: Object
+    galaxy: Object,
+    tileSize: {
+      type: Number,
+      default: 10
+    }
   },
   computed: {
     contact() {
