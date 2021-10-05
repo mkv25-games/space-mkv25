@@ -14,7 +14,7 @@
             <galaxy-inputs v-on:inputsChanged="regenerateGalaxy" />
             <property label="Tile size">
               <input v-model="tileSize" type="number" min="5" max="50">
-              <icon :icon="chess-board" />
+              <icon icon="th-large" />
             </property>
             <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
           </template>
@@ -76,6 +76,7 @@ export default {
 .frame {
   flex: auto;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 </style>

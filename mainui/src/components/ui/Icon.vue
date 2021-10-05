@@ -27,4 +27,7 @@ export default {
   height: 1.5em;
   text-align: center;
 }
+.icon.hoverable:hover {
+  color: darkslateblue;
+}
 </style>

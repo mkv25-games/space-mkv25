@@ -10,7 +10,7 @@
     </property>
     <property label="Galaxy seed">
       <input v-model="createGalaxySeed" type="number" min="0" max="65536" v-on:change="checkForm">
-      <icon icon="dice" v-on:click="randomizeSeed" />
+      <icon icon="dice" v-on:click="randomizeSeed" class="hoverable" />
     </property>
   </div>
 </template>
