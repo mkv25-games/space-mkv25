@@ -6,6 +6,7 @@
         <column-layout>
           <template v-slot:left>
             <galaxy-svg :galaxy="galaxy" :tileSize="tileSize" v-on:quadrantHover="showQuadrantInfo" />
+            <quadrant-breakdown :galaxy="galaxy" />
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>
@@ -29,11 +30,12 @@ import newGalaxy from '@/models/galaxy'
 import GalaxyNav from '@/components/GalaxyNav.vue'
 import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
+import QuadrantBreakdown from '@/components/ui/QuadrantBreakdown.vue'
 import GalaxyInputs from '@/components/ui/GalaxyInputs.vue'
 import GalaxySvg from '@/components/ui/GalaxySVG.vue'
 
 export default {
-  components: { GalaxyNav, ColumnLayout, HighlightedQuadrantInfo, GalaxySvg, GalaxyInputs },
+  components: { GalaxyNav, ColumnLayout, HighlightedQuadrantInfo, QuadrantBreakdown, GalaxyInputs, GalaxySvg },
   data() {
     return {
       highlightedQuadrant: false,
