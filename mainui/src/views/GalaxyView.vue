@@ -3,10 +3,9 @@
     <GalaxyNav />
     <div class="frame">
       <slot>
-        <column-layout class="fixed-width-right">
+        <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
             <galaxy-svg :galaxy="galaxy" :tileSize="tileSize" v-on:quadrantHover="showQuadrantInfo" />
-            <quadrant-breakdown :galaxy="galaxy" />
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>
@@ -17,6 +16,7 @@
               <icon icon="th-large" />
             </property>
             <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
+            <quadrant-breakdown :galaxy="galaxy" />
           </template>
         </column-layout>
       </slot>
@@ -75,8 +75,7 @@ export default {
 }
 .frame {
   flex: auto;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 </style>

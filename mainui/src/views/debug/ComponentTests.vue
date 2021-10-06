@@ -30,3 +30,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.grid-icons {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+</style>

@@ -27,7 +27,7 @@ export default {
         const bd = b.mass
         return bd - ad
       })
-      return sort
+      return sort.slice(0, 5)
     }
   },
   methods: Object.assign({}, quadrantColourMethods),

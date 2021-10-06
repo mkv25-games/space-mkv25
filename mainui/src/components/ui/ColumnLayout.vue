@@ -12,10 +12,21 @@
 <style scoped>
 .column-layout {
   display: flex;
+  height: 100%;
 }
 .column.left {
   flex: 1 1;
 }
+
+.overflow-hidden > .column.left {
+  overflow: hidden;
+}
+
+.overflow-hidden > .column.right { 
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
 .column.right {
   flex: 1 1;
 }
