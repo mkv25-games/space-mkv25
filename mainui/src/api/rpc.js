@@ -1,42 +1,50 @@
+import remoteModel from 'remote-model'
+
+
 const report = (...messages) => { console.log('[api/rpc.js]', ...messages) }
-const singleton = {}
 
 const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'version']
 
-function setup (window) {
-  function api () {
-    return window.electron || {}
+let windowObject
+function checkForWindowReady(res, rej) {
+  let work
+  if (!res) {
+    work = new Promise((resolve, reject) => {
+      res = resolve
+      rej = reject
+    })
   }
-  report('Setup lazy RPC proxy on', window)
-  const proxy = exposedMethods.reduce((acc, item) => {
-    const proxyFn = (...args) => api()[item](...args)
-    acc[item] = (...args) => {
-      try {
-        return proxyFn(...args)
-      } catch (ex) {
-        report('Item proxy fail:', item, 'retrying...')
-        let resolveFn, rejectFn
-        const retry = new Promise((resolve, reject) => {
-          resolveFn = resolve
-          rejectFn = reject
-        })
-        setTimeout(() => {
-          try {
-            const result = proxyFn(...args)
-            resolveFn(result)
-          } catch (ex2) {
-            report('Item proxy fail on second attempt:', item, ex)
-            rejectFn(ex2)
-          }
-        }, 1000)
-        return retry
-      }
+  setTimeout(() => {
+    report('Checking window object:', windowObject)
+    if (windowObject) {
+      res(windowObject)
+    } else {
+      checkForWindowReady(res)
     }
-    return acc
-  }, {})
-  Object.assign(singleton, proxy)
-  return singleton
+  }, 500)
+  return work
 }
 
-setup.default = singleton
-module.exports = setup
+function notify(window) {
+  report('Updating window object:', window)
+  windowObject = window
+}
+
+function setup () {
+  const proxy = {}
+  const rpcModel = remoteModel({
+    async fetcher() {
+      await checkForWindowReady()
+      exposedMethods.forEach(key => {
+        proxy[key] = windowObject.electron[key]
+      })
+      report('Assigned', Object.keys(windowObject.electron), 'to', proxy)
+      return proxy
+    },
+    updateIntervalMs: 1 * 60 * 1000 // 1 minutes
+  })
+
+  return rpcModel
+}
+
+export default { instance: setup(), notify }

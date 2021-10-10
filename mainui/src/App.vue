@@ -8,14 +8,17 @@
 <script>
 import { defineComponent } from '@vue/composition-api'
 import PrimaryNav from '@/components/PrimaryNav.vue'
+import rpc from '@/api/rpc'
 
 export default defineComponent({
   components: {
     PrimaryNav
   },
   mounted () {
+    rpc.notify(window)
     this.$store.dispatch('loadUserPreferences')
     this.$store.dispatch('getVersion')
+    this.$store.dispatch('refreshContactList')
   }
 })
 </script>

@@ -58,8 +58,7 @@ function createDefault () {
 
 function create (source) {
   const galaxySettings = Object.assign(createDefault(), source || {})
-  const galaxy = createGalaxy(galaxySettings)
-  return galaxy
+  return createGalaxy(galaxySettings)
 }
 
 export default create

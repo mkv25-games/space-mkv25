@@ -74,8 +74,8 @@ export default {
     async createContact(data) {
       console.log('Creating contact:', data.filename)
       try {
-        const contact = newContact({ name: data.filename })
-        await this.electron.sendData(data.filename, contact)
+        const contact = newContact({ name: data.filename, galaxy: this.galaxy })
+        await this.$store.dispatch('saveContact', contact)
         await this.$store.dispatch('loadContact', contact)
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {

@@ -34,7 +34,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vue/composition-api": "^1.2.2",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "remote-model": "^1.1.0"
   },
   "config": {
     "forge": "./forge.config.js"

@@ -1,11 +1,9 @@
-import createGalaxy from './galaxy'
-
 function createDefault () {
-  const lastUpdated = new Date()
   return {
-    lastUpdated,
-    name: 'Unknown Contact',
-    galaxy: createGalaxy()
+    count: 0,
+    developerTools: {
+      visible: false
+    }
   }
 }
 
