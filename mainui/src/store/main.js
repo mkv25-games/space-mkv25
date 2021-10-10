@@ -11,6 +11,10 @@ function defaultUserPreferences () {
   }
 }
 
+function clone(data) {
+  return JSON.parse(JSON.stringify(data))
+}
+
 function setup() {
   const rpc = rpcModel.instance
   const main = createStore({
@@ -43,13 +47,13 @@ function setup() {
         commit('increment')
         dispatch('saveUserPreferences')
       },
-      async saveUserPreferences({}) {
+      async saveUserPreferences({ state }) {
         const rpcProxy = await rpc.fetch()
-        return rpcProxy.sendData('userPreferences', state.userPreferences)
+        return rpcProxy.sendData('userPreferences', clone(state.userPreferences))
       },
       async loadUserPreferences ({ commit }) {
         const rpcProxy = await rpc.fetch()
-        const preferences = rpcProxy.requestData('userPreferences') || {}
+        const preferences = await rpcProxy.requestData('userPreferences') || {}
         commit('setUserPreferences', preferences.data)
       },
       async resetUserPreferences ({ commit }) {
@@ -65,12 +69,14 @@ function setup() {
       async loadContact ({ commit }, payload) {
         const rpcProxy = await rpc.fetch()
         const contact = await rpcProxy.requestData(payload.name)
+        console.log('store/main.js Contact:', contact, 'Payload:', payload)
         commit('assignContact', contact.data)
       },
       async saveContact ({ commit, state }, contact) {
         commit('assignContact', contact)
         const rpcProxy = await rpc.fetch()
-        return rpcProxy.sendData(state.contact.name, state.contact)
+        const data = clone(contact)
+        return rpcProxy.sendData(state.contact.name, data)
       },
       async refreshContactList ({ commit }) {
         const rpcProxy = await rpc.fetch()

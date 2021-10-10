@@ -87,6 +87,7 @@ function setupBrowserRPC () {
     const userDataPath = position(userDataFilePath, 'savedata')
     await make(userDataPath('./'))
     const timestamp = Date.now()
+    report('sendDataToBrowser', timestamp, key, userDataFilePath)
     try {
       const body = await read(userDataPath(`${key}.json`), 'utf8')
       const data = JSON.parse(body)

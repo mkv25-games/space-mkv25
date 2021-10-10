@@ -36,7 +36,7 @@ export default {
       return this.$store.state.contact || newContact()
     },
     galaxy() {
-      return this.$store.state.galaxy || newGalaxy()
+      return this.contact.galaxy || newGalaxy()
     },
     lastUpdated() {
       const date = new Date(this.contact.lastUpdated)
