@@ -1,7 +1,8 @@
 import createGalaxy from './galaxy'
 
 function createDefault () {
-  const lastUpdated = new Date()
+  const now = new Date()
+  const lastUpdated = now.toISOString()
   return {
     lastUpdated,
     name: 'Unknown Contact',

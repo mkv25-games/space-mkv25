@@ -67,8 +67,10 @@ function setup() {
         const contact = await rpcProxy.requestData(payload.name)
         commit('assignContact', contact.data)
       },
-      async saveContact ({ state }) {
-        await (await rpc.fetch()).sendData(state.contact.name, state.contact)
+      async saveContact ({ commit, state }, contact) {
+        commit('assignContact', contact)
+        const rpcProxy = await rpc.fetch()
+        return rpcProxy.sendData(state.contact.name, state.contact)
       },
       async refreshContactList ({ commit }) {
         const rpcProxy = await rpc.fetch()

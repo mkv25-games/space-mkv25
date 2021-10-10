@@ -5,11 +5,11 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+            <galaxy-svg :galaxy="galaxy" :tileSize="40" />
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>
-            <p>Last Updated: {{ contact.lastUpdated.toISOString().slice(0, 19).replace('T', ' ') }}</p>
+            <p>Last Updated: {{ lastUpdated }}</p>
           </template>
         </column-layout>
       </slot>
@@ -38,6 +38,10 @@ export default {
     galaxy() {
       return this.$store.state.galaxy || newGalaxy()
     },
+    lastUpdated() {
+      const date = new Date(this.contact.lastUpdated)
+      return date.toISOString().slice(0, 19).replace('T', ' ')
+    }
   }
 }
 </script>

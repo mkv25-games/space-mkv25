@@ -46,7 +46,7 @@ export default {
     return {
       filename: '',
       formErrors: [],
-      highlightedQuadrant: false,
+      highlightedQuadrant: null,
       overrideGalaxy: false
     }
   },
@@ -73,13 +73,15 @@ export default {
     },
     async createContact(data) {
       console.log('Creating contact:', data.filename)
+      let contact
       try {
-        const contact = newContact({ name: data.filename, galaxy: this.galaxy })
+        contact = newContact({ name: data.filename, galaxy: this.galaxy })
         await this.$store.dispatch('saveContact', contact)
         await this.$store.dispatch('loadContact', contact)
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {
-        this.formErrors.push('Unable to create contact:', ex.message, newContact)
+        this.formErrors.push('Unable to create contact:', ex.message, contact)
+        console.log('[EstablishContact.vue]', ex, 'Contact:', contact)
       }
       return true
     },
