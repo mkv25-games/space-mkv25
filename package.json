@@ -4,6 +4,14 @@
   "version": "1.0.0",
   "description": "An experiment in creating a cross-platform application using Electron JS.",
   "main": "main.js",
+  "build": {
+    "appId": "net.mkv25.spaceinfinite",
+    "productName": "Space Infinite",
+    "copyright": "Copyright © 2021 mkv25.net",
+    "directories": {
+      "buildResources": "build"
+    }
+  },
   "scripts": {
     "start": "./build-scripts/start-dev.sh",
     "start:with-dev-tools": "FORCE_OPEN_DEV_TOOLS=true npm start -s",
@@ -26,7 +34,6 @@
     "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
     "@electron-forge/maker-zip": "^6.0.0-beta.61",
     "electron": "^15.0.0-beta.7",
-    "promise-path": "^1.4.1",
     "standard": "^16.0.3"
   },
   "dependencies": {
@@ -35,6 +42,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vue/composition-api": "^1.2.2",
     "electron-squirrel-startup": "^1.0.0",
+    "promise-path": "^1.4.1",
     "remote-model": "^1.1.0"
   },
   "config": {

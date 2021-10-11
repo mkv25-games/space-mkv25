@@ -8,7 +8,9 @@ function reportPad (...messages) {
 }
 
 module.exports = {
-  packagerConfig: {},
+  packagerConfig: {
+    icon: 'icons/icon.icns'
+  },
   makers: [
     {
       name: '@electron-forge/maker-squirrel',

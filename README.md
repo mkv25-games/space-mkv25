@@ -34,12 +34,15 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Replace default image assets
+- Add selectable map area (x, y) coordinates
+- Procedurally generate areas outside of selected map
+- Support harsh boundary, island boundary, and continual boundary maps.
 - Add Start, Game, and End screens
-- Save, and Load screens
 
 ## Done
 
+- Replace default image assets
+- Save, and Load screens
 - Introduce Font Awesome
 - Add current game context to Home and Universe pages
 - Introduce concept of Save and Load

@@ -1,8 +1,15 @@
 const path = require('path')
+const url = require('url')
 const { app, BrowserWindow } = require('electron')
 const rpc = require('./src/rpc')
 
 const { title, version } = require('./package.json')
+
+const iconUrl = url.format({
+  pathname: path.join(__dirname, 'icons/icon.icns'),
+  protocol: 'file:',
+  slashes: true
+ })
 
 function createWindow () {
   const mainWindow = new BrowserWindow({
@@ -12,7 +19,8 @@ function createWindow () {
     useContentSize: true,
     webPreferences: {
       preload: path.join(__dirname, 'src/preload.js')
-    }
+    },
+    icon: iconUrl
   })
 
   const mode = selectApplicationMode(process)

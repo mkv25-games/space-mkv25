@@ -26,6 +26,7 @@ export default {
   width: 1.5em;
   height: 1.5em;
   text-align: center;
+  vertical-align: middle;
 }
 .icon.hoverable:hover {
   color: darkslateblue;
