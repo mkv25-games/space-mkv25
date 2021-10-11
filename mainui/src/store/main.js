@@ -89,12 +89,12 @@ function setup() {
       async hideDeveloperTools({ commit, state }) {
         commit('hideDeveloperTools')
         const rpcProxy = await rpc.fetch()
-        return rpcProxy.updateDeveloperTools(state.developerTools.visible)
+        return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)
       },
       async showDeveloperTools({ commit, state }) {
         commit('showDeveloperTools')
         const rpcProxy = await rpc.fetch()
-        return rpcProxy.updateDeveloperTools(state.developerTools.visible)
+        return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)
       }
     },
     modules: {}
