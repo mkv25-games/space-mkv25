@@ -12,6 +12,12 @@
       <input v-model="createGalaxySeed" type="number" min="0" max="65536" v-on:change="checkForm">
       <icon icon="dice" v-on:click="randomizeSeed" class="hoverable" />
     </property>
+    <property label="Quadrant function">
+      <select v-model="quadrantFunction" v-on:change="checkForm">
+        <option value="perlin">perlin</option>
+        <option value="cartesian">cartesian</option>
+      </select>
+    </property>
   </div>
 </template>
 
@@ -27,7 +33,8 @@ export default {
     return {
       createGalaxySeed: 0,
       createGalaxyWidth: 10,
-      createGalaxyHeight: 10
+      createGalaxyHeight: 10,
+      quadrantFunction: 'perlin'
     }
   },
   methods: Object.assign({
@@ -41,7 +48,8 @@ export default {
           w: Math.min(this.createGalaxyWidth, 50),
           h: Math.min(this.createGalaxyHeight, 50)
         },
-        seed: Math.min(this.createGalaxySeed, 65536)
+        seed: Math.min(this.createGalaxySeed, 65536),
+        qFn: this.quadrantFunction || 'perlin'
       })
     },
   })

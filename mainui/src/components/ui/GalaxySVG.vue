@@ -2,13 +2,15 @@
   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
-        <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="gray" stroke-width="0.5"/>
+        <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="rgba(100,100,100,0.8)" stroke-width="0.5"/>
       </pattern>
-      <pattern id="grid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse">
+      <pattern id="grid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
+        :x="galaxyOffset.x % tile.size" :y="galaxyOffset.y % tile.size">
         <rect :width="tile.size" :height="tile.size" fill="url(#smallGrid)"/>
-        <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="gray" stroke-width="1"/>
+        <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(100,100,100,0.5)" stroke-width="1"/>
       </pattern>
     </defs>
+    <rect width="100%" height="100%" fill="black" style="pointer-events: none;" />
     <g :transform="`translate(${galaxyOffset.x}, ${galaxyOffset.y})`">
       <g>
         <rect v-for="q in galaxy.quadrants"
@@ -71,11 +73,9 @@ export default {
       const cy = this.viewSizeY / 2
       const x = Math.floor(cx - this.galaxyWidth / 2)
       const y = Math.floor(cy - this.galaxyHeight / 2)
-      const tilex = Math.round(x / this.tile.size) * this.tile.size
-      const tiley = Math.round(y / this.tile.size) * this.tile.size
       return {
-        x: tilex,
-        y: tiley 
+        x,
+        y 
       }
     },
     tile() {
