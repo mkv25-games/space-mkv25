@@ -1,5 +1,5 @@
 <template>
-  <svg :width="galaxyWidth" :height="galaxyHeight" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
         <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="gray" stroke-width="0.5"/>
@@ -17,6 +17,16 @@
         :x="q.x * tile.size" :y="q.y * tile.size" v-on:mouseover="$emit('quadrantHover', q)" />
     </g>
     <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;" />
+    <g>
+      <rect :width="galaxyWidth" :height="galaxyHeight"
+        stroke="black" stroke-width="4"
+        fill="none"
+        style="pointer-events: none;" />
+      <rect :width="galaxyWidth" :height="galaxyHeight"
+        stroke="white" stroke-width="2" stroke-dasharray="5,2"
+        fill="none"
+        style="pointer-events: none;" />
+    </g>
   </svg>
 </template>
 
