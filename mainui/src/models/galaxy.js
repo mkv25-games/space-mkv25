@@ -52,7 +52,7 @@ function createGalaxy ({ size, seed }) {
 
 function createDefault () {
   const size = { w: 10, h: 10 }
-  const seed = 1
+  const seed = 0
   return { size, seed }
 }
 
