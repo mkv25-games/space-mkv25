@@ -1,5 +1,5 @@
 <template>
-  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" ref="galaxy-svg">
     <defs>
       <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
         <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="gray" stroke-width="0.5"/>
@@ -27,10 +27,12 @@
         fill="none"
         style="pointer-events: none;" />
     </g>
+    <text x="14" y="26" class="heavy">{{ message }}</text>
   </svg>
 </template>
 
 <script>
+import { ref } from 'vue'
 import quadrantColourMethods from '@/utils/quadrantColourMethods'
 
 export default {
@@ -42,6 +44,13 @@ export default {
     }
   },
   computed: {
+    message() {
+      const svgEl = ref('galaxy-svg')
+      console.log('GalaxySVG:', svgEl)
+      const elWidth = svgEl.clientWidth
+      const elHeight = svgEl.clientHeight
+      return `TODO Galaxy SVG: ${elWidth}, ${elHeight}, ${svgEl}`
+    },
     contact() {
       return this.$store.state.contact || newContact()
     },
@@ -58,3 +67,7 @@ export default {
   methods: Object.assign({}, quadrantColourMethods)
 }
 </script>
+
+<style>
+text.heavy { font: bold 16px sans-serif; fill: white; }
+</style>
