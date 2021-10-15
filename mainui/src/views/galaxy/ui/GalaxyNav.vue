@@ -52,8 +52,8 @@
 </template>
 
 <script>
-import SidebarNav from './SidebarNav.vue'
-import Icon from './ui/Icon.vue'
+import SidebarNav from '../../../components/SidebarNav.vue'
+import Icon from '../../../components/ui/Icon.vue'
 
 export default {
   components: { SidebarNav, Icon }

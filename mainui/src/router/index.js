@@ -24,6 +24,8 @@ import Statistics from '../views/galaxy/Statistics.vue'
 import Threats from '../views/galaxy/Threats.vue'
 import Trade from '../views/galaxy/Trade.vue'
 
+import Omniscience from '../views/omniscience/Omniscience.vue'
+
 const primaryRoutes = [{
   path: '/',
   name: 'Home',
@@ -120,7 +122,13 @@ const galaxyRoutes = [{
   component: Trade
 }]
 
-const routes = [].concat(primaryRoutes, galaxyRoutes)
+const omniscienceRoutes = [{
+  path: '/omniscience/home',
+  name: 'Omniscience Home',
+  component: Omniscience
+}]
+
+const routes = [].concat(primaryRoutes, galaxyRoutes, omniscienceRoutes)
 
 const router = createRouter({
   history: createWebHashHistory(),

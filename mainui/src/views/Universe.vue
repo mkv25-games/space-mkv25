@@ -6,7 +6,7 @@
       <h2>Explore</h2>
       <p>Scout</p>
       <p>Ancients</p>
-      <p>Omniscience</p>
+      <p><router-link to="/omniscience/home">Omniscience</router-link></p>
 
       <h2>Expand</h2>
       <p>

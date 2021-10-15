@@ -1,28 +1,11 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1102px" height="1101px" viewBox="-0.5 -0.5 1102 1101" content="&lt;mxfile&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;3ZhNc9owEIZ/ja8Zf2J0DE6cdKbJdMKBs4KFramwqCwHkl/fFZYhWKKlE6Xj1gfGrFbCft5ldyUvyta7O4E31QMvCPNCv9h50Y0XhihN4FMZXjvDFPmdoRS06EzB0TCnb0Qbe7eWFqQ5cZScM0k3p8Ylr2uylCc2LATfnrqtODv91Q0uiWGYLzEzrQtayEpbA98/DtwTWlZyOLLGvbc2NBUu+PadKbr1okxwLru79S4jTMHrwXTz8jOjhycTpJYXTUj0lBfMWv16T3z5HSwLLljR6MeUr/3LC97WBVHTfS+abSsqyXyDl2p0C2qDrZJrBt8CuF3xWmr9YuVeClxQeLSMMy7AWPMaxmYcFqBSRUOivFaUsd7DC6PuAjvDz4R94w2VlNcwtoSVCDjNXoiQFPT5OnBY06JQzz3DjJbWGdd64OCpacAw2Z1lGhyUghAnfE2keAUXPSHq1d4egyPpbdW7uJj0RqwDsjysdZQMbrRqZxSMJ4aCC6zeckQS+n6cIXTAa7C0ED+LN+6p6ewRWnBHn4c7MnE/YFqDZU5+tKQGjOGEwU/OnkGCSanu5hKLMciQweX7bmQIL5AhtcmQupEhNWTIBX8jtUn/i5LEv6O4lmMQweV/YXJpqkncQJ8a0CEp76vFPWdkHHTV5YZuOgjx1EI7ttGO3dBGBu15u9kn9gfcNPRFhfXn8A/jMfBHA/7Iwj+08Q/dFFazNXokzy3DZARxnufTj3P+Req2xrWb1B2HZ+N6n6RVKR1NwczhchPN0QXRbM3dAUIuqEcG9SdgGfo3WyxW4+1ZEHKXUKYDCWydurV1dJPQ49gMfAk+WJj4H1vREL3+f/Af+NMKGqHpVeKihiYG8usGNkccPAzmOSW27dJvIONm0x0yrOhOCXN2+zrEPBDHQXwPe/LAgntiw+1oJ2r25E+8bC0bokyt/k+S/jutX2w22gvF5piuR1Mi8/wkPXzo5CS5IH6t1EOErlIX+SI2e+5H0krB6xEhH2TkDyEflkTbjtJaEiMngZ74Bu+R94BujgYP9TAwaDvrAT11ItIfJO/H3h3HR7c/AQ==&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1101px" height="1101px" viewBox="-0.5 -0.5 1101 1101" content="&lt;mxfile&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZlLc5swEMc/DdeMzMOYY01C0pkm06kPPstGxmowcoWI7Xz6SiDe8qMT5MIhA7srLPanv7RSDMvfHZ8p3G9fSYhiwwTh0bAeDdOcWVP+VxhOhcGdWoUhojgsTJPasMCfSBqBtGY4RGkrkBESM7xvG9ckSdCatWyQUnJoh21I3P7VPYxQz7BYw7hvXeKQbaV1AkDteEE42rKuZwfLaGlItzAkh4bJejIsnxLCirvd0UexSF6ZmKJdcMZb9YyihCkakNVvkRATxHDFmeQBS8gQ5aYloXGYFi+gKMIkOe+vfs+eVp2uOpOyU5kpSrIkRCIYGNb8sMUMLfZwLbwHPjS4bct2oh8TfrshCZOwbREeURhi/h0+iQnlxoQk3Dcn/AWYiaHjiKgNjuMywjAtAGzf87i9nwmZnA9EGTo2TLL3z4jsEKMnHiK9dontVI4/+XyoqVulbdsA7pZGKEdaVL27ZsFvZMrKR0nnLKlXiBNuWaA/GUp4Es1pzKPnK05nGom7BYNUQbDXDjQCK5TW2FD6/AJgGJRmB6WpQOneEeW3lIuK8Nz3GAYYKWVYtwDNkBqfcxHfFWAw3Rcz5QYfBeQui+JSIOuAFkQwnym/xTgSHWdkPzDABrCpCthUD7BfZP1+YZJUuCsyzuQimfsLq4KZf99PkmJWfMiav4nP9TXGH52AHQ5D0e85lHx7LUrwVeQA7C0Fe+eO7ANKPlHSl+r3fC59xjBhiiFRtgL9sFq07siGRrV8loBpkV19wp7eCtfRA5eLIJfuC4mRgqLCXdObjY6euBT0BuDkdlZQV8HNVnGz9XBbZPu8LH2FaYo/hMKukLypQc3W08LWtAdn21XmijBGdsNA9zrQPQV0UwXd1AP9Da2yGKI+3Jaj3p2MbeUNglkbYow2X9XnhYpWqUdNFW0pr3yda28xVCpUhNXYzJFh8/2AX5q1Zt2gNeXCOPE8LRUvEnuNxwOkm5t3mq02arbWyNh6nr41c9ZBqipklQcIutZMxqMh7eN8y2iK5Nvbci1bgFZIjdMeGc5Kqp0ZVoty/7UUsrzZg6NFqyTKFOdBvni3creah4Omv0Z6eU9yp4OEKOZlmhw37VFUHZnmD++Irbfy4Qryr29Z/lOpuxQpV8+rrYPa82E13LFtWYJA6nWA6dbpTLeq81olN9PzHlwtwnxDGaMkOQ9NGVDj0rMLGXB61bhaqk4GlKulpUd2VyrZSxWsA8bKTUOh6oLJ3QpVQxyrEdYIbfyL0Xr6Cw==&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
-        <rect x="300" y="0" width="500" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <rect x="400" y="100" width="300" height="700" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 300px; margin-left: 301px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Rock Worlds
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="312" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Rock Worlds
-                </text>
-            </switch>
-        </g>
-        <rect x="400" y="200" width="300" height="600" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 298px; height: 1px; padding-top: 500px; margin-left: 401px;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 298px; height: 1px; padding-top: 450px; margin-left: 401px;">
                         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Water Worlds
@@ -30,7 +13,7 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="550" y="512" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                <text x="550" y="462" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
                     Water Worlds
                 </text>
             </switch>
@@ -54,136 +37,11 @@
                 </text>
             </switch>
         </g>
-        <rect x="600" y="0" width="500" height="500" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <rect x="200" y="0" width="600" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 250px; margin-left: 601px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Frozen
-                                <br/>
-                                Ice Giants
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="850" y="262" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Frozen...
-                </text>
-            </switch>
-        </g>
-        <rect x="700" y="700" width="400" height="400" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 900px; margin-left: 701px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Black Holes
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="900" y="912" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Black Holes
-                </text>
-            </switch>
-        </g>
-        <rect x="900" y="900" width="200" height="200" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 1000px; margin-left: 901px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 24px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Super Massive Black Holes
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1000" y="1007" fill="#000000" font-family="Helvetica" font-size="24px" text-anchor="middle">
-                    Super Massive Bla...
-                </text>
-            </switch>
-        </g>
-        <rect x="0" y="200" width="400" height="700" fill-opacity="0.5" fill="#ff8000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 550px; margin-left: 1px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Nebulae
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="200" y="562" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Nebulae
-                </text>
-            </switch>
-        </g>
-        <rect x="300" y="900" width="500" height="199" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 1000px; margin-left: 301px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Super Giant Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="1012" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Super Giant Stars
-                </text>
-            </switch>
-        </g>
-        <rect x="800" y="300" width="300" height="400" fill-opacity="0.5" fill="#990000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 298px; height: 1px; padding-top: 500px; margin-left: 801px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Red Dwarf
-                                <br/>
-                                Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="950" y="512" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Red Dwarf...
-                </text>
-            </switch>
-        </g>
-        <rect x="0" y="700" width="400" height="398.5" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 899px; margin-left: 1px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Stellar
-                                <br/>
-                                Nursery
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="200" y="911" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Stellar...
-                </text>
-            </switch>
-        </g>
-        <rect x="200" y="100" width="600" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 598px; height: 1px; padding-top: 400px; margin-left: 201px;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 598px; height: 1px; padding-top: 7px; margin-left: 201px;">
                         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Asteroid
@@ -193,8 +51,150 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="500" y="412" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                <text x="500" y="47" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
                     Asteroid...
+                </text>
+            </switch>
+        </g>
+        <rect x="300" y="0" width="500" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 300px; margin-left: 301px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Rock Worlds
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="550" y="312" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                    Rock Worlds
+                </text>
+            </switch>
+        </g>
+        <rect x="600" y="0" width="500" height="500" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-end; width: 498px; height: 1px; padding-top: 7px; margin-left: 600px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Frozen
+                                <br/>
+                                Ice Giants
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="1098" y="47" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
+                    Frozen...
+                </text>
+            </switch>
+        </g>
+        <rect x="700" y="700" width="400" height="400" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 398px; height: 1px; padding-top: 900px; margin-left: 700px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Black Holes
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="1098" y="912" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
+                    Black Holes
+                </text>
+            </switch>
+        </g>
+        <rect x="900" y="900" width="200" height="200" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe flex-end; width: 198px; height: 1px; padding-top: 1097px; margin-left: 900px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
+                            <div style="display: inline-block; font-size: 24px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Super Massive Black Holes
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="1098" y="1097" fill="#000000" font-family="Helvetica" font-size="24px" text-anchor="end">
+                    Super Massive Bla...
+                </text>
+            </switch>
+        </g>
+        <rect x="0" y="200" width="400" height="700" fill-opacity="0.5" fill="#ff8000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 550px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Nebulae
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="2" y="562" fill="#000000" font-family="Helvetica" font-size="40px">
+                    Nebulae
+                </text>
+            </switch>
+        </g>
+        <rect x="300" y="900" width="500" height="199" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 1096px; margin-left: 301px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Super Giant Stars
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="550" y="1096" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                    Super Giant Stars
+                </text>
+            </switch>
+        </g>
+        <rect x="800" y="300" width="300" height="400" fill-opacity="0.5" fill="#990000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 298px; height: 1px; padding-top: 500px; margin-left: 800px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Red Dwarf
+                                <br/>
+                                Stars
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="1098" y="512" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
+                    Red Dwarf...
+                </text>
+            </switch>
+        </g>
+        <rect x="0" y="700" width="400" height="398.5" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 1096px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                Stellar
+                                <br/>
+                                Nursery
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="2" y="1096" fill="#000000" font-family="Helvetica" font-size="40px">
+                    Stellar...
                 </text>
             </switch>
         </g>
@@ -202,8 +202,8 @@
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 200px; margin-left: 1px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 7px; margin-left: 2px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Rogue
                                 <br/>
@@ -212,7 +212,7 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="200" y="212" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                <text x="2" y="47" fill="#000000" font-family="Helvetica" font-size="40px">
                     Rogue...
                 </text>
             </switch>
@@ -238,15 +238,15 @@
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 298px; height: 1px; padding-top: 750px; margin-left: 801px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 298px; height: 1px; padding-top: 750px; margin-left: 800px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Neutron Stars
                             </div>
                         </div>
                     </div>
                 </foreignObject>
-                <text x="950" y="762" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                <text x="1098" y="762" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
                     Neutron Stars
                 </text>
             </switch>
