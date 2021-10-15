@@ -25,6 +25,7 @@ import Threats from '../views/galaxy/Threats.vue'
 import Trade from '../views/galaxy/Trade.vue'
 
 import Omniscience from '../views/omniscience/Omniscience.vue'
+import Regions from '../views/omniscience/Regions.vue'
 
 const primaryRoutes = [{
   path: '/',
@@ -124,8 +125,12 @@ const galaxyRoutes = [{
 
 const omniscienceRoutes = [{
   path: '/omniscience/home',
-  name: 'Omniscience Home',
+  name: 'Omniscience',
   component: Omniscience
+}, {
+  path: '/omniscience/regions',
+  name: 'Regions',
+  component: Regions
 }]
 
 const routes = [].concat(primaryRoutes, galaxyRoutes, omniscienceRoutes)
