@@ -2,7 +2,7 @@
   <div class="settings">
     <h1>Interface Settings</h1>
     <p>Build Information: {{ $store.state.version }}</p>
-    <p>Stored count: {{ $store.state.count }}</p>
+    <p>Stored count: {{ $store.state.userPreferences.count }}</p>
     <h2>Interactions</h2>
     <p>
       <button v-on:click="$store.dispatch('increment')">Increment</button>

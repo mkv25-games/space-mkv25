@@ -1,21 +1,29 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import rpc from './api/rpc'
 import router from './router'
-import store from './store/root'
-import rpcActions from './actions/rpcActions'
+import store from './store/main'
+
+import setupFontAwesome from './components/FontAwesome'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 let mainUIStarted = false
-function startMainUI () {
+async function startMainUI () {
   if (mainUIStarted) {
     return
   }
   mainUIStarted = true
-  createApp(App).use(store).use(router).mount('#mainui-app')
+  setupFontAwesome(App)
+  createApp(App)
+    .use(store)
+    .use(router)
+    .component('font-awesome-icon', FontAwesomeIcon)
+    .mount('#mainui-app')
 }
 
 function glueSystemsTogether () {
-  const rpc = require('./api/rpc')(window)
-  rpcActions.setup(store, rpc)
+  console.log('Window ready?', window)
+  rpc.notify(window)
 }
 
 function raceStartupEvent () {
@@ -27,5 +35,5 @@ function raceStartupEvent () {
   setTimeout(startMainUI, 500)
 }
 
-glueSystemsTogether()
+glueSystemsTogether(window)
 raceStartupEvent()

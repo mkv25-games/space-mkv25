@@ -1,39 +1,64 @@
 <template>
   <div class="template">
-    <h1>Establish Contact</h1>
-    <p>Forming phase dialect with extrapolated constraints:</p>
-    <div class="form">
-      <div class="form-row">
-        <label>Contact Name:</label>
-        <input v-model="filename" placeholder="New contact" />
-      </div>
-      <p class="actions">
-        <router-link to="/universe">Cancel</router-link>
-        <button v-on:click="submitForm">Connect</button>
-      </p>
-      <div v-if="formErrors.length" class="form-errors">
-        <h2>Contact Disconnects</h2>
-        <p class="form-error" v-for="message in formErrors" :key="message">{{ message }}</p>
-      </div>
-    </div>
+    <column-layout class="fixed-width-right overflow-hidden">
+      <template v-slot:left>
+        <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+      </template>
+      <template v-slot:right>
+        <h1>Establish Contact</h1>
+        <p>Forming phase dialect with extrapolated constraints:</p>
+        <div class="form">
+          <div class="form-row">
+            <label>Contact Name:</label>
+            <input v-model="filename" placeholder="New contact" />
+          </div>
+          <div v-if="formErrors.length" class="form-errors">
+            <h2>Contact Disconnects</h2>
+            <p class="form-error" v-for="message in formErrors" :key="message">{{ message }}</p>
+          </div>
+          <galaxy-inputs v-on:inputsChanged="regenerateGalaxy" />
+          <p class="actions">
+            <router-link to="/universe">Cancel</router-link>
+            <button v-on:click="submitForm">Connect</button>
+          </p>
+          <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
+        </div>
+      </template>
+    </column-layout>
   </div>
 </template>
 
 <script>
 
-import newContact from '@/models/contact.js'
+import newContact from '@/models/contact'
+import newGalaxy from '@/models/galaxy'
+import ColumnLayout from '../components/ui/ColumnLayout.vue'
+import GalaxySvg from '../components/ui/GalaxySVG.vue'
+import GalaxyInputs from '@/components/ui/GalaxyInputs.vue'
+import QuadrantBreakdown from '../components/ui/QuadrantBreakdown.vue'
+import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
 
 export default {
-  name: 'SaveGameManagement',
+  components: {
+    ColumnLayout, GalaxySvg, GalaxyInputs, QuadrantBreakdown, HighlightedQuadrantInfo
+  },
   data: () => {
     return {
       filename: '',
-      formErrors: []
+      formErrors: [],
+      highlightedQuadrant: null,
+      overrideGalaxy: false
     }
   },
   computed: {
     electron() {
       return window.electron
+    },
+    contact() {
+      return this.$store.state.contact || newContact()
+    },
+    galaxy() {
+      return this.overrideGalaxy || this.$store.state.galaxy || newGalaxy()
     }
   },
   methods: {
@@ -48,15 +73,23 @@ export default {
     },
     async createContact(data) {
       console.log('Creating contact:', data.filename)
+      let contact
       try {
-        const contact = newContact({ name: data.filename })
-        await this.electron.sendData(data.filename, contact)
-        await this.$store.dispatch('loadContact', contact.name)
+        contact = newContact({ name: data.filename, galaxy: this.galaxy })
+        await this.$store.dispatch('saveContact', contact)
+        await this.$store.dispatch('loadContact', contact)
         this.$router.push({ path: 'galaxy-view' })
       } catch (ex) {
-        this.formErrors.push('Unable to create contact:', ex.message, newContact)
+        this.formErrors.push('Unable to create contact:', ex.message, contact)
+        console.log('[EstablishContact.vue]', ex, 'Contact:', contact)
       }
       return true
+    },
+    showQuadrantInfo(quadrant) {
+      this.highlightedQuadrant = quadrant
+    },
+    regenerateGalaxy(properties) {
+      this.overrideGalaxy = newGalaxy(properties)
     }
   }
 }
@@ -68,7 +101,7 @@ input {
 }
 div.form {
   display: inline-block;
-  min-width: 500px;
+  width: 100%;
 }
 div.form-row {
   display: flex;

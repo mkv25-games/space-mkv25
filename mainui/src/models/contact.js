@@ -1,15 +1,17 @@
-function createDefault() {
-  const lastUpdated = new Date()
+import createGalaxy from './galaxy'
+
+function createDefault () {
+  const now = new Date()
+  const lastUpdated = now.toISOString()
   return {
     lastUpdated,
-    name: 'Unknown Contact'
+    name: 'Unknown Contact',
+    galaxy: createGalaxy()
   }
 }
 
-function create(source) {
-  const result = Object.assign(createDefault(), source || {})
-
-  return result
+function create (source) {
+  return Object.assign(createDefault(), source || {})
 }
 
 export default create
