@@ -6,6 +6,7 @@
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
             <p>Map of the universe goes here?</p>
+            <icon icon="moon" />
           </template>
           <template v-slot:right>
             <h2>Omniscience</h2>
@@ -20,14 +21,15 @@
 <script>
 import newGalaxy from '@/models/galaxy'
 import OmniscienceNav from './ui/OmniscienceNav.vue'
+import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import Icon from '@/components/ui/Icon.vue'
 
 export default {
   components: {
-    OmniscienceNav, Icon
+    OmniscienceNav, ColumnLayout, Icon
   },
   computed: {
-    galaxy() {
+    galaxy () {
       return this.contact.galaxy || newGalaxy()
     }
   }
