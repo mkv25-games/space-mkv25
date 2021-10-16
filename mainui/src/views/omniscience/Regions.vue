@@ -3,8 +3,7 @@
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <slot-viewer>
-          <SystemSVG />
-          <icon icon="moon" />
+          <RegionsSVG />
         </slot-viewer>
       </template>
       <template v-slot:right>
@@ -22,11 +21,11 @@ import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import Icon from '@/components/ui/Icon.vue'
 import SlotViewer from '@/components/ui/SlotViewer.vue'
 
-import SystemSVG from '@/models/visual/system.drawio.svg'
+import RegionsSVG from '@/models/visual/regions.drawio.svg'
 
 export default {
   components: {
-    OmniscienceView, ColumnLayout, Icon, SystemSVG, SlotViewer
+    OmniscienceView, ColumnLayout, Icon, RegionsSVG, SlotViewer
   },
   computed: {
     galaxy () {

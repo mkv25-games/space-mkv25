@@ -1,19 +1,24 @@
 <template>
   <div class="slot-viewer">
-    <property label="VSX">{{ viewSizeX }}</property>
-    <property label="VSY">{{ viewSizeY }}</property>
-    <property label="SW">{{ slotWidth }}</property>
-    <property label="SH">{{ slotHeight }}</property>
-    <div ref="slot-content">
-      <slot>
+    <property label="Zoom">
+      <input type="number" min="0.1" max="10.0" step="0.1" v-model="zoom">
+      <icon icon="moon" />
+    </property>
+    <div ref="slot-content" class="slot-content">
+      <div class="offset-container" :style="offsetStyle">
+        <div class="zoom-container" :style="zoomStyle">
+          <slot>
 
-      </slot>
+          </slot>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Property from './Property.vue'
+import Icon from './Icon.vue'
 
 export default {
   data() {
@@ -22,11 +27,12 @@ export default {
       viewSizeX: 0,
       viewSizeY: 0,
       slotWidth: 0,
-      slotHeight: 0
+      slotHeight: 0,
+      zoom: 0
     }
   },
   components: {
-    Property
+    Icon, Property
   },
   props: {
     galaxy: Object,
@@ -45,16 +51,30 @@ export default {
         x,
         y 
       }
+    },
+    zoomToFit() {
+      const scaleX = this.viewSizeX / this.slotWidth
+      const scaleY = this.viewSizeY / this.slotHeight
+      return Math.min(scaleX, scaleY)
+    },
+    offsetStyle() {
+      const { x, y } = this.centerOffset
+      return `left: ${x}px; top: ${y}px;`
+    },
+    zoomStyle() {
+      const zoomScale = this.zoom
+      return `zoom: ${zoomScale};`
     }
   },
   mounted() {
     const self = this
+    self.zoom = this.zoomToFit
     self.resizeObserver = new ResizeObserver(() => {
       const slotContent = this.$refs['slot-content']
       self.viewSizeX = self.$el.clientWidth
       self.viewSizeY = self.$el.clientHeight
-      self.slotWidth = slotContent.clientWidth
-      self.slotHeight = slotContent.clientHeight
+      self.slotWidth = slotContent.scrollWidth
+      self.slotHeight = slotContent.scrollHeight
     })
     self.resizeObserver.observe(self.$el)
   },
@@ -69,5 +89,14 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+.slot-content {
+  display: block;
+}
+.offset-container {
+  display: block;
+}
+.zoom-container {
+  display: block;
 }
 </style>
