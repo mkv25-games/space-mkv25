@@ -2,11 +2,11 @@
   <div class="slot-viewer">
     <property label="Zoom">
       <input type="number" min="0.1" max="10.0" step="0.1" v-model="zoom">
-      <icon icon="moon" />
+      <icon icon="expand-alt" v-on:click="setZoomToFit" />
     </property>
     <div ref="slot-content" class="slot-content">
-      <div class="offset-container" :style="offsetStyle">
-        <div class="zoom-container" :style="zoomStyle">
+      <div ref="offset-container" class="offset-container" :style="offsetStyle()">
+        <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
 
           </slot>
@@ -20,6 +20,22 @@
 import Property from './Property.vue'
 import Icon from './Icon.vue'
 
+function size(el) {
+  if (el) {
+    const width = el.scrollWidth
+    const height = el.scrollHeight
+    return {
+      width,
+      height
+    }
+  } else {
+    return {
+      width: 0,
+      height: 0
+    }
+  }
+}
+
 export default {
   data() {
     return {
@@ -28,7 +44,11 @@ export default {
       viewSizeY: 0,
       slotWidth: 0,
       slotHeight: 0,
-      zoom: 0
+      offsetWidth: 0,
+      offsetHeight: 0,
+      zoomWidth: 0,
+      zoomHeight: 0,
+      zoom: 1.0
     }
   },
   components: {
@@ -45,17 +65,20 @@ export default {
     centerOffset() {
       const cx = this.viewSizeX / 2
       const cy = this.viewSizeY / 2
-      const x = Math.floor(cx - this.slotWidth / 2)
-      const y = Math.floor(cy - this.slotHeight / 2)
+      const x = Math.floor(cx - (this.zoomWidth * this.zoom / 2))
+      const y = Math.floor(cy - (this.zoomHeight * this.zoom / 2))
       return {
         x,
         y 
       }
-    },
-    zoomToFit() {
+    }
+  },
+  methods: {
+    setZoomToFit() {
       const scaleX = this.viewSizeX / this.slotWidth
       const scaleY = this.viewSizeY / this.slotHeight
-      return Math.min(scaleX, scaleY)
+      const scale = Math.min(scaleX, scaleY)
+      this.zoom = Math.round(scale * 1000) / 1000
     },
     offsetStyle() {
       const { x, y } = this.centerOffset
@@ -68,13 +91,34 @@ export default {
   },
   mounted() {
     const self = this
-    self.zoom = this.zoomToFit
     self.resizeObserver = new ResizeObserver(() => {
-      const slotContent = this.$refs['slot-content']
+      const slotSize = size(this.$refs['slot-content'])
+      self.slotWidth = slotSize.width
+      self.slotHeight = slotSize.height
+
+      const offsetSize = size(this.$refs['offset-content'])
+      self.offsetWidth = offsetSize.width
+      self.offsetHeight = offsetSize.height
+
+      const zoomSize = size(this.$refs['zoom-container'])
+      self.zoomWidth = zoomSize.width
+      self.zoomHeight = zoomSize.height
+
+      console.log('Resize:', {
+        slotWidth: self.slotWidth,
+        slotHeight: self.slotHeight,
+        offsetWidth: self.offsetWidth,
+        offsetHeight: self.offsetHeight,
+        zoomWidth: self.zoomWidth,
+        zoomHeight: self.zoomHeight
+      })
+
       self.viewSizeX = self.$el.clientWidth
       self.viewSizeY = self.$el.clientHeight
-      self.slotWidth = slotContent.scrollWidth
-      self.slotHeight = slotContent.scrollHeight
+      if (self.zoom === 1.0) {
+        self.slotWidth = self.zoomWidth
+        self.slotHeight = self.zoomHeight
+      }
     })
     self.resizeObserver.observe(self.$el)
   },
@@ -92,11 +136,20 @@ export default {
 }
 .slot-content {
   display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: 2px solid green;
+  outline-offset: -2px;
 }
 .offset-container {
-  display: block;
+  display: inline-block;
+  position: absolute;
+  overflow: visible;
 }
 .zoom-container {
-  display: block;
+  display: inline-block;
+  overflow: visible;
 }
 </style>
