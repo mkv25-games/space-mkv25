@@ -2,7 +2,6 @@
   <OmniscienceView class="regions">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
-        <p>Map of regions goes here?</p>
         <SystemSVG />
         <icon icon="moon" />
       </template>
@@ -24,8 +23,7 @@ import SystemSVG from '@/models/visual/system.drawio.svg'
 
 export default {
   components: {
-    OmniscienceView, ColumnLayout, Icon,
-    SystemSVG
+    OmniscienceView, ColumnLayout, Icon, SystemSVG
   },
   computed: {
     galaxy () {

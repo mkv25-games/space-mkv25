@@ -19,7 +19,7 @@ import icons from '@/models/icons'
 export default {
   components: { HorizontalTileGrid, VerticalTileGrid, StoryTeller },
   computed: {
-    iconTiles() {
+    iconTiles () {
       return icons().map((icon) => {
         return {
           id: icon,

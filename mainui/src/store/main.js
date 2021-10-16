@@ -11,11 +11,11 @@ function defaultUserPreferences () {
   }
 }
 
-function clone(data) {
+function clone (data) {
   return JSON.parse(JSON.stringify(data))
 }
 
-function setup() {
+function setup () {
   const rpc = rpcModel.instance
   const main = createStore({
     state: defaultUserPreferences(),
@@ -47,7 +47,7 @@ function setup() {
         commit('increment')
         dispatch('saveUserPreferences')
       },
-      async saveUserPreferences({ state }) {
+      async saveUserPreferences ({ state }) {
         const rpcProxy = await rpc.fetch()
         return rpcProxy.sendData('userPreferences', clone(state.userPreferences))
       },
@@ -56,7 +56,7 @@ function setup() {
         const preferences = await rpcProxy.requestData('userPreferences') || {}
         commit('setUserPreferences', preferences.data)
       },
-      async resetUserPreferences ({ commit }) {
+      async resetUserPreferences ({ commit, state }) {
         commit('setUserPreferences', defaultUserPreferences())
         const rpcProxy = await rpc.fetch()
         await rpcProxy.sendData('userPreferences', state)
@@ -86,12 +86,12 @@ function setup() {
           .filter(file => !file.filepath.includes('userPreferences.json'))
         commit('contactList', contactList)
       },
-      async hideDeveloperTools({ commit, state }) {
+      async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')
         const rpcProxy = await rpc.fetch()
         return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)
       },
-      async showDeveloperTools({ commit, state }) {
+      async showDeveloperTools ({ commit, state }) {
         commit('showDeveloperTools')
         const rpcProxy = await rpc.fetch()
         return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)

@@ -20,7 +20,7 @@ function perlinQuadrant ({ x, y, seed }) {
   }
 }
 
-function cartesianQuadrant({ x, y, w, h, seed }) {
+function cartesianQuadrant ({ x, y, w, h, seed }) {
   const composition = 0.5
   const density = x / (w - 1)
   const mass = y / (h - 1)
@@ -36,10 +36,9 @@ function cartesianQuadrant({ x, y, w, h, seed }) {
 }
 
 function createGalaxy ({ size, seed, qFn }) {
-
   const qFns = {
-    'perlin': perlinQuadrant,
-    'cartesian': cartesianQuadrant
+    perlin: perlinQuadrant,
+    cartesian: cartesianQuadrant
   }
   const createQuadrant = qFns[qFn]
 
@@ -47,7 +46,7 @@ function createGalaxy ({ size, seed, qFn }) {
   const quadrants = []
   for (let i = 0; i < w; i++) {
     for (let j = 0; j < h; j++) {
-      const q = createQuadrant({x: i, y: j, w, h, seed })
+      const q = createQuadrant({ x: i, y: j, w, h, seed })
       quadrants.push(q)
     }
   }

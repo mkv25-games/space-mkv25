@@ -1,4 +1,4 @@
-function cpz(type, lowerMass, upperMass, lowerDensity, upperDensity) {
+function cpz (type, lowerMass, upperMass, lowerDensity, upperDensity) {
   return {
     type,
     density: {
@@ -20,14 +20,13 @@ const probabilities = [
   cpz('gas-giant', 0.4, 0.8, 0.4, 0.8)
 ]
 
-function createSystem({ mass, density, composition }) {
+function createSystem ({ mass, density, composition }) {
   const unusedMass = mass
   return {
-    mass, 
+    mass,
     density,
     composition
   }
 }
-
 
 module.exports = createSystem
