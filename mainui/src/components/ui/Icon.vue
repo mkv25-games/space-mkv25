@@ -33,6 +33,7 @@ export default {
   border: 4px solid rgba(0,0,0,0);
   margin: 0.1em;
   cursor: pointer;
+  background: rgba(255,255,255,0.5);
 }
 .icon.button:hover {
   color: rgb(62, 133, 42);

@@ -1,7 +1,10 @@
 <template>
   <div class="slot-viewer">
-    <div ref="slot-content" class="slot-content">
-      <div ref="offset-container" class="offset-container" :style="offsetStyle()">
+    <div ref="slot-content" class="slot-content"
+      v-on:mousedown="startOffset"
+      v-on:mouseup="endOffset"
+      v-on:mousemove="trackOffset">
+      <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
 
@@ -54,7 +57,12 @@ export default {
       offsetHeight: 0,
       zoomWidth: 0,
       zoomHeight: 0,
-      zoom: 1.0
+      zoom: 1.0,
+      moveOffsetX: 0,
+      moveOffsetY: 0,
+      trackOffsetX: 0,
+      trackOffsetY: 0,
+      trackMoveOffset: false
     }
   },
   components: {
@@ -82,9 +90,17 @@ export default {
   methods: {
     offsetStyle() {
       const co = this.centerOffset
-      const x = co.x + this.offsetX
-      const y = co.y + this.offsetY
+      const basex = co.x + this.offsetX - this.trackOffsetX
+      const basey = co.y + this.offsetY - this.trackOffsetY
+      const hw = this.slotWidth / 2 * this.zoom
+      const hh = this.slotHeight / 2 * this.zoom
+      const x = Math.min(Math.max(-hw, basex), hw)
+      const y = Math.min(Math.max(-hh, basey), hh)
       return `left: ${x}px; top: ${y}px;`
+    },
+    offsetClass() {
+      const state = this.trackMoveOffset ? 'moving' : 'static'
+      return ['offset-container', state].join(' ')
     },
     zoomStyle() {
       const zoomScale = this.zoom
@@ -103,18 +119,43 @@ export default {
       this.offsetY = this.offsetY + 100
     },
     zoomIn() {
-      this.zoom = Math.round(this.zoom * 2 * 1000) / 1000;
+      const baseZoom = Math.round(this.zoom * 2 * 1000) / 1000;
+      this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
     },
     zoomOut() {
-      this.zoom = Math.round(this.zoom / 2 * 1000) / 1000;
+      const baseZoom = Math.round(this.zoom / 2 * 1000) / 1000;
+      this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
+    },
+    startOffset(ev) {
+      console.log('Start offset:', ev)
+      this.moveOffsetX = ev.x
+      this.moveOffsetY = ev.y
+      this.trackMoveOffset = true
+    },
+    trackOffset(ev) {
+      if (this.trackMoveOffset) {
+        const x = this.moveOffsetX - ev.x
+        const y = this.moveOffsetY - ev.y
+        this.trackOffsetX = x
+        this.trackOffsetY = y
+      } else {
+        this.trackOffsetX = 0
+        this.trackOffsetY = 0
+      }
+    },
+    endOffset(ev) {
+      this.trackMoveOffset = false
+      this.trackOffsetX = 0
+      this.trackOffsetY = 0
+      const x = this.moveOffsetX - ev.x
+      const y = this.moveOffsetY - ev.y
+      this.offsetX -= x
+      this.offsetY -= y
     }
   },
   mounted() {
     const self = this
     self.resizeObserver = new ResizeObserver(() => {
-      const slotSize = size(this.$refs['slot-content'])
-      self.slotWidth = slotSize.width
-      self.slotHeight = slotSize.height
 
       const offsetSize = size(this.$refs['offset-content'])
       self.offsetWidth = offsetSize.width
@@ -124,18 +165,10 @@ export default {
       self.zoomWidth = zoomSize.width
       self.zoomHeight = zoomSize.height
 
-      console.log('Resize:', {
-        slotWidth: self.slotWidth,
-        slotHeight: self.slotHeight,
-        offsetWidth: self.offsetWidth,
-        offsetHeight: self.offsetHeight,
-        zoomWidth: self.zoomWidth,
-        zoomHeight: self.zoomHeight
-      })
-
       self.viewSizeX = self.$el.clientWidth
       self.viewSizeY = self.$el.clientHeight
       if (self.zoom === 1.0) {
+        const slotSize = size(this.$refs['slot-content'])
         self.slotWidth = self.zoomWidth
         self.slotHeight = self.zoomHeight
       }
@@ -168,6 +201,18 @@ export default {
   display: inline-block;
   position: absolute;
   overflow: visible;
+}
+.offset-container.static {
+  outline: 2px solid black;
+  outline-offset: -2px;
+}
+.offset-container.moving {
+  outline: 2px solid white;
+  outline-offset: -2px;
+  background: rgba(0,0,0,0.5);
+}
+.offset-container.moving * {
+  pointer-events: none;
 }
 .zoom-container {
   display: inline-block;
