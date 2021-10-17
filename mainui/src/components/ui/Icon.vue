@@ -28,7 +28,19 @@ export default {
   text-align: center;
   vertical-align: middle;
 }
-.icon.hoverable:hover {
-  color: darkslateblue;
+.icon.button {
+  border-radius: 50%;
+  border: 4px solid rgba(0,0,0,0);
+  margin: 0.1em;
+  cursor: pointer;
+}
+.icon.button:hover {
+  color: rgb(62, 133, 42);
+  border-color: white;
+}
+.icon.button:active {
+  color: black;
+  border-color: white;
+  background: rgba(0,0,0,0.1)
 }
 </style>

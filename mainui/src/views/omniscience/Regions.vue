@@ -3,7 +3,7 @@
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <slot-viewer>
-          <RegionsSVG style="width: 100px; height: 100px;" />
+          <RegionsSVG style="width: 500px; height: 500px;" />
         </slot-viewer>
       </template>
       <template v-slot:right>

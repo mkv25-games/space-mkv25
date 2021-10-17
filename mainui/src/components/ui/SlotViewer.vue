@@ -1,9 +1,5 @@
 <template>
   <div class="slot-viewer">
-    <property label="Zoom">
-      <input type="number" min="0.1" max="10.0" step="0.1" v-model="zoom">
-      <icon icon="expand-alt" v-on:click="setZoomToFit" />
-    </property>
     <div ref="slot-content" class="slot-content">
       <div ref="offset-container" class="offset-container" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
@@ -13,12 +9,20 @@
         </div>
       </div>
     </div>
+    <div class="slot-controls">
+      <icon icon="chevron-circle-left" v-on:click="scrollLeft()" />
+      <icon icon="chevron-circle-right" v-on:click="scrollRight()"  />
+      <icon icon="plus-circle" v-on:click="zoomIn()"  />
+      <icon icon="minus-circle" v-on:click="zoomOut()"  />
+      <icon icon="chevron-circle-down" v-on:click="scrollDown()"  />
+      <icon icon="chevron-circle-up" v-on:click="scrollUp()"  />
+    </div>
   </div>
 </template>
 
 <script>
 import Property from './Property.vue'
-import Icon from './Icon.vue'
+import Icon from './IconButton.vue'
 
 function size(el) {
   if (el) {
@@ -44,6 +48,8 @@ export default {
       viewSizeY: 0,
       slotWidth: 0,
       slotHeight: 0,
+      offsetX: 0,
+      offsetY: 0,
       offsetWidth: 0,
       offsetHeight: 0,
       zoomWidth: 0,
@@ -74,19 +80,33 @@ export default {
     }
   },
   methods: {
-    setZoomToFit() {
-      const scaleX = this.viewSizeX / this.slotWidth
-      const scaleY = this.viewSizeY / this.slotHeight
-      const scale = Math.min(scaleX, scaleY)
-      this.zoom = Math.round(scale * 1000) / 1000
-    },
     offsetStyle() {
-      const { x, y } = this.centerOffset
+      const co = this.centerOffset
+      const x = co.x + this.offsetX
+      const y = co.y + this.offsetY
       return `left: ${x}px; top: ${y}px;`
     },
     zoomStyle() {
       const zoomScale = this.zoom
       return `zoom: ${zoomScale};`
+    },
+    scrollLeft() {
+      this.offsetX = this.offsetX - 100
+    },
+    scrollRight() {
+      this.offsetX = this.offsetX + 100
+    },
+    scrollUp() {
+      this.offsetY = this.offsetY - 100
+    },
+    scrollDown() {
+      this.offsetY = this.offsetY + 100
+    },
+    zoomIn() {
+      this.zoom = Math.round(this.zoom * 2 * 1000) / 1000;
+    },
+    zoomOut() {
+      this.zoom = Math.round(this.zoom / 2 * 1000) / 1000;
     }
   },
   mounted() {
@@ -133,6 +153,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 .slot-content {
   display: block;
@@ -151,5 +172,12 @@ export default {
 .zoom-container {
   display: inline-block;
   overflow: visible;
+}
+.slot-controls {
+  display: inline-block;
+  position: absolute;
+  bottom: 2em;
+  left: 2em;
+  font-size: 2em;
 }
 </style>
