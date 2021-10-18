@@ -1,4 +1,4 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1101px" height="1101px" viewBox="-0.5 -0.5 1101 1101" content="&lt;mxfile&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZnLctsgFIafRtsM1sW2lrUSJZ1pMp164TW2sESDhYtQbOfpC7pf8KUT4UqLjHT4kREfPxyIYXm74zOD++iVBogYJgiOhvVomKYzd8RfGTjlARuAPBAyHOShSR1Y4k9UBEtZigOUtIScUsLxvh3c0DhGG96KQcbooS3bUtL+1T0MUS+w3EDSj65wwKMiOik/Qxa8IBxGvFuyg6W6CCQRDOihEbKeDMtjlPL8bnf0EJGdV3ZMXs8/U1q1jKGYKyrQ9W/ZISYgcC2YZIIV5IiJ0IoyEiT5CxgKMY3Pl1e/Z0+rRleNSfip7ClG0zhAUgwMa3GIMEfLPdzI0oMYGiIW8Z1sx0TcbmnMC9i2lIcMBlh8h0cJZSIY01iULah4AeZy6DhStcWElArDtACwPdcV8X5PFJ3zgRhHx0aoaP0zojvE2UlIjp1xeSrHX/F8qKlbZSxqAJ+VQViMtLB6d81C3BRdVj4WdM6SeoU4FpEl+pOiWHSiOSVCvVgLOtNQ3i05ZAqCvXqgIaxQWmND6YkLgGFQmh2UpgLl7I4ovyXCVFT0fY+hj5HShnUN0JTU+JyL+K4Ag8k+nym3+Cghd1nklwJZB7QkgsVM+Y3gUDac0/3AABvApipgUz3AftHN+4VJUlFckXEmF8nc31gVzOz7ftIE8/xDNuJNYq6vMf7oCHY4CGS7F7Dg26tRgq+UA7C3FOydO7L3Gf1Ecd+q37O59BnDmCuGRFkL9GW1aWcjGxrV8lkCZnnv6jP29Fa4jh64wgSZdV8oQQqKiuKa3nx09OSloDcAp1lnBZ0puNkqbrYebst0n6WlrzBJ8Id02BWSN1Wo2bpa2Jr24Gy7zlxTzuluGOhuB7qrgG6qoJt6oL+hdUog6sNtFdS7k7GtvL4/b0MkaPtVf17IaJV+1JTRlvbK1rn2FkPlQoWsxmaODJvn+eLS7DXrBq8pF8aJ62rJeJHcazweINvevNNs1VGztUbG1nX1rZnzDlJVIqs8QNC1ZnKhhqyP8y1lCSre3rZrWQO0JDVOe2Q4K6t2Zlgtzv3XVMhy5w+OFq/SMFWcB3ny3crdaiYHzfIa6eU9yZ0OEkIi0rRi3LRHUXVkmj28I76JiocryL++ZflPqe5Kdrl6Xm0d1J6X1XDHtmXx/cKvA0y3Tme6VZ3XKrmZrvsw02LMN5RyRuPz0JSCGpeeXciA06vG1VJ1MqBcLS09truSyV7KYB0wVm4aEtUZmNwtUTXksRrlDWnjX4zW018=&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1101px" height="1101px" viewBox="-0.5 -0.5 1101 1101" content="&lt;mxfile scale=&quot;1&quot; border=&quot;0&quot; disableSvgWarning=&quot;true&quot;&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZlLc5swEMc/DdeMzMM2x5iEpDNNplMffJaNDGpk5AoR2/n0lXg/ZCedIgqHDKz+wmJ/Wu1KMSzvcH5i8Bi90AARwwTB2bAeDNN0lo74Kw2X3GADkBtChoPcNKsNa/yBCmMpS3GAkpaQU0o4PraNOxrHaMdbNsgYPbVle0rav3qEIeoZ1jtI+tYNDnhUWGflZ8iGZ4TDiHdbDrBUF4YkggE9NUzWo2F5jFKe3x3OHiLSeaVj8n7+ldZqZAzFXNGBbn9Jh5iAwK1gkgk2kCMmTBvKSJDkL2AoxDS+3l79nj2vBl0NJuGX0lOMpnGApBgY1uoUYY7WR7iTrScxNYQt4gc5jpm43dOYF7BtKQ8ZDLD4Do8SyoQxprFoW1HxAszl1HGkao8JKRWGaQFge64r7H1PFM55R4yjc8NUjP4J0QPi7CIk5868vJTzr3g+1dSt0hY1gC9KIyxmWli9u2YhbgqXlY8FnaukXiCOhWWNfqcoFk4050SoV1tBZx7KuzWHTEGw1w80hBVKa2ooPXEBMAxKs4PSVKBcjIjyPhFBRYXvewx9jJRhWPcATUmNz7mJ7xNgMDnmK+UenyXkLov8UiDrgJZEsFgp7wkO5cA5PQ4MsAFsrgI21wPsJ9293VgkFc0VGWd2k8z4gVXBzL7vB00wzz9kJ94k1voa4/eO4ICDQI57BQu+vR4l+Eo5AHtLwd4Zkb3P6AeK+6H6LVtLnzCMuWJKlL1AX1YH7WJiU6NKnyVglntXX2DPvwrX0QNXBEEWus+UIAVFRXNNbzk5evJS0BuA06KTQRcKbraKm62H2zo9ZmXpC0wS/C4j7BOSX+pQs3W1sDXtwdiOsvS6Hequgrqpom7qof6KtimBqE+31VBvT6aWen1/2aZI0P5fA/RGSasMSE0lbRlfWaJr7zFUYaiQ1djMiWHzPF9cY5U5N2JNmRlnrqul5EVys/Fwgmz/5a1mq4+arTUxtq6rL2kuO0hVlazyBEFX0uRCDVkf52vKElS8vR2uZQ/QktQ47YnhrEJ1nDz5t9WQ5S7vHC3RSsNUcSTkyXcrN6yZHDTba6i3tyUjnSWERFRqxcxpz6Pq1DR7eEN8FxUPnbQ6/K7lP1W7G+ly9craOqu9LqvhTm3X4vtFxA6w4DqdBVd1ZKvkZrru3UJLYL6ilDMaX4emFNS49GxEBlxgNeZL1eGAMl9aesLuk1r2Vg3rgKly01CqLsBstFLVkCdrlDekjf8yWo9/AA==&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
         <rect x="400" y="100" width="300" height="700" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
@@ -113,15 +113,15 @@
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe flex-end; width: 198px; height: 1px; padding-top: 1097px; margin-left: 900px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 1000px; margin-left: 901px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
                             <div style="display: inline-block; font-size: 24px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Super Massive Black Holes
                             </div>
                         </div>
                     </div>
                 </foreignObject>
-                <text x="1098" y="1097" fill="#000000" font-family="Helvetica" font-size="24px" text-anchor="end">
+                <text x="1000" y="1007" fill="#000000" font-family="Helvetica" font-size="24px" text-anchor="middle">
                     Super Massive Bla...
                 </text>
             </switch>
@@ -147,7 +147,7 @@
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 1096px; margin-left: 301px;">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 1000px; margin-left: 301px;">
                         <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Super Giant Stars
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="550" y="1096" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
+                <text x="550" y="1012" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
                     Super Giant Stars
                 </text>
             </switch>
@@ -183,8 +183,8 @@
         <g transform="translate(-0.5 -0.5)">
             <switch>
                 <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-end; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 1096px; margin-left: 2px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 899px; margin-left: 1px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
                             <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
                                 Stellar
                                 <br/>
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                 </foreignObject>
-                <text x="2" y="1096" fill="#000000" font-family="Helvetica" font-size="40px">
+                <text x="200" y="911" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
                     Stellar...
                 </text>
             </switch>
@@ -269,12 +269,4 @@
             </switch>
         </g>
     </g>
-    <switch>
-        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
-        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
-            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
-                Viewer does not support full SVG 1.1
-            </text>
-        </a>
-    </switch>
 </svg>
