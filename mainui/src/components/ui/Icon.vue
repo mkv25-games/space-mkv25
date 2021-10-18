@@ -27,6 +27,7 @@ export default {
   height: 1.5em;
   text-align: center;
   vertical-align: middle;
+  user-select: none;
 }
 .icon.button {
   border-radius: 50%;

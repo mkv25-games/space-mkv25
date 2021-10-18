@@ -3,7 +3,8 @@
     <div ref="slot-content" class="slot-content"
       v-on:mousedown="startOffset"
       v-on:mouseup="endOffset"
-      v-on:mousemove="trackOffset">
+      v-on:mousemove="trackOffset"
+      v-on:wheel="scrollZoom">
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
@@ -89,14 +90,11 @@ export default {
   },
   methods: {
     offsetStyle() {
-      const co = this.centerOffset
-      const basex = co.x + this.offsetX - this.trackOffsetX
-      const basey = co.y + this.offsetY - this.trackOffsetY
-      const hw = this.slotWidth / 2 * this.zoom
-      const hh = this.slotHeight / 2 * this.zoom
-      const x = Math.min(Math.max(-hw, basex), hw)
-      const y = Math.min(Math.max(-hh, basey), hh)
-      return `left: ${x}px; top: ${y}px;`
+      const hw = this.slotWidth / 2
+      const hh = this.slotHeight / 2
+      const x = this.offsetX - this.trackOffsetX + hw
+      const y = this.offsetY - this.trackOffsetY + hh
+      return `left: ${x}px; top: ${y}px; width: 1px; height: 1px;`
     },
     offsetClass() {
       const state = this.trackMoveOffset ? 'moving' : 'static'
@@ -104,33 +102,50 @@ export default {
     },
     zoomStyle() {
       const zoomScale = this.zoom
-      return `zoom: ${zoomScale};`
+      const hw = Math.round(this.zoomWidth / 2 / this.zoom)
+      const hh = Math.round(this.zoomHeight / 2 / this.zoom)
+      return `zoom: ${zoomScale}; left: ${-hw}px; top: ${-hh}px;`
     },
     scrollLeft() {
-      this.offsetX = this.offsetX - 100
+      this.scrollDirection(-100, 0)
     },
     scrollRight() {
-      this.offsetX = this.offsetX + 100
+      this.scrollDirection(100, 0)
     },
     scrollUp() {
-      this.offsetY = this.offsetY - 100
+      this.scrollDirection(0, -100)
     },
     scrollDown() {
-      this.offsetY = this.offsetY + 100
+      this.scrollDirection(0, 100)
+    },
+    scrollZoom(ev) {
+      ev.preventDefault()
+      this.zoom += ev.deltaY * -0.005
+      this.recaculateSizes()
+    },
+    scrollDirection(x, y) {
+      let newX = this.offsetX + x
+      let newY = this.offsetY + y
+      this.offsetX = newX
+      this.offsetY = newY
     },
     zoomIn() {
       const baseZoom = Math.round(this.zoom * 2 * 1000) / 1000;
       this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
+      this.recaculateSizes()
     },
     zoomOut() {
       const baseZoom = Math.round(this.zoom / 2 * 1000) / 1000;
       this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
+      this.recaculateSizes()
     },
     startOffset(ev) {
-      console.log('Start offset:', ev)
+      // console.log('Start offset:', ev)
       this.moveOffsetX = ev.x
       this.moveOffsetY = ev.y
       this.trackMoveOffset = true
+      const self = this
+      document.addEventListener('mouseup', this.endOffset)
     },
     trackOffset(ev) {
       if (this.trackMoveOffset) {
@@ -143,35 +158,48 @@ export default {
         this.trackOffsetY = 0
       }
     },
-    endOffset(ev) {
+    endOffset() {
+      // console.log('End offset:', ev)
       this.trackMoveOffset = false
+      const x = this.trackOffsetX
+      const y = this.trackOffsetY
       this.trackOffsetX = 0
       this.trackOffsetY = 0
-      const x = this.moveOffsetX - ev.x
-      const y = this.moveOffsetY - ev.y
-      this.offsetX -= x
-      this.offsetY -= y
-    }
-  },
-  mounted() {
-    const self = this
-    self.resizeObserver = new ResizeObserver(() => {
+      this.scrollDirection(-x, -y)
+      document.removeEventListener('mouseup', this.endOffset)
+    },
+    recaculateSizes() {
+      if (this.zoom > 10) {
+        this.zoom = 10
+      }
 
+      if (this.zoom < 0.1) {
+        this.zoom = 0.1
+      }
+
+      const self = this
       const offsetSize = size(this.$refs['offset-content'])
       self.offsetWidth = offsetSize.width
       self.offsetHeight = offsetSize.height
 
       const zoomSize = size(this.$refs['zoom-container'])
-      self.zoomWidth = zoomSize.width
-      self.zoomHeight = zoomSize.height
+      self.zoomWidth = zoomSize.width * self.zoom
+      self.zoomHeight = zoomSize.height * self.zoom
 
       self.viewSizeX = self.$el.clientWidth
       self.viewSizeY = self.$el.clientHeight
+
       if (self.zoom === 1.0) {
         const slotSize = size(this.$refs['slot-content'])
-        self.slotWidth = self.zoomWidth
-        self.slotHeight = self.zoomHeight
+        self.slotWidth = slotSize.width
+        self.slotHeight = slotSize.height
       }
+    }
+  },
+  mounted() {
+    const self = this
+    self.resizeObserver = new ResizeObserver(() => {
+      self.recaculateSizes()
     })
     self.resizeObserver.observe(self.$el)
   },
@@ -187,6 +215,7 @@ export default {
   height: 100%;
   overflow: hidden;
   position: relative;
+  user-select: none;
 }
 .slot-content {
   display: block;
@@ -202,11 +231,11 @@ export default {
   position: absolute;
   overflow: visible;
 }
-.offset-container.static {
+.offset-container.static > .zoom-container {
   outline: 2px solid black;
   outline-offset: -2px;
 }
-.offset-container.moving {
+.offset-container.moving > zoom.container {
   outline: 2px solid white;
   outline-offset: -2px;
   background: rgba(0,0,0,0.5);
@@ -216,6 +245,7 @@ export default {
 }
 .zoom-container {
   display: inline-block;
+  position: absolute;
   overflow: visible;
 }
 .slot-controls {
