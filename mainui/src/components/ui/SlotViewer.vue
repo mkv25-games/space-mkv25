@@ -7,7 +7,7 @@
       v-on:mouseup="endOffset"
       v-on:mousemove="trackOffset"
       v-on:wheel="scrollZoom">
-      <GridFill :viewx="grid.x" :viewy="grid.y" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
+      <GridFill :viewx="gridx" :viewy="gridy" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
@@ -75,6 +75,14 @@ export default {
   components: {
     Icon, Property, GridFill
   },
+  computed: {
+    gridx() {
+      return this.offsetX - this.trackOffsetX
+    },
+    gridy() {
+      return this.offsetY - this.trackOffsetY
+    }
+  },
   props: {
     galaxy: Object
   },
@@ -92,16 +100,9 @@ export default {
     },
     zoomStyle() {
       const zoomScale = this.zoom
-      const hw = Math.round(this.zoomWidth / 2 / this.zoom)
-      const hh = Math.round(this.zoomHeight / 2 / this.zoom)
+      const hw = this.zoomWidth / 2 / this.zoom
+      const hh = this.zoomHeight / 2 / this.zoom
       return `zoom: ${zoomScale}; left: ${-hw}px; top: ${-hh}px;`
-    },
-    grid() {
-      const x = this.offsetX + this.trackOffsetX
-      const y = this.offsetY = this.trackOffsetY
-      return {
-        x, y
-      }
     },
     scrollLeft() {
       this.scrollDirection(-100, 0)
@@ -220,7 +221,9 @@ export default {
     self.resizeObserver = new ResizeObserver(() => {
       self.recaculateSizes()
     })
-    self.resizeObserver.observe(self.$el)
+    if (self.$el) {
+      self.resizeObserver.observe(self.$el)
+    }
   },
   destroyed() {
     this.resizeObserver.disconnect()
