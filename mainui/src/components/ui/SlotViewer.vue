@@ -7,6 +7,7 @@
       v-on:mouseup="endOffset"
       v-on:mousemove="trackOffset"
       v-on:wheel="scrollZoom">
+      <GridFill :viewx="grid.x" :viewy="grid.y" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
@@ -31,6 +32,7 @@
 <script>
 import Property from './Property.vue'
 import Icon from './IconButton.vue'
+import GridFill from './GridFill.vue'
 
 function size(el) {
   if (el) {
@@ -71,14 +73,10 @@ export default {
     }
   },
   components: {
-    Icon, Property
+    Icon, Property, GridFill
   },
   props: {
-    galaxy: Object,
-    tileSize: {
-      type: Number,
-      default: 10
-    },
+    galaxy: Object
   },
   methods: {
     offsetStyle() {
@@ -97,6 +95,13 @@ export default {
       const hw = Math.round(this.zoomWidth / 2 / this.zoom)
       const hh = Math.round(this.zoomHeight / 2 / this.zoom)
       return `zoom: ${zoomScale}; left: ${-hw}px; top: ${-hh}px;`
+    },
+    grid() {
+      const x = this.offsetX + this.trackOffsetX
+      const y = this.offsetY = this.trackOffsetY
+      return {
+        x, y
+      }
     },
     scrollLeft() {
       this.scrollDirection(-100, 0)
