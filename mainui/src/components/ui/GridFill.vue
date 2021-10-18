@@ -9,8 +9,13 @@
         <rect :width="tile.size" :height="tile.size" fill="url(#smallGrid)"/>
         <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(100,100,100,0.5)" stroke-width="1"/>
       </pattern>
+      <pattern id="largeGrid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
+        :x="tile.x % tile.size" :y="tile.y % tile.size">
+        <rect :width="tile.size" :height="tile.size" fill="white" />
+        <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(50,50,50,0.5)" stroke-width="1"/>
+      </pattern>
     </defs>
-    <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;" />
+    <rect width="100%" height="100%" :fill="gridBasedOnZoom" style="pointer-events: none;" />
     <text x="10" y="20">
       VXY: {{ viewx.toFixed(2) }}, {{ viewy.toFixed(2) }}
       Z: {{ zoom.toFixed(2) }}
@@ -60,8 +65,13 @@ export default {
         x: viewx + offsetx,
         y: viewy + offsety,
         size: size * zoom,
-        divider: divider * zoom
+        divider: divider * zoom,
+        multiplier: 10
       }
+    },
+    gridBasedOnZoom() {
+      const gridId = this.zoom > 0.5 ? 'grid' : 'largeGrid'
+      return `url(#${gridId})`
     }
   }
 }
