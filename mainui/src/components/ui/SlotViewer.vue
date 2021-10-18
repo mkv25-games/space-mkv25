@@ -1,6 +1,8 @@
 <template>
   <div class="slot-viewer">
     <div ref="slot-content" class="slot-content"
+      v-on:mouseover="gainKeyFocus"
+      v-on:mouseout="loseKeyFocus"
       v-on:mousedown="startOffset"
       v-on:mouseup="endOffset"
       v-on:mousemove="trackOffset"
@@ -20,6 +22,8 @@
       <icon icon="minus-circle" v-on:click="zoomOut()"  />
       <icon icon="chevron-circle-down" v-on:click="scrollDown()"  />
       <icon icon="chevron-circle-up" v-on:click="scrollUp()"  />
+      <br />
+      <b>XY: {{ offsetX }}, {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b>
     </div>
   </div>
 </template>
@@ -76,22 +80,10 @@ export default {
       default: 10
     },
   },
-  computed: {
-    centerOffset() {
-      const cx = this.viewSizeX / 2
-      const cy = this.viewSizeY / 2
-      const x = Math.floor(cx - (this.zoomWidth * this.zoom / 2))
-      const y = Math.floor(cy - (this.zoomHeight * this.zoom / 2))
-      return {
-        x,
-        y 
-      }
-    }
-  },
   methods: {
     offsetStyle() {
-      const hw = this.slotWidth / 2
-      const hh = this.slotHeight / 2
+      const hw = this.viewSizeX / 2
+      const hh = this.viewSizeY / 2
       const x = this.offsetX - this.trackOffsetX + hw
       const y = this.offsetY - this.trackOffsetY + hh
       return `left: ${x}px; top: ${y}px; width: 1px; height: 1px;`
@@ -121,23 +113,43 @@ export default {
     scrollZoom(ev) {
       ev.preventDefault()
       this.zoom += ev.deltaY * -0.005
-      this.recaculateSizes()
+      this.recaculateSizes('scrollZoom')
     },
     scrollDirection(x, y) {
       let newX = this.offsetX + x
       let newY = this.offsetY + y
       this.offsetX = newX
       this.offsetY = newY
+      this.recaculateSizes('scrollDirection')
     },
     zoomIn() {
       const baseZoom = Math.round(this.zoom * 2 * 1000) / 1000;
       this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
-      this.recaculateSizes()
+      this.recaculateSizes('zoomIn')
     },
     zoomOut() {
       const baseZoom = Math.round(this.zoom / 2 * 1000) / 1000;
       this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
-      this.recaculateSizes()
+      this.recaculateSizes('zoomOut')
+    },
+    gainKeyFocus() {
+      document.addEventListener('keydown', this.checkKeyboardKeys)
+    },
+    loseKeyFocus() {
+      document.removeEventListener('keydown', this.checkKeyboardKeys)
+    },
+    checkKeyboardKeys(ev) {
+      console.log('Check Keyboard Keys', ev)
+      const delta = (ev.shiftKey || ev.altKey) ? 100 : 20 
+      const map = {
+        ArrowUp: () => this.scrollDirection(0, -delta),
+        ArrowDown: () => this.scrollDirection(0, delta),
+        ArrowLeft: () => this.scrollDirection(-delta, 0),
+        ArrowRight: () => this.scrollDirection(delta, 0)
+      }
+      const noop = () => {}
+      const fn = map[ev.code] || noop
+      fn()
     },
     startOffset(ev) {
       // console.log('Start offset:', ev)
@@ -168,15 +180,17 @@ export default {
       this.scrollDirection(-x, -y)
       document.removeEventListener('mouseup', this.endOffset)
     },
-    recaculateSizes() {
+    limitBoundaries() {
       if (this.zoom > 10) {
         this.zoom = 10
       }
-
       if (this.zoom < 0.1) {
         this.zoom = 0.1
       }
-
+    },
+    recaculateSizes(source) {
+      console.log('Recalc', source)
+      this.limitBoundaries()
       const self = this
       const offsetSize = size(this.$refs['offset-content'])
       self.offsetWidth = offsetSize.width
@@ -186,8 +200,8 @@ export default {
       self.zoomWidth = zoomSize.width * self.zoom
       self.zoomHeight = zoomSize.height * self.zoom
 
-      self.viewSizeX = self.$el.clientWidth
-      self.viewSizeY = self.$el.clientHeight
+      self.viewSizeX = self.$el.offsetWidth
+      self.viewSizeY = self.$el.offsetHeight
 
       if (self.zoom === 1.0) {
         const slotSize = size(this.$refs['slot-content'])
