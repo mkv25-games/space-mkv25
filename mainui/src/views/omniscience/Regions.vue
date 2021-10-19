@@ -4,12 +4,12 @@
       <template v-slot:left>
         <slot-viewer>
           <div ref="region-svg">
-            <svg style="width: 500px; height: 500px; display: block;" viewBox="0 0 1 1">
+            <svg style="width: 500px; height: 500px; display: block;" :viewBox="`0 0 ${scale} ${scale}`">
               <g>
                 <rect v-for="region in regions" :key="region.id"
-                  :x="region.density.lower" :y="region.mass.lower"
-                  :width="region.density.upper" :height="region.mass.upper"
-                  :fill="region.color" opacity="0.5" />
+                  :x="region.density.lower * scale" :y="region.mass.lower * scale"
+                  :width="region.density.upper * scale" :height="region.mass.upper * scale"
+                  :fill="region.color" :class="activeRegionClass(region)" />
               </g>
             </svg>
           </div>
@@ -17,7 +17,7 @@
       </template>
       <template v-slot:right>
         <h2>Regions</h2>
-        <div class="region info" v-for="region in regions" :key="region.id">
+        <div class="region info" v-for="region in regions" :key="region.id" v-on:mouseover="highlightRegion(region)">
           <icon icon="expand" :style="`color: ${region.color}`" /> {{ region.label }}
         </div>
       </template>
@@ -38,7 +38,9 @@ const regions = require('../../../../data/regions.json')
 export default {
   data() {
     return {
-      visualModel: false
+      visualModel: false,
+      activeRegion: {},
+      scale: 500
     }
   },
   components: {
@@ -54,6 +56,15 @@ export default {
     analysis() {
       return this.regions
     }
+  },
+  methods: {
+    activeRegionClass(region) {
+      const activeRegion = this.activeRegion || {}
+      return region.id === activeRegion.id ? 'active' : ''
+    },
+    highlightRegion(region) {
+      this.activeRegion = region
+    }
   }
 }
 </script>
@@ -66,5 +77,13 @@ export default {
   padding: 0.2em;
   margin: 0.1em 0;
   vertical-align: middle;
+}
+rect {
+  opacity: 0.5;
+  transition: opacity 1s ease-in-out;
+}
+rect.active {
+  opacity: 1.0;
+  transition: opacity 500ms ease-in-out;
 }
 </style>
