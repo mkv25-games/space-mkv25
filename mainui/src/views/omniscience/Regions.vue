@@ -17,8 +17,9 @@
       </template>
       <template v-slot:right>
         <h2>Regions</h2>
-        <p>Analyze regions</p>
-        <div>{{ analysis }}</div>
+        <div class="region info" v-for="region in regions" :key="region.id">
+          <icon icon="expand" :style="`color: ${region.color}`" /> {{ region.label }}
+        </div>
       </template>
     </column-layout>
   </OmniscienceView>
@@ -41,7 +42,7 @@ export default {
     }
   },
   components: {
-    OmniscienceView, ColumnLayout, Icon, RegionsSVG, SlotViewer
+    OmniscienceView, ColumnLayout, Icon, RegionsSVG, SlotViewer, Icon
   },
   computed: {
     galaxy() {
@@ -56,3 +57,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.region.info {
+  text-align: left;
+  background: #222;
+  color: white;
+  padding: 0.2em;
+  margin: 0.1em 0;
+  vertical-align: middle;
+}
+</style>
