@@ -4,7 +4,14 @@
       <template v-slot:left>
         <slot-viewer>
           <div ref="region-svg">
-            <RegionsSVG style="width: 500px; height: 500px; display: block;" />
+            <svg style="width: 500px; height: 500px; display: block;" viewBox="0 0 1 1">
+              <g>
+                <rect v-for="region in regions" :key="region.id"
+                  :x="region.density.lower" :y="region.mass.lower"
+                  :width="region.density.upper" :height="region.mass.upper"
+                  :fill="region.color" opacity="0.5" />
+              </g>
+            </svg>
           </div>
         </slot-viewer>
       </template>
@@ -23,8 +30,9 @@ import OmniscienceView from './Omniscience.vue'
 import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import Icon from '@/components/ui/Icon.vue'
 import SlotViewer from '@/components/ui/SlotViewer.vue'
-
 import RegionsSVG from '@/models/visual/regions.inkscape.svg'
+
+const regions = require('../../../../data/regions.json')
 
 export default {
   data() {
@@ -39,25 +47,12 @@ export default {
     galaxy() {
       return this.contact.galaxy || newGalaxy()
     },
+    regions() {
+      return regions.regions
+    },
     analysis() {
-      const model = this.visualModel
-      if (model) {
-        const paths = [...model.getElementsByTagName('path')].map(p => p.getAttribute('d'))
-        const labels = [...model.getElementsByTagName('text')].map(l => l.textContent)
-        const data = paths.map((path, i) => {
-          const label = labels[i]
-          return { label, path }
-        })
-        return data
-      }
-      return []
+      return this.regions
     }
-  },
-  mounted() {
-    const self = this
-    this.$nextTick(() => {
-      self.visualModel = self.$refs['region-svg']
-    })
   }
 }
 </script>
