@@ -4,7 +4,7 @@
       <template v-slot:left>
         <slot-viewer>
           <div ref="region-svg">
-            <RegionsSVG style="width: 500px; height: 500px;" />
+            <RegionsSVG style="width: 500px; height: 500px; display: block;" />
           </div>
         </slot-viewer>
       </template>

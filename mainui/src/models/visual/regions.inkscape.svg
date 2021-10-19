@@ -30,75 +30,47 @@
      inkscape:window-x="0"
      inkscape:window-y="23"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g307" />
+     inkscape:current-layer="regions" />
   <defs
-     id="defs177">
-    <rect
-       x="-484.93449"
-       y="404.56613"
-       width="352.80346"
-       height="320.11125"
-       id="rect8657" />
-    <rect
-       x="513.54017"
-       y="565.30284"
-       width="66.746601"
-       height="47.676143"
-       id="rect5279" />
-  </defs>
+     id="defs177" />
   <g
-     id="g307">
+     id="regions">
+    <title
+       id="title241">Regions</title>
     <rect
-       x="400"
-       y="100"
-       width="300"
-       height="700"
-       fill-opacity="0.5"
-       fill="#004c99"
-       stroke="#000000"
-       stroke-opacity="0.5"
-       pointer-events="all"
-       id="rect179" />
-    <rect
-       x="199.32042"
-       y="200"
-       width="700.67957"
-       height="700"
-       fill-opacity="0.5"
-       fill="#cccc00"
-       stroke="#000000"
-       stroke-opacity="0.5"
-       pointer-events="all"
-       id="rect187"
-       style="stroke-width:1.00048" />
-    <rect
-       x="199.95615"
-       y="-0.043856874"
-       width="600.08771"
-       height="499.28674"
+       x="200"
+       y="0"
+       width="600"
+       height="500"
        fill-opacity="0.5"
        fill="#333333"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect195"
-       style="stroke-width:0.912286" />
+       id="asteroids"
+       style="stroke-width:0.912286">
+      <title
+         id="title199">Asteroids</title>
+    </rect>
     <rect
-       x="299.95615"
-       y="0.48451987"
-       width="500.08771"
-       height="498.75833"
+       x="300"
+       y="0"
+       width="500"
+       height="500"
        fill-opacity="0.5"
        fill="#333333"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect203"
-       style="stroke-width:0.911817" />
+       id="rock-worlds"
+       style="stroke-width:0.911817">
+      <title
+         id="title197">Rock Worlds</title>
+    </rect>
     <rect
        x="600"
        y="0"
-       width="500.00125"
+       width="500"
        height="500"
        fill-opacity="0.5"
        fill="#004c99"
@@ -110,6 +82,35 @@
          id="title12079">Frozen Giants</title>
     </rect>
     <rect
+       x="400"
+       y="100"
+       width="300"
+       height="700"
+       fill-opacity="0.5"
+       fill="#004c99"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="water-worlds">
+      <title
+         id="title201">Water Worlds</title>
+    </rect>
+    <rect
+       x="200"
+       y="200"
+       width="700"
+       height="700"
+       fill-opacity="0.5"
+       fill="#cccc00"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="main-sequence-solar-systems"
+       style="stroke-width:1.00048">
+      <title
+         id="title161">Main Sequence Solar Systems</title>
+    </rect>
+    <rect
        x="700"
        y="700"
        width="400"
@@ -119,12 +120,15 @@
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect219" />
+       id="black-holes">
+      <title
+         id="title239">Black Holes</title>
+    </rect>
     <rect
-       x="900.05084"
-       y="899.9538"
-       width="199.99533"
-       height="200.09239"
+       x="900"
+       y="900"
+       width="200"
+       height="200"
        fill-opacity="0.5"
        fill="#000000"
        stroke="#000000"
@@ -145,18 +149,24 @@
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect235" />
+       id="nebulae">
+      <title
+         id="title237">Nebulae</title>
+    </rect>
     <rect
        x="300"
        y="900"
        width="500"
-       height="199"
+       height="200"
        fill-opacity="0.5"
        fill="#ccffff"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect243" />
+       id="super-giants">
+      <title
+         id="title193">Super Giants</title>
+    </rect>
     <rect
        x="800"
        y="300"
@@ -167,12 +177,15 @@
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect251" />
+       id="red-dwarf-stars">
+      <title
+         id="title191">Red Dwarf Stars</title>
+    </rect>
     <rect
        x="0"
        y="700"
        width="400"
-       height="398.5"
+       height="400"
        fill-opacity="0.5"
        fill="#ccffff"
        stroke="#000000"
@@ -200,7 +213,7 @@
        x="500"
        y="100"
        width="400"
-       height="299.75"
+       height="300"
        fill-opacity="0.5"
        fill="#ffffff"
        stroke="#000000"
@@ -211,36 +224,33 @@
          id="title12803">White Dwarf Stars</title>
     </rect>
     <rect
-       x="799.99884"
-       y="599.99884"
-       width="300.00226"
-       height="298.64011"
+       x="800"
+       y="600"
+       width="300"
+       height="300"
        fill-opacity="0.5"
        fill="#ccffff"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect283"
-       style="stroke-width:0.997734" />
+       id="sub-giants"
+       style="stroke-width:0.997734">
+      <title
+         id="title195">Sub Giants</title>
+    </rect>
     <rect
        x="300"
-       y="701"
+       y="700"
        width="500"
-       height="199"
+       height="200"
        fill-opacity="0.5"
        fill="#ccffff"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="rect291" />
-    <rect
-       x="20"
-       y="20"
-       width="160"
-       height="120"
-       fill="none"
-       stroke="none"
-       pointer-events="all"
-       id="rect299" />
+       id="giant-stars">
+      <title
+         id="title159">Giant Stars</title>
+    </rect>
   </g>
 </svg>

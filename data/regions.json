@@ -1,0 +1,147 @@
+{
+  "source": "/Users/jbeech/Local/space-mkv25/mainui/src/models/visual/regions.inkscape.svg",
+  "svg": "7454 bytes",
+  "boundary": {
+    "x": 0,
+    "y": 0,
+    "width": 900200,
+    "height": 400
+  },
+  "rects": [
+    {
+      "id": "asteroids",
+      "label": "Asteroids",
+      "x": "200",
+      "y": "0",
+      "width": "600",
+      "height": "500",
+      "color": "#333333"
+    },
+    {
+      "id": "rock-worlds",
+      "label": "Rock Worlds",
+      "x": "300",
+      "y": "0",
+      "width": "500",
+      "height": "500",
+      "color": "#333333"
+    },
+    {
+      "id": "frozen-giants",
+      "label": "Frozen Giants",
+      "x": "600",
+      "y": "0",
+      "width": "500",
+      "height": "500",
+      "color": "#004c99"
+    },
+    {
+      "id": "water-worlds",
+      "label": "Water Worlds",
+      "x": "400",
+      "y": "100",
+      "width": "300",
+      "height": "700",
+      "color": "#004c99"
+    },
+    {
+      "id": "main-sequence-solar-systems",
+      "label": "Main Sequence Solar Systems",
+      "x": "200",
+      "y": "200",
+      "width": "700",
+      "height": "700",
+      "color": "#cccc00"
+    },
+    {
+      "id": "black-holes",
+      "label": "Black Holes",
+      "x": "700",
+      "y": "700",
+      "width": "400",
+      "height": "400",
+      "color": "#000000"
+    },
+    {
+      "id": "super-massive-black-holes",
+      "label": "Super Massive Black Holes",
+      "x": "900",
+      "y": "900",
+      "width": "200",
+      "height": "200",
+      "color": "#000000"
+    },
+    {
+      "id": "nebulae",
+      "label": "Nebulae",
+      "x": "0",
+      "y": "200",
+      "width": "400",
+      "height": "700",
+      "color": "#ff8000"
+    },
+    {
+      "id": "super-giants",
+      "label": "Super Giants",
+      "x": "300",
+      "y": "900",
+      "width": "500",
+      "height": "200",
+      "color": "#ccffff"
+    },
+    {
+      "id": "red-dwarf-stars",
+      "label": "Red Dwarf Stars",
+      "x": "800",
+      "y": "300",
+      "width": "300",
+      "height": "400",
+      "color": "#990000"
+    },
+    {
+      "id": "stellar-nursery",
+      "label": "Stellar Nursery",
+      "x": "0",
+      "y": "700",
+      "width": "400",
+      "height": "400",
+      "color": "#ccffff"
+    },
+    {
+      "id": "rogue-comets",
+      "label": "Rogue Comets",
+      "x": "0",
+      "y": "0",
+      "width": "400",
+      "height": "400",
+      "color": "#333333"
+    },
+    {
+      "id": "white-dwarf-stars",
+      "label": "White Dwarf Stars",
+      "x": "500",
+      "y": "100",
+      "width": "400",
+      "height": "300",
+      "color": "#ffffff"
+    },
+    {
+      "id": "sub-giants",
+      "label": "Sub Giants",
+      "x": "800",
+      "y": "600",
+      "width": "300",
+      "height": "300",
+      "color": "#ccffff"
+    },
+    {
+      "id": "giant-stars",
+      "label": "Giant Stars",
+      "x": "300",
+      "y": "700",
+      "width": "500",
+      "height": "200",
+      "color": "#ccffff"
+    }
+  ]
+}
