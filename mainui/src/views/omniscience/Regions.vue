@@ -24,7 +24,7 @@ import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import Icon from '@/components/ui/Icon.vue'
 import SlotViewer from '@/components/ui/SlotViewer.vue'
 
-import RegionsSVG from '@/models/visual/regions.drawio.svg'
+import RegionsSVG from '@/models/visual/regions.inkscape.svg'
 
 export default {
   data() {
