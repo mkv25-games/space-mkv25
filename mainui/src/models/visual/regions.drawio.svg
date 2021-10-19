@@ -1,272 +1,246 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1101px" height="1101px" viewBox="-0.5 -0.5 1101 1101" content="&lt;mxfile scale=&quot;1&quot; border=&quot;0&quot; disableSvgWarning=&quot;true&quot;&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZlLc5swEMc/DdeMzMM2x5iEpDNNplMffJaNDGpk5AoR2/n0lXg/ZCedIgqHDKz+wmJ/Wu1KMSzvcH5i8Bi90AARwwTB2bAeDNN0lo74Kw2X3GADkBtChoPcNKsNa/yBCmMpS3GAkpaQU0o4PraNOxrHaMdbNsgYPbVle0rav3qEIeoZ1jtI+tYNDnhUWGflZ8iGZ4TDiHdbDrBUF4YkggE9NUzWo2F5jFKe3x3OHiLSeaVj8n7+ldZqZAzFXNGBbn9Jh5iAwK1gkgk2kCMmTBvKSJDkL2AoxDS+3l79nj2vBl0NJuGX0lOMpnGApBgY1uoUYY7WR7iTrScxNYQt4gc5jpm43dOYF7BtKQ8ZDLD4Do8SyoQxprFoW1HxAszl1HGkao8JKRWGaQFge64r7H1PFM55R4yjc8NUjP4J0QPi7CIk5868vJTzr3g+1dSt0hY1gC9KIyxmWli9u2YhbgqXlY8FnaukXiCOhWWNfqcoFk4050SoV1tBZx7KuzWHTEGw1w80hBVKa2ooPXEBMAxKs4PSVKBcjIjyPhFBRYXvewx9jJRhWPcATUmNz7mJ7xNgMDnmK+UenyXkLov8UiDrgJZEsFgp7wkO5cA5PQ4MsAFsrgI21wPsJ9293VgkFc0VGWd2k8z4gVXBzL7vB00wzz9kJ94k1voa4/eO4ICDQI57BQu+vR4l+Eo5AHtLwd4Zkb3P6AeK+6H6LVtLnzCMuWJKlL1AX1YH7WJiU6NKnyVglntXX2DPvwrX0QNXBEEWus+UIAVFRXNNbzk5evJS0BuA06KTQRcKbraKm62H2zo9ZmXpC0wS/C4j7BOSX+pQs3W1sDXtwdiOsvS6Hequgrqpom7qof6KtimBqE+31VBvT6aWen1/2aZI0P5fA/RGSasMSE0lbRlfWaJr7zFUYaiQ1djMiWHzPF9cY5U5N2JNmRlnrqul5EVys/Fwgmz/5a1mq4+arTUxtq6rL2kuO0hVlazyBEFX0uRCDVkf52vKElS8vR2uZQ/QktQ47YnhrEJ1nDz5t9WQ5S7vHC3RSsNUcSTkyXcrN6yZHDTba6i3tyUjnSWERFRqxcxpz6Pq1DR7eEN8FxUPnbQ6/K7lP1W7G+ly9craOqu9LqvhTm3X4vtFxA6w4DqdBVd1ZKvkZrru3UJLYL6ilDMaX4emFNS49GxEBlxgNeZL1eGAMl9aesLuk1r2Vg3rgKly01CqLsBstFLVkCdrlDekjf8yWo9/AA==&lt;/diagram&gt;&lt;/mxfile&gt;">
-    <defs/>
-    <g>
-        <rect x="400" y="100" width="300" height="700" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 298px; height: 1px; padding-top: 450px; margin-left: 401px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Water Worlds
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="462" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Water Worlds
-                </text>
-            </switch>
-        </g>
-        <rect x="200" y="200" width="700" height="700" fill-opacity="0.5" fill="#cccc00" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 698px; height: 1px; padding-top: 550px; margin-left: 201px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Main Sequence
-                                <br/>
-                                Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="562" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Main Sequence...
-                </text>
-            </switch>
-        </g>
-        <rect x="200" y="0" width="600" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe center; width: 598px; height: 1px; padding-top: 7px; margin-left: 201px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Asteroid
-                                <br/>
-                                Fields
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="500" y="47" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Asteroid...
-                </text>
-            </switch>
-        </g>
-        <rect x="300" y="0" width="500" height="600" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 300px; margin-left: 301px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Rock Worlds
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="312" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Rock Worlds
-                </text>
-            </switch>
-        </g>
-        <rect x="600" y="0" width="500" height="500" fill-opacity="0.5" fill="#004c99" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-end; width: 498px; height: 1px; padding-top: 7px; margin-left: 600px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Frozen
-                                <br/>
-                                Ice Giants
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1098" y="47" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
-                    Frozen...
-                </text>
-            </switch>
-        </g>
-        <rect x="700" y="700" width="400" height="400" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 398px; height: 1px; padding-top: 900px; margin-left: 700px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Black Holes
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1098" y="912" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
-                    Black Holes
-                </text>
-            </switch>
-        </g>
-        <rect x="900" y="900" width="200" height="200" fill-opacity="0.5" fill="#000000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 198px; height: 1px; padding-top: 1000px; margin-left: 901px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 24px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Super Massive Black Holes
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1000" y="1007" fill="#000000" font-family="Helvetica" font-size="24px" text-anchor="middle">
-                    Super Massive Bla...
-                </text>
-            </switch>
-        </g>
-        <rect x="0" y="200" width="400" height="700" fill-opacity="0.5" fill="#ff8000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 550px; margin-left: 2px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Nebulae
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="2" y="562" fill="#000000" font-family="Helvetica" font-size="40px">
-                    Nebulae
-                </text>
-            </switch>
-        </g>
-        <rect x="300" y="900" width="500" height="199" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 1000px; margin-left: 301px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Super Giant Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="1012" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Super Giant Stars
-                </text>
-            </switch>
-        </g>
-        <rect x="800" y="300" width="300" height="400" fill-opacity="0.5" fill="#990000" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 298px; height: 1px; padding-top: 500px; margin-left: 800px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Red Dwarf
-                                <br/>
-                                Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1098" y="512" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
-                    Red Dwarf...
-                </text>
-            </switch>
-        </g>
-        <rect x="0" y="700" width="400" height="398.5" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 899px; margin-left: 1px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Stellar
-                                <br/>
-                                Nursery
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="200" y="911" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Stellar...
-                </text>
-            </switch>
-        </g>
-        <rect x="0" y="0" width="400" height="400" fill-opacity="0.5" fill="#333333" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe flex-start; justify-content: unsafe flex-start; width: 398px; height: 1px; padding-top: 7px; margin-left: 2px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: left; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Rogue
-                                <br/>
-                                Comets
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="2" y="47" fill="#000000" font-family="Helvetica" font-size="40px">
-                    Rogue...
-                </text>
-            </switch>
-        </g>
-        <rect x="500" y="100" width="400" height="299.75" fill-opacity="0.5" fill="#ffffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 398px; height: 1px; padding-top: 250px; margin-left: 501px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                White Dwarf Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="700" y="262" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    White Dwarf Stars
-                </text>
-            </switch>
-        </g>
-        <rect x="800" y="600" width="300" height="300" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe flex-end; width: 298px; height: 1px; padding-top: 750px; margin-left: 800px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: right; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Neutron Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="1098" y="762" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="end">
-                    Neutron Stars
-                </text>
-            </switch>
-        </g>
-        <rect x="300" y="701" width="500" height="199" fill-opacity="0.5" fill="#ccffff" stroke="#000000" stroke-opacity="0.5" pointer-events="all"/>
-        <g transform="translate(-0.5 -0.5)">
-            <switch>
-                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 498px; height: 1px; padding-top: 801px; margin-left: 301px;">
-                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
-                            <div style="display: inline-block; font-size: 40px; font-family: Helvetica; color: #000000; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
-                                Giant Stars
-                            </div>
-                        </div>
-                    </div>
-                </foreignObject>
-                <text x="550" y="813" fill="#000000" font-family="Helvetica" font-size="40px" text-anchor="middle">
-                    Giant Stars
-                </text>
-            </switch>
-        </g>
-    </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   host="65bd71144e"
+   version="1.1"
+   width="1101px"
+   height="1102px"
+   viewBox="-0.5 -0.5 1101 1102"
+   content="&lt;mxfile scale=&quot;1&quot; border=&quot;0&quot; disableSvgWarning=&quot;true&quot;&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZlPc5s6EMA/ja8dWRjbHBta0s40mU59yFkxMtaLjFwhaqefvhIIxJ+1k75neHDwwO5KFvvTrlZi5oWH870kx/2DiCmfYRSfZ96nGcZrb6l/jeC1FKwwKgWJZHEpmjvBhv2mVliZ5SymWctQCcEVO7aFW5GmdKtaMiKlOLXNdoK3//VIEtoTbLaE96VPLFZ7K50j5BRfKEv2qqs5kMraCrI9icWpIfI+z7xQCqHKu8M5pNw4r3JM2S66oK1HJmmqgAbi+R/jEIw4edZMCoMnoqjUoicheZyVHUiaMJFe1tf/t1jWg64Hk6nXylNS5GlMjTGaeXenPVN0cyRboz3pqaFle3Uw45jr251IlYW9MOaJJDHT7xEKLqQWpiLVujuhO2DKTB3fWO0Y55XFDHsILcIg0PK+J6xzflGp6LkhsqO/p+JAlXzVJla7qLC9VvPPPp8cda+S7RvAV5WQ2JmW1H07FvrGuqx6tHQuknogLNWSDf2Z01Q7ES+5tr571nSWibnbKCIBgr12qGFYo/SmhjLUF0K3QYk7KDGAcjUiyo+ZDiqhfd9jGDEKhqFrgZomDp9/Fd8bwEh2LDPljp0N5C6L8gKQdUAbIkxnyo+cJWbgShxvDLABbAkBWw4D7IfYvlxJkoC6JuPPr5IZP7BqmMX7fRcZU+WLbHVPOtc7jN86BgcWx2bcd8Ty7bWowNeWN2DvAez9EdlHUvymaT9Uvxa59J6RVAFTomqF+mYuaFcTmxr18lkBlqV3hwvs5Xvh+sPA1UFQhO4XwSlAEVA7euvJ0TMXQO8GnFadFXQFcFtA3BbDcNvkx6IsfSBZxn6ZCHuD5LsaOLbBIGzx4mZsR0m9QYd6AFDHEHU8DPVH+pxzQvt0Wwq3PZna0htF6zZFTnf/NUCvlLRgQA5U0lbxVSx07T0GFIaAmcOGJ4YtDCN9jVXmXIk1cGWcB8EgJS81m41PJyJ3795qttrAbL2JsQ2C4RbNdQcpVMmCJwhDLZpKWxPZx/mYy4za3tvhWrVALROHczExnHWojrNO/m015AXrD/4g0SqSHDgSCk3f4Ia1MEdNvYN6fVsy0llCwnWlZmdOex7Vp6bFwwtV2719GAf6/1TyPhm/w+m1dWB72cwRntrWJYps2N4g6/qdrAud24LccBB8WA0SnY80V1Kkl6GBBg7XMLuRG2bZARdN6IQAXDS9YcLujYL2WiHro6lyG6BeXaH5aPVq/8uXj+34Cc9plQipNImQaSzoYEZ+YKm2j0rLBgj9xqrt7UxH4wvt+LbpTCt6/4ID4W1PgAsAAExXjslbSHA/cuZLiAj+V5HjvlMWusbXXu/zHw==&lt;/diagram&gt;&lt;/mxfile&gt;"
+   id="svg309"
+   sodipodi:docname="regions.drawio.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview311"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.73411978"
+     inkscape:cx="481.52905"
+     inkscape:cy="551"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g307" />
+  <defs
+     id="defs177">
+    <rect
+       x="-484.93449"
+       y="404.56613"
+       width="352.80346"
+       height="320.11125"
+       id="rect8657" />
+    <rect
+       x="513.54017"
+       y="565.30284"
+       width="66.746601"
+       height="47.676143"
+       id="rect5279" />
+  </defs>
+  <g
+     id="g307">
+    <rect
+       x="400"
+       y="100"
+       width="300"
+       height="700"
+       fill-opacity="0.5"
+       fill="#004c99"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect179" />
+    <rect
+       x="199.32042"
+       y="200"
+       width="700.67957"
+       height="700"
+       fill-opacity="0.5"
+       fill="#cccc00"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect187"
+       style="stroke-width:1.00048" />
+    <rect
+       x="199.95615"
+       y="-0.043856874"
+       width="600.08771"
+       height="499.28674"
+       fill-opacity="0.5"
+       fill="#333333"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect195"
+       style="stroke-width:0.912286" />
+    <rect
+       x="299.95615"
+       y="0.48451987"
+       width="500.08771"
+       height="498.75833"
+       fill-opacity="0.5"
+       fill="#333333"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect203"
+       style="stroke-width:0.911817" />
+    <rect
+       x="600"
+       y="0"
+       width="500.00125"
+       height="500"
+       fill-opacity="0.5"
+       fill="#004c99"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="frozen-giants">
+      <title
+         id="title12079">Frozen Giants</title>
+    </rect>
+    <rect
+       x="700"
+       y="700"
+       width="400"
+       height="400"
+       fill-opacity="0.5"
+       fill="#000000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect219" />
+    <rect
+       x="900.05084"
+       y="899.9538"
+       width="199.99533"
+       height="200.09239"
+       fill-opacity="0.5"
+       fill="#000000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="super-massive-black-holes"
+       style="stroke-width:1.00022">
+      <title
+         id="title12801">Super Massive Black Holes</title>
+    </rect>
+    <rect
+       x="0"
+       y="200"
+       width="400"
+       height="700"
+       fill-opacity="0.5"
+       fill="#ff8000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect235" />
+    <rect
+       x="300"
+       y="900"
+       width="500"
+       height="199"
+       fill-opacity="0.5"
+       fill="#ccffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect243" />
+    <rect
+       x="800"
+       y="300"
+       width="300"
+       height="400"
+       fill-opacity="0.5"
+       fill="#990000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect251" />
+    <rect
+       x="0"
+       y="700"
+       width="400"
+       height="398.5"
+       fill-opacity="0.5"
+       fill="#ccffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="stellar-nursery">
+      <title
+         id="title13077">Stellar Nursery</title>
+    </rect>
+    <rect
+       x="0"
+       y="0"
+       width="400"
+       height="400"
+       fill-opacity="0.5"
+       fill="#333333"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rogue-comets">
+      <title
+         id="title13075">Rogue Comets</title>
+    </rect>
+    <rect
+       x="500"
+       y="100"
+       width="400"
+       height="299.75"
+       fill-opacity="0.5"
+       fill="#ffffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="white-dwarf-stars">
+      <title
+         id="title12803">White Dwarf Stars</title>
+    </rect>
+    <rect
+       x="799.99884"
+       y="599.99884"
+       width="300.00226"
+       height="298.64011"
+       fill-opacity="0.5"
+       fill="#ccffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect283"
+       style="stroke-width:0.997734" />
+    <rect
+       x="300"
+       y="701"
+       width="500"
+       height="199"
+       fill-opacity="0.5"
+       fill="#ccffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="rect291" />
+    <rect
+       x="20"
+       y="20"
+       width="160"
+       height="120"
+       fill="none"
+       stroke="none"
+       pointer-events="all"
+       id="rect299" />
+  </g>
 </svg>
