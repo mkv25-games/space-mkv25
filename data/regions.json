@@ -151,7 +151,7 @@
       "color": "#333333",
       "density": {
         "lower": 0.182,
-        "upper": 0.545
+        "upper": 0.727
       },
       "mass": {
         "lower": 0,
@@ -164,7 +164,7 @@
       "color": "#333333",
       "density": {
         "lower": 0.273,
-        "upper": 0.455
+        "upper": 0.727
       },
       "mass": {
         "lower": 0,
@@ -177,7 +177,7 @@
       "color": "#004c99",
       "density": {
         "lower": 0.545,
-        "upper": 0.455
+        "upper": 1
       },
       "mass": {
         "lower": 0,
@@ -190,11 +190,11 @@
       "color": "#004c99",
       "density": {
         "lower": 0.364,
-        "upper": 0.273
+        "upper": 0.636
       },
       "mass": {
         "lower": 0.091,
-        "upper": 0.636
+        "upper": 0.727
       }
     },
     {
@@ -203,11 +203,11 @@
       "color": "#cccc00",
       "density": {
         "lower": 0.182,
-        "upper": 0.636
+        "upper": 0.818
       },
       "mass": {
         "lower": 0.182,
-        "upper": 0.636
+        "upper": 0.818
       }
     },
     {
@@ -216,11 +216,11 @@
       "color": "#000000",
       "density": {
         "lower": 0.636,
-        "upper": 0.364
+        "upper": 1
       },
       "mass": {
         "lower": 0.636,
-        "upper": 0.364
+        "upper": 1
       }
     },
     {
@@ -229,11 +229,11 @@
       "color": "#000000",
       "density": {
         "lower": 0.818,
-        "upper": 0.182
+        "upper": 1
       },
       "mass": {
         "lower": 0.818,
-        "upper": 0.182
+        "upper": 1
       }
     },
     {
@@ -246,7 +246,7 @@
       },
       "mass": {
         "lower": 0.182,
-        "upper": 0.636
+        "upper": 0.818
       }
     },
     {
@@ -255,11 +255,11 @@
       "color": "#ccffff",
       "density": {
         "lower": 0.273,
-        "upper": 0.455
+        "upper": 0.727
       },
       "mass": {
         "lower": 0.818,
-        "upper": 0.182
+        "upper": 1
       }
     },
     {
@@ -268,11 +268,11 @@
       "color": "#990000",
       "density": {
         "lower": 0.727,
-        "upper": 0.273
+        "upper": 1
       },
       "mass": {
         "lower": 0.273,
-        "upper": 0.364
+        "upper": 0.636
       }
     },
     {
@@ -285,7 +285,7 @@
       },
       "mass": {
         "lower": 0.636,
-        "upper": 0.364
+        "upper": 1
       }
     },
     {
@@ -307,11 +307,11 @@
       "color": "#ffffff",
       "density": {
         "lower": 0.455,
-        "upper": 0.364
+        "upper": 0.818
       },
       "mass": {
         "lower": 0.091,
-        "upper": 0.273
+        "upper": 0.364
       }
     },
     {
@@ -320,11 +320,11 @@
       "color": "#ccffff",
       "density": {
         "lower": 0.727,
-        "upper": 0.273
+        "upper": 1
       },
       "mass": {
         "lower": 0.545,
-        "upper": 0.273
+        "upper": 0.818
       }
     },
     {
@@ -333,11 +333,11 @@
       "color": "#ccffff",
       "density": {
         "lower": 0.273,
-        "upper": 0.455
+        "upper": 0.727
       },
       "mass": {
         "lower": 0.636,
-        "upper": 0.182
+        "upper": 0.818
       }
     }
   ]

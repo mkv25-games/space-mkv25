@@ -42,11 +42,11 @@ async function run() {
       color,
       density: {
         lower: sn(x / boundary.width),
-        upper: sn(width / boundary.width)
+        upper: sn((x + width) / boundary.width)
       },
       mass: {
         lower: sn(y / boundary.height),
-        upper: sn(height / boundary.height)
+        upper: sn((y + height) / boundary.height)
       }
     }
   })
