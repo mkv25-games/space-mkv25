@@ -8,14 +8,18 @@
               <g>
                 <g
                   :transform="`translate(${region.density.lower * scale} ${region.mass.lower * scale})`"
-                  v-for="region in regions" :key="region.id">
+                  v-for="region in regions" :key="region.id" :class="activeRegionClass(region)">
                   <rect
                     :width="(region.density.upper - region.density.lower) * scale"
                     :height="(region.mass.upper - region.mass.lower) * scale"
                     :fill="region.color" :class="activeRegionClass(region)"
                     v-on:mouseover="highlightRegion(region)">
                   </rect>
-                  <text x="5" y="15" :width="(region.density.upper - region.density.lower) * scale">{{ region.label }}</text>
+                  <text
+                    x="5" y="15"
+                    :width="(region.density.upper - region.density.lower) * scale">
+                    {{ region.label }}
+                  </text>
                 </g>
 
                 <text x="0" y="-5">(0.0) Low Density</text>
@@ -36,7 +40,7 @@
       </template>
       <template v-slot:right>
         <h2>Regions</h2>
-        <div class="region info" v-for="region in regions" :key="region.id" v-on:mouseover="highlightRegion(region)">
+        <div class="region info" v-for="region in sortRegions(regions)" :key="region.id" v-on:mouseover="highlightRegion(region)">
           <icon icon="expand" :style="`color: ${region.color}`" /> {{ region.label }}
         </div>
         <div v-if="activeRegion" class="active region">
@@ -107,7 +111,7 @@ export default {
   methods: {
     activeRegionClass(region) {
       const activeRegion = this.activeRegion || {}
-      return region.id === activeRegion.id ? 'active' : ''
+      return region.id === activeRegion.id ? 'region active' : 'region'
     },
     highlightRegion(region) {
       this.activeRegion = region
@@ -119,6 +123,11 @@ export default {
     },
     pc(num) {
       return `${(num * 100).toPrecision(4)}%`
+    },
+    sortRegions(regions) {
+      return regions.sort((a, b) => {
+        return a.label.localeCompare(b.label)
+      })
     }
   }
 }
@@ -142,9 +151,18 @@ rect {
   opacity: 0.5;
   transition: opacity 1s ease-in-out;
 }
-rect.active {
+g.active > rect {
   opacity: 1.0;
   transition: opacity 250ms ease-in-out;
 }
-text { font: bold 12px sans-serif; }
+text {
+  font: bold 12px sans-serif;
+}
+g.region > text {
+  opacity: 0.5;
+}
+g.active > text {
+  opacity: 1.0;
+  transition: opacity 500ms ease-in-out;
+}
 </style>
