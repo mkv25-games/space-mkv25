@@ -5,12 +5,14 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <p>A navigable breakdown of different generatable systems</p>
-            <icon icon="adjust" />
+            <slot-viewer>
+              <div style="font-size: 0;"><system-template /></div>
+            </slot-viewer>
           </template>
           <template v-slot:right>
             <h2>Systems</h2>
             <p>Generate a specific type of system based on mass, density, and composition.</p>
+            <p><icon icon="adjust" /> A navigable breakdown of different generatable systems</p>
           </template>
         </column-layout>
       </slot>
@@ -23,10 +25,12 @@ import newGalaxy from '@/models/galaxy'
 import OmniscienceNav from './ui/OmniscienceNav.vue'
 import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import Icon from '@/components/ui/Icon.vue'
+import SlotViewer from '@/components/ui/SlotViewer.vue'
+import SystemTemplate from '@/models/visual/system-template.inkscape.svg'
 
 export default {
   components: {
-    OmniscienceNav, ColumnLayout, Icon
+    OmniscienceNav, ColumnLayout, Icon, SlotViewer, SystemTemplate
   },
   computed: {
     galaxy () {
