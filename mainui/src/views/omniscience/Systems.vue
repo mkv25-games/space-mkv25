@@ -5,12 +5,12 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <p>Map of the universe goes here showing galaxyies and seeds?</p>
-            <icon icon="moon" />
+            <p>A navigable breakdown of different generatable systems</p>
+            <icon icon="adjust" />
           </template>
           <template v-slot:right>
-            <h2>Omniscience</h2>
-            <p>Gaze upon the universe in all its glory.</p>
+            <h2>Systems</h2>
+            <p>Generate a specific type of system based on mass, density, and composition.</p>
           </template>
         </column-layout>
       </slot>

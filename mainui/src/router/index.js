@@ -26,6 +26,7 @@ import Trade from '../views/galaxy/Trade.vue'
 
 import Omniscience from '../views/omniscience/Omniscience.vue'
 import Regions from '../views/omniscience/Regions.vue'
+import Systems from '../views/omniscience/Systems.vue'
 
 const primaryRoutes = [{
   path: '/',
@@ -131,6 +132,10 @@ const omniscienceRoutes = [{
   path: '/omniscience/regions',
   name: 'Regions',
   component: Regions
+}, {
+  path: '/omniscience/systems',
+  name: 'Systems',
+  component: Systems
 }]
 
 const routes = [].concat(primaryRoutes, galaxyRoutes, omniscienceRoutes)
