@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   host="65bd71144e"
+   version="1.1"
+   width="1101px"
+   height="1102px"
+   viewBox="-0.5 -0.5 1101 1102"
+   content="&lt;mxfile scale=&quot;1&quot; border=&quot;0&quot; disableSvgWarning=&quot;true&quot;&gt;&lt;diagram id=&quot;blVOEqjD7PR7HOZAgdcG&quot; name=&quot;System Probabilities&quot;&gt;zZlPc5s6EMA/ja8dWRjbHBta0s40mU59yFkxMtaLjFwhaqefvhIIxJ+1k75neHDwwO5KFvvTrlZi5oWH870kx/2DiCmfYRSfZ96nGcZrb6l/jeC1FKwwKgWJZHEpmjvBhv2mVliZ5SymWctQCcEVO7aFW5GmdKtaMiKlOLXNdoK3//VIEtoTbLaE96VPLFZ7K50j5BRfKEv2qqs5kMraCrI9icWpIfI+z7xQCqHKu8M5pNw4r3JM2S66oK1HJmmqgAbi+R/jEIw4edZMCoMnoqjUoicheZyVHUiaMJFe1tf/t1jWg64Hk6nXylNS5GlMjTGaeXenPVN0cyRboz3pqaFle3Uw45jr251IlYW9MOaJJDHT7xEKLqQWpiLVujuhO2DKTB3fWO0Y55XFDHsILcIg0PK+J6xzflGp6LkhsqO/p+JAlXzVJla7qLC9VvPPPp8cda+S7RvAV5WQ2JmW1H07FvrGuqx6tHQuknogLNWSDf2Z01Q7ES+5tr571nSWibnbKCIBgr12qGFYo/SmhjLUF0K3QYk7KDGAcjUiyo+ZDiqhfd9jGDEKhqFrgZomDp9/Fd8bwEh2LDPljp0N5C6L8gKQdUAbIkxnyo+cJWbgShxvDLABbAkBWw4D7IfYvlxJkoC6JuPPr5IZP7BqmMX7fRcZU+WLbHVPOtc7jN86BgcWx2bcd8Ty7bWowNeWN2DvAez9EdlHUvymaT9Uvxa59J6RVAFTomqF+mYuaFcTmxr18lkBlqV3hwvs5Xvh+sPA1UFQhO4XwSlAEVA7euvJ0TMXQO8GnFadFXQFcFtA3BbDcNvkx6IsfSBZxn6ZCHuD5LsaOLbBIGzx4mZsR0m9QYd6AFDHEHU8DPVH+pxzQvt0Wwq3PZna0htF6zZFTnf/NUCvlLRgQA5U0lbxVSx07T0GFIaAmcOGJ4YtDCN9jVXmXIk1cGWcB8EgJS81m41PJyJ3795qttrAbL2JsQ2C4RbNdQcpVMmCJwhDLZpKWxPZx/mYy4za3tvhWrVALROHczExnHWojrNO/m015AXrD/4g0SqSHDgSCk3f4Ia1MEdNvYN6fVsy0llCwnWlZmdOex7Vp6bFwwtV2719GAf6/1TyPhm/w+m1dWB72cwRntrWJYps2N4g6/qdrAud24LccBB8WA0SnY80V1Kkl6GBBg7XMLuRG2bZARdN6IQAXDS9YcLujYL2WiHro6lyG6BeXaH5aPVq/8uXj+34Cc9plQipNImQaSzoYEZ+YKm2j0rLBgj9xqrt7UxH4wvt+LbpTCt6/4ID4W1PgAsAAExXjslbSHA/cuZLiAj+V5HjvlMWusbXXu/zHw==&lt;/diagram&gt;&lt;/mxfile&gt;"
+   id="svg309"
+   sodipodi:docname="region-blackholes.inkscape.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview311"
+     pagecolor="#ffffff"
+     bordercolor="#cccccc"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="1"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.73411978"
+     inkscape:cx="419.55006"
+     inkscape:cy="551"
+     inkscape:window-width="1920"
+     inkscape:window-height="1035"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="regions" />
+  <defs
+     id="defs177" />
+  <g
+     id="regions">
+    <title
+       id="title241">Regions</title>
+    <circle
+       id="orbit-upper-bound"
+       cx="550"
+       cy="550.5"
+       r="183.89372"
+       style="fill:#000000;fill-opacity:0.199414;stroke-width:0.699479" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"
+       x="199.73981"
+       y="44.451794"
+       id="region-title"><tspan
+         sodipodi:role="line"
+         id="tspan11089"
+         x="199.73981"
+         y="44.451794">Asteroids</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none"
+       x="18.570467"
+       y="44.451794"
+       id="text12199"><tspan
+         sodipodi:role="line"
+         id="tspan12197"
+         x="18.570467"
+         y="44.451794">Region title:</tspan></text>
+    <circle
+       id="orbit-lower-bound"
+       cx="550"
+       cy="550.5"
+       r="90.539505"
+       style="fill:#000000;fill-opacity:0.199414;stroke-width:0.344388" />
+  </g>
+</svg>
