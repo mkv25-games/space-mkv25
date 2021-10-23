@@ -3,6 +3,7 @@ const path = require('path')
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
 const { clean, find, read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
+const findModpacks = require('./modpackLoader')
 const packageJson = require('../package.json')
 
 let currentMainWindow
@@ -134,6 +135,7 @@ function setupBrowserRPC () {
     sendData: receiveDataFromBrowser,
     clearData,
     findFiles,
+    findModpacks,
     updateDeveloperTools,
     version
   })

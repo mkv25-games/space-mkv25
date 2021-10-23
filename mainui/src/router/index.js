@@ -1,13 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Debug from '../views/Debug.vue'
 import Designer from '../views/Designer.vue'
 import EstablishContact from '../views/EstablishContact.vue'
 import GalaxyView from '../views/GalaxyView.vue'
-import ComponentTests from '../views/debug/ComponentTests.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
 import ContactManagement from '../views/ContactManagement.vue'
-import Settings from '../views/Settings.vue'
 import SystemView from '../views/SystemView.vue'
 import Template from '../views/Template.vue'
 import Universe from '../views/Universe.vue'
@@ -28,14 +25,15 @@ import Omniscience from '../views/omniscience/Omniscience.vue'
 import Regions from '../views/omniscience/Regions.vue'
 import Systems from '../views/omniscience/Systems.vue'
 
+import Settings from '../views/settings/Settings.vue'
+import Mods from '../views/settings/Mods.vue'
+import Debug from '../views/settings/debug/Debug.vue'
+import ComponentTests from '../views/settings/debug/ComponentTests.vue'
+
 const primaryRoutes = [{
   path: '/',
   name: 'Home',
   component: Home
-}, {
-  path: '/debug',
-  name: 'Debug Tools',
-  component: Debug
 }, {
   path: '/designer',
   name: 'Designer',
@@ -49,10 +47,6 @@ const primaryRoutes = [{
   name: 'Galaxy View',
   component: GalaxyView
 }, {
-  path: '/debug/component-tests',
-  name: 'Component Tests',
-  component: ComponentTests
-}, {
   path: '/location-view',
   name: 'Location View',
   component: LocationView
@@ -60,10 +54,6 @@ const primaryRoutes = [{
   path: '/contact-management',
   name: 'Contact Management',
   component: ContactManagement
-}, {
-  path: '/settings',
-  name: 'Settings',
-  component: Settings
 }, {
   path: '/system-view',
   name: 'System View',
@@ -138,7 +128,25 @@ const omniscienceRoutes = [{
   component: Systems
 }]
 
-const routes = [].concat(primaryRoutes, galaxyRoutes, omniscienceRoutes)
+const settingsRoutes = [{
+  path: '/settings/home',
+  name: 'Settings',
+  component: Settings
+}, {
+  path: '/settings/mods',
+  name: 'Mods',
+  component: Mods
+}, {
+  path: '/settings/debug',
+  name: 'Debug Tools',
+  component: Debug
+}, {
+  path: '/settings/debug/component-tests',
+  name: 'Component Tests',
+  component: ComponentTests
+}]
+
+const routes = [].concat(primaryRoutes, galaxyRoutes, omniscienceRoutes, settingsRoutes)
 
 const router = createRouter({
   history: createWebHashHistory(),

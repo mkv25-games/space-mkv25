@@ -45,5 +45,4 @@ export default {
   flex: auto;
   overflow: hidden;
 }
-
 </style>
