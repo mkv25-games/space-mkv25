@@ -16,9 +16,10 @@ export default defineComponent({
   },
   mounted () {
     rpc.notify(window)
-    this.$store.dispatch('loadUserPreferences')
     this.$store.dispatch('getVersion')
+    this.$store.dispatch('loadUserPreferences')
     this.$store.dispatch('refreshContactList')
+    this.$store.dispatch('updateModpackList')
   }
 })
 </script>

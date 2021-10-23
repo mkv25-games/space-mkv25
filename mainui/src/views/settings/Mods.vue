@@ -1,9 +1,9 @@
 <template>
   <Settings class="mods">
     <div class="mods">
-      <h3>List of mods go here</h3>
+      <h3>Mod List</h3>
       <div class="modpack">
-        <property label="Modpack" v-for="modpack in modpacks" :key="modpack">{{ modpack }}</property>
+        <property :label="modpack.packdata.package || 'No package info'" v-for="modpack in modpacks" :key="modpack"><b>Keys: {{ Object.keys(modpack.packdata).join(', ') }}</b></property>
       </div>
     </div>
   </Settings>
@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     modpacks() {
-      return this.$store.state.modpacks || ['stub']
+      return this.$store.state.modpacks || []
     }
   }
 }
