@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 
 const here = position(__dirname)
 const inputpath = here('../mainui/src/models/visual/regions.inkscape.svg')
-const outputpath = here('../data/regions.json')
+const outputpath = here('../mods/mkv25/official/regions.json')
 
 function sn(num) {
   return Number.parseFloat(num.toFixed(3))

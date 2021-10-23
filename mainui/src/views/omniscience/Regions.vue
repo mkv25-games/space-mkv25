@@ -81,7 +81,7 @@ import SlotViewer from '@/components/ui/SlotViewer.vue'
 import RegionsSVG from '@/models/visual/regions.inkscape.svg'
 import Property from '@/components/ui/Property.vue'
 
-const regions = require('../../../../data/regions.json')
+const regions = require('../../../../mods/mkv25/official/regions.json')
 
 export default {
   data() {

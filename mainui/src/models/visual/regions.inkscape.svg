@@ -23,8 +23,8 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.73411978"
-     inkscape:cx="481.52905"
-     inkscape:cy="551"
+     inkscape:cx="444.06922"
+     inkscape:cy="659.97404"
      inkscape:window-width="1920"
      inkscape:window-height="1035"
      inkscape:window-x="0"
@@ -37,6 +37,21 @@
      id="regions">
     <title
        id="title241">Regions</title>
+    <rect
+       x="800"
+       y="800"
+       width="300"
+       height="300"
+       fill-opacity="0.5"
+       fill="#ccffff"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="neutron-stars"
+       style="stroke-width:0.999172;fill:#2c9eff;fill-opacity:0.5">
+      <title
+         id="title1128">Neutron Stars</title>
+    </rect>
     <rect
        x="200"
        y="0"
@@ -111,20 +126,6 @@
          id="title161">Main Sequence Solar Systems</title>
     </rect>
     <rect
-       x="700"
-       y="700"
-       width="400"
-       height="400"
-       fill-opacity="0.5"
-       fill="#000000"
-       stroke="#000000"
-       stroke-opacity="0.5"
-       pointer-events="all"
-       id="black-holes">
-      <title
-         id="title239">Black Holes</title>
-    </rect>
-    <rect
        x="900"
        y="900"
        width="200"
@@ -134,8 +135,23 @@
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
+       id="black-holes"
+       style="stroke-width:0.5">
+      <title
+         id="title239">Black Holes</title>
+    </rect>
+    <rect
+       x="1000"
+       y="1000"
+       width="100"
+       height="100"
+       fill-opacity="0.5"
+       fill="#000000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
        id="super-massive-black-holes"
-       style="stroke-width:1.00022">
+       style="stroke-width:0.518948">
       <title
          id="title12801">Super Massive Black Holes</title>
     </rect>
@@ -163,21 +179,23 @@
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="super-giants">
+       id="super-giants"
+       style="stroke-width:0.995993">
       <title
          id="title193">Super Giants</title>
     </rect>
     <rect
-       x="800"
+       x="700"
        y="300"
-       width="300"
-       height="400"
+       width="400"
+       height="300"
        fill-opacity="0.5"
        fill="#990000"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="red-dwarf-stars">
+       id="red-dwarf-stars"
+       style="stroke-width:0.99891">
       <title
          id="title191">Red Dwarf Stars</title>
     </rect>
@@ -210,16 +228,17 @@
          id="title13075">Rogue Comets</title>
     </rect>
     <rect
-       x="500"
+       x="600"
        y="100"
        width="400"
-       height="300"
+       height="400"
        fill-opacity="0.5"
        fill="#ffffff"
        stroke="#000000"
        stroke-opacity="0.5"
        pointer-events="all"
-       id="white-dwarf-stars">
+       id="white-dwarf-stars"
+       style="stroke-width:1.15564">
       <title
          id="title12803">White Dwarf Stars</title>
     </rect>
@@ -251,6 +270,36 @@
        id="giant-stars">
       <title
          id="title159">Giant Stars</title>
+    </rect>
+    <rect
+       x="900"
+       y="0"
+       width="200"
+       height="200"
+       fill-opacity="0.5"
+       fill="#004c99"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="black-dwarf-stars"
+       style="stroke-width:0.4;fill:#3a4c32;fill-opacity:0.5">
+      <title
+         id="Black Dwarf Stars">Frozen Giants</title>
+    </rect>
+    <rect
+       x="800"
+       y="600"
+       width="300"
+       height="300"
+       fill-opacity="0.5"
+       fill="#990000"
+       stroke="#000000"
+       stroke-opacity="0.5"
+       pointer-events="all"
+       id="carbon-stars"
+       style="stroke-width:0.865081;fill:#f70000;fill-opacity:0.5">
+      <title
+         id="title2579">Carbon Stars</title>
     </rect>
   </g>
 </svg>

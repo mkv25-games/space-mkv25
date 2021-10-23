@@ -1,5 +1,5 @@
 
-const regions = require('../../../data/regions.json')
+const regions = require('../../../mods/mkv25/official/regions.json')
 
 function createSystem ({ mass, density, composition }) {
   const unusedMass = mass

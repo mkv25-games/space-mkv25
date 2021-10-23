@@ -1,6 +1,6 @@
 {
   "source": "/Users/jbeech/Local/space-mkv25/mainui/src/models/visual/regions.inkscape.svg",
-  "svg": "7454 bytes",
+  "svg": "8723 bytes",
   "boundary": {
     "x": 0,
     "y": 0,
@@ -8,6 +8,15 @@
     "height": 1100
   },
   "rects": [
+    {
+      "id": "neutron-stars",
+      "label": "Neutron Stars",
+      "x": 800,
+      "y": 800,
+      "width": 300,
+      "height": 300,
+      "color": "#ccffff"
+    },
     {
       "id": "asteroids",
       "label": "Asteroids",
@@ -56,19 +65,19 @@
     {
       "id": "black-holes",
       "label": "Black Holes",
-      "x": 700,
-      "y": 700,
-      "width": 400,
-      "height": 400,
+      "x": 900,
+      "y": 900,
+      "width": 200,
+      "height": 200,
       "color": "#000000"
     },
     {
       "id": "super-massive-black-holes",
       "label": "Super Massive Black Holes",
-      "x": 900,
-      "y": 900,
-      "width": 200,
-      "height": 200,
+      "x": 1000,
+      "y": 1000,
+      "width": 100,
+      "height": 100,
       "color": "#000000"
     },
     {
@@ -92,10 +101,10 @@
     {
       "id": "red-dwarf-stars",
       "label": "Red Dwarf Stars",
-      "x": 800,
+      "x": 700,
       "y": 300,
-      "width": 300,
-      "height": 400,
+      "width": 400,
+      "height": 300,
       "color": "#990000"
     },
     {
@@ -119,10 +128,10 @@
     {
       "id": "white-dwarf-stars",
       "label": "White Dwarf Stars",
-      "x": 500,
+      "x": 600,
       "y": 100,
       "width": 400,
-      "height": 300,
+      "height": 400,
       "color": "#ffffff"
     },
     {
@@ -142,9 +151,40 @@
       "width": 500,
       "height": 200,
       "color": "#ccffff"
+    },
+    {
+      "id": "black-dwarf-stars",
+      "label": "Frozen Giants",
+      "x": 900,
+      "y": 0,
+      "width": 200,
+      "height": 200,
+      "color": "#004c99"
+    },
+    {
+      "id": "carbon-stars",
+      "label": "Carbon Stars",
+      "x": 800,
+      "y": 600,
+      "width": 300,
+      "height": 300,
+      "color": "#990000"
     }
   ],
   "regions": [
+    {
+      "id": "neutron-stars",
+      "label": "Neutron Stars",
+      "color": "#ccffff",
+      "density": {
+        "lower": 0.727,
+        "upper": 1
+      },
+      "mass": {
+        "lower": 0.727,
+        "upper": 1
+      }
+    },
     {
       "id": "asteroids",
       "label": "Asteroids",
@@ -215,11 +255,11 @@
       "label": "Black Holes",
       "color": "#000000",
       "density": {
-        "lower": 0.636,
+        "lower": 0.818,
         "upper": 1
       },
       "mass": {
-        "lower": 0.636,
+        "lower": 0.818,
         "upper": 1
       }
     },
@@ -228,11 +268,11 @@
       "label": "Super Massive Black Holes",
       "color": "#000000",
       "density": {
-        "lower": 0.818,
+        "lower": 0.909,
         "upper": 1
       },
       "mass": {
-        "lower": 0.818,
+        "lower": 0.909,
         "upper": 1
       }
     },
@@ -267,12 +307,12 @@
       "label": "Red Dwarf Stars",
       "color": "#990000",
       "density": {
-        "lower": 0.727,
+        "lower": 0.636,
         "upper": 1
       },
       "mass": {
         "lower": 0.273,
-        "upper": 0.636
+        "upper": 0.545
       }
     },
     {
@@ -306,12 +346,12 @@
       "label": "White Dwarf Stars",
       "color": "#ffffff",
       "density": {
-        "lower": 0.455,
-        "upper": 0.818
+        "lower": 0.545,
+        "upper": 0.909
       },
       "mass": {
         "lower": 0.091,
-        "upper": 0.364
+        "upper": 0.455
       }
     },
     {
@@ -337,6 +377,32 @@
       },
       "mass": {
         "lower": 0.636,
+        "upper": 0.818
+      }
+    },
+    {
+      "id": "black-dwarf-stars",
+      "label": "Frozen Giants",
+      "color": "#004c99",
+      "density": {
+        "lower": 0.818,
+        "upper": 1
+      },
+      "mass": {
+        "lower": 0,
+        "upper": 0.182
+      }
+    },
+    {
+      "id": "carbon-stars",
+      "label": "Carbon Stars",
+      "color": "#990000",
+      "density": {
+        "lower": 0.727,
+        "upper": 1
+      },
+      "mass": {
+        "lower": 0.545,
         "upper": 0.818
       }
     }
