@@ -7,7 +7,8 @@ function defaultUserPreferences () {
   return {
     userPreferences: newUserPreferences(),
     contact: newContact(),
-    contactList: []
+    contactList: [],
+    modpacks: []
   }
 }
 
@@ -40,6 +41,9 @@ function setup () {
       },
       setVersion (state, version) {
         state.version = version
+      },
+      modpacks(state, modpacks) {
+        state.modpacks = modpacks
       }
     },
     actions: {
@@ -85,6 +89,12 @@ function setup () {
           .filter(file => file.filepath.includes('/savedata/') || file.filepath.includes('\\savedata\\'))
           .filter(file => !file.filepath.includes('userPreferences.json'))
         commit('contactList', contactList)
+      },
+      async updateModpackList ({ commit }) {
+        const rpcProxy = await rpc.fetch()
+        const modpacks = await rpcProxy.findModpacks()
+        console.log('Update Modpack List:', modpacks)
+        commit('modpacks', modpacks)
       },
       async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')

@@ -2,7 +2,7 @@ import remoteModel from 'remote-model'
 
 const report = (...messages) => { console.log('[api/rpc.js]', ...messages) }
 
-const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'version']
+const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'findModpacks', 'version']
 
 let windowObject
 function checkForWindowReady (res, rej) {

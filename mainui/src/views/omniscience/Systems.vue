@@ -34,7 +34,7 @@ import SlotViewer from '@/components/ui/SlotViewer.vue'
 import SystemTemplate from '@/models/visual/system-template.inkscape.svg'
 import Property from '@/components/ui/Property.vue'
 
-const regions = require('../../../../mods/mkv25/official/regions.json')
+const regions = require('../../../../modpacks/mkv25/official/regions.json')
 
 export default {
   data() {

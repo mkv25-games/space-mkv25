@@ -3,7 +3,7 @@ const path = require('path')
 const { app, ipcMain, ipcRenderer, contextBridge } = require('electron')
 const { clean, find, read, write, make, position } = require('promise-path')
 const report = (...messages) => { console.log('[rpc.js]', ...messages) }
-const findModpacks = require('./modpackLoader')
+const modpackLoader = require('./modpackLoader')
 const packageJson = require('../package.json')
 
 let currentMainWindow
@@ -122,6 +122,15 @@ function setupBrowserRPC () {
     })
 
     return Promise.all(work)
+  }
+
+  async function findModpacks () {
+    const userDataPath = position(await getUserPath())
+    const applicationRoot = position(__dirname, '../')
+    const defaultModpacks = applicationRoot('modpacks')
+    const userModpacks = userDataPath('modpacks')
+    const directoryPaths = [defaultModpacks, userModpacks]
+    return modpackLoader(directoryPaths)
   }
 
   async function version () {
