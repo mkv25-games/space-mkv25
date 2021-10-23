@@ -13,24 +13,33 @@ async function searchDirectory(directory) {
 }
 
 async function readJson(filepath) {
+  const body = await read(filepath, 'utf8')
+  return JSON.parse(body)
+}
+
+async function loadModpackFile({ packpath, filename, packdata }) {
+  let error
   try {
-    const body = await read(filepath, 'utf8')
-    return JSON.parse(body)
+    const filepath = packpath(`${filename}.json`)
+    packdata[filename] = await readJson(filepath)
   } catch (ex) {
-    console.log('Unable to load', filepath, ex.message)
+    error = `Unable to read ${filename}: ${ex.message}`
   }
+  return error
 }
 
 async function loadModpack(filepath) {
   let packdata = {}
-  let error
+  let packError, fileErrors = []
   try {
     const body = await read(filepath, 'utf8')
     packdata = JSON.parse(body)
 
     const packpath = position(filepath.replace('modpack.json', ''))
-    packdata.regions = await readJson(packpath('regions.json'))
-    packdata.stellarArchetypes = await readJson(packpath('stellarArchetypes.json'))
+    fileErrors = await Promise.all([
+      loadModpackFile({ packpath, filename: 'regions', packdata }),
+      loadModpackFile({ packpath, filename: 'stellarArchetypes', packdata })
+    ])
   } catch (ex) {
     error = ex.message
   }
@@ -38,7 +47,7 @@ async function loadModpack(filepath) {
   return {
     filepath,
     packdata,
-    messages: [error].filter(n => n)
+    messages: [packError, ...fileErrors].filter(n => n)
   }
 }
 
