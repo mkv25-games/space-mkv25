@@ -15,9 +15,7 @@
             <property label="Density"><input type="number" v-model="density" step="0.001" min="0" max="1" /><icon-button icon="dice" v-on:click="randomiseDensity" /></property>
             <property label="Composition"><input type="number" v-model="composition" step="0.001" min="0" max="1" /><icon-button icon="dice" v-on:click="randomiseComposition" /></property>
             <h3>Region Type</h3>
-            <div class="region info" v-for="region in sortRegions(system.regions)" :key="region.id">
-              <icon icon="expand" :style="`color: ${region.color}`" /> {{ region.label }}
-            </div>
+            <region-types :regions="sortRegions(system.regions)" />
           </template>
         </column-layout> 
       </slot>
@@ -33,6 +31,7 @@ import IconButton from '@/components/ui/IconButton.vue'
 import SlotViewer from '@/components/ui/SlotViewer.vue'
 import SystemTemplate from '@/models/visual/system-template.inkscape.svg'
 import Property from '@/components/ui/Property.vue'
+import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
 
 const regions = require('../../../../modpacks/mkv25/official/regions.json')
 
@@ -45,7 +44,7 @@ export default {
     }
   },
   components: {
-    OmniscienceNav, ColumnLayout, Icon, IconButton, SlotViewer, SystemTemplate, Property
+    OmniscienceNav, ColumnLayout, Icon, IconButton, SlotViewer, SystemTemplate, Property, RegionTypes
   },
   computed: {
     regions() {
@@ -97,18 +96,5 @@ export default {
 .frame {
   flex: auto;
   overflow: hidden;
-}
-.region.info {
-  text-align: left;
-  background: #222;
-  color: white;
-  padding: 0.2em;
-  margin: 0.1em 0;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.region.info:hover {
-  background: #111;
-  transition: background 250ms ease-in-out;
 }
 </style>

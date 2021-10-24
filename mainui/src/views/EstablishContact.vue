@@ -23,7 +23,7 @@
             <router-link to="/universe">Cancel</router-link>
             <button v-on:click="submitForm">Connect</button>
           </p>
-          <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
+          <region-types :regions="quadrantWithAnalysis.regions" />
         </div>
       </template>
     </column-layout>
@@ -39,10 +39,13 @@ import GalaxyInputs from '@/views/galaxy/ui/GalaxyInputs.vue'
 import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import SlotViewer from '@/components/ui/SlotViewer.vue'
 import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
+import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
+
+const regions = require('../../../modpacks/mkv25/official/regions.json')
 
 export default {
   components: {
-    GalaxySvg, GalaxyInputs, ColumnLayout, SlotViewer, HighlightedQuadrantInfo
+    GalaxySvg, GalaxyInputs, ColumnLayout, SlotViewer, HighlightedQuadrantInfo, RegionTypes
   },
   data: () => {
     return {
@@ -61,6 +64,25 @@ export default {
     },
     galaxy() {
       return this.overrideGalaxy || this.$store.state.galaxy || newGalaxy()
+    },
+    regions() {
+      return regions.regions
+    },
+    quadrantWithAnalysis () {
+      const quad = this.highlightedQuadrant || {}
+      const quadrantData = {
+        mass: quad.mass,
+        density: quad.density,
+        composition: quad.composition
+      }
+
+      quadrantData.regions = this.regions.filter(region => {
+        const inDensity = quadrantData.density >= region.density.lower && quadrantData.density <= region.density.upper 
+        const inMass = quadrantData.mass >= region.mass.lower && quadrantData.mass <= region.mass.upper 
+        return inDensity && inMass
+      })
+
+      return quadrantData
     }
   },
   methods: {
