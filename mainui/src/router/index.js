@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Designer from '../views/Designer.vue'
 import EstablishContact from '../views/EstablishContact.vue'
-import GalaxyView from '../views/GalaxyView.vue'
+import GalaxyView from '../views/galaxy/GalaxyView.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
 import ContactManagement from '../views/ContactManagement.vue'

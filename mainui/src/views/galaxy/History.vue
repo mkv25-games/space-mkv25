@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import GalaxyView from '@/views/GalaxyView.vue'
+import GalaxyView from '@/views/galaxy/GalaxyView.vue'
 
 export default {
   components: { GalaxyView }

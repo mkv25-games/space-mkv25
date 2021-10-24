@@ -20,7 +20,7 @@
 <script>
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import GalaxyNav from './galaxy/ui/GalaxyNav.vue'
+import GalaxyNav from './ui/GalaxyNav.vue'
 import ColumnLayout from '@/components/ui/ColumnLayout.vue'
 import GalaxySvg from '@/components/ui/GalaxySVG.vue'
 import Property from '@/components/ui/Property.vue'
