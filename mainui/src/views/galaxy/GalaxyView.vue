@@ -5,7 +5,7 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <slot-viewer>
+            <slot-viewer class="darkmode">
               <galaxy-svg :galaxy="galaxy" :tileSize="40" />
             </slot-viewer>
           </template>

@@ -11,12 +11,12 @@
       </pattern>
       <pattern id="largeGrid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
         :x="tile.x % tile.size" :y="tile.y % tile.size">
-        <rect :width="tile.size" :height="tile.size" fill="white" />
+        <rect :width="tile.size" :height="tile.size" fill="none" />
         <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(50,50,50,0.5)" stroke-width="1"/>
       </pattern>
     </defs>
     <rect width="100%" height="100%" :fill="gridBasedOnZoom" style="pointer-events: none;" />
-    <text x="10" y="20">
+    <text x="10" y="20" :style="`display: none;`">
       VXY: {{ viewx.toFixed(2) }}, {{ viewy.toFixed(2) }}
       Z: {{ zoom.toFixed(2) }}
       OXY: {{ offsetx.toFixed(2) }}, {{ offsety.toFixed(2) }}

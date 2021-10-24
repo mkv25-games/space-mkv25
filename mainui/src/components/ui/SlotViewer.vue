@@ -24,7 +24,7 @@
       <icon-button icon="chevron-circle-down" v-on:click="scrollDown()"  />
       <icon-button icon="chevron-circle-up" v-on:click="scrollUp()"  />
       <br />
-      <b>XY: {{ offsetX }}, {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b>
+      <b>X: {{ offsetX }}, Y: {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b>
     </div>
   </div>
 </template>
@@ -195,7 +195,7 @@ export default {
       }
     },
     recaculateSizes(source) {
-      console.log('Recalc', source)
+      // console.log('Recalc', source)
       this.limitBoundaries()
       const self = this
       const offsetSize = size(this.$refs['offset-content'])
@@ -239,14 +239,16 @@ export default {
   position: relative;
   user-select: none;
 }
+.slot-viewer.darkmode {
+  background: black;
+}
+
 .slot-content {
   display: block;
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  outline: 2px solid green;
-  outline-offset: -2px;
 }
 .offset-container {
   display: inline-block;
@@ -273,5 +275,9 @@ export default {
   bottom: 2em;
   left: 2em;
   font-size: 2em;
+  color: black;
+}
+.darkmode .slot-controls {
+  color: #eee;
 }
 </style>

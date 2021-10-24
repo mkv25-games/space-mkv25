@@ -37,12 +37,16 @@ export default {
   background: rgba(255,255,255,0.5);
 }
 .icon.button:hover {
-  color: rgb(62, 133, 42);
+  color: #666;
   border-color: white;
 }
 .icon.button:active {
   color: black;
   border-color: white;
   background: rgba(0,0,0,0.1)
+}
+
+.darkmode .icon.button:hover {
+  color: white;
 }
 </style>
