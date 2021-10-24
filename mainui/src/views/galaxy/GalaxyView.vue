@@ -6,7 +6,7 @@
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
             <slot-viewer>
-              <galaxy-svg :galaxy="galaxy" :tileSize="40" style="width: 500px; height: 500px;" />
+              <galaxy-svg :galaxy="galaxy" :tileSize="40" />
             </slot-viewer>
           </template>
           <template v-slot:right>
@@ -24,10 +24,12 @@ import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
 import GalaxyNav from '@/views/galaxy/ui/GalaxyNav.vue'
 import GalaxySvg from '@/views/galaxy/ui/GalaxySVG.vue'
+import ColumnLayout from '@/components/ui/ColumnLayout.vue'
+import SlotViewer from '@/components/ui/SlotViewer.vue'
 
 export default {
   components: {
-    GalaxyNav, GalaxySvg
+    GalaxyNav, GalaxySvg, ColumnLayout, SlotViewer
   },
   computed: {
     contact() {
