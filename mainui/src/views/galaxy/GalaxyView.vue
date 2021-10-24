@@ -5,7 +5,9 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <galaxy-svg :galaxy="galaxy" :tileSize="40" />
+            <slot-viewer>
+              <galaxy-svg :galaxy="galaxy" :tileSize="40" style="width: 500px; height: 500px;" />
+            </slot-viewer>
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>
@@ -20,16 +22,12 @@
 <script>
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import GalaxyNav from './ui/GalaxyNav.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import GalaxySvg from '@/components/ui/GalaxySVG.vue'
-import Property from '@/components/ui/Property.vue'
-import Icon from '@/components/ui/Icon.vue'
+import GalaxyNav from '@/views/galaxy/ui/GalaxyNav.vue'
+import GalaxySvg from '@/views/galaxy/ui/GalaxySVG.vue'
 
 export default {
   components: {
-    GalaxyNav, ColumnLayout,
-    GalaxySvg, Property, Icon
+    GalaxyNav, GalaxySvg
   },
   computed: {
     contact() {

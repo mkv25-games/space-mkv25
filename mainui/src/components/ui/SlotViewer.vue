@@ -7,7 +7,7 @@
       v-on:mouseup="endOffset"
       v-on:mousemove="trackOffset"
       v-on:wheel="scrollZoom">
-      <GridFill :viewx="gridx" :viewy="gridy" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
+      <grid-fill :viewx="gridx" :viewy="gridy" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
@@ -17,12 +17,12 @@
       </div>
     </div>
     <div class="slot-controls">
-      <icon icon="chevron-circle-left" v-on:click="scrollLeft()" />
-      <icon icon="chevron-circle-right" v-on:click="scrollRight()"  />
-      <icon icon="plus-circle" v-on:click="zoomIn()"  />
-      <icon icon="minus-circle" v-on:click="zoomOut()"  />
-      <icon icon="chevron-circle-down" v-on:click="scrollDown()"  />
-      <icon icon="chevron-circle-up" v-on:click="scrollUp()"  />
+      <icon-button icon="chevron-circle-left" v-on:click="scrollLeft()" />
+      <icon-button icon="chevron-circle-right" v-on:click="scrollRight()"  />
+      <icon-button icon="plus-circle" v-on:click="zoomIn()"  />
+      <icon-button icon="minus-circle" v-on:click="zoomOut()"  />
+      <icon-button icon="chevron-circle-down" v-on:click="scrollDown()"  />
+      <icon-button icon="chevron-circle-up" v-on:click="scrollUp()"  />
       <br />
       <b>XY: {{ offsetX }}, {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b>
     </div>
@@ -30,9 +30,8 @@
 </template>
 
 <script>
-import Property from './Property.vue'
-import Icon from './IconButton.vue'
 import GridFill from './GridFill.vue'
+import IconButton from './IconButton.vue'
 
 function size(el) {
   if (el) {
@@ -73,7 +72,8 @@ export default {
     }
   },
   components: {
-    Icon, Property, GridFill
+    GridFill,
+    IconButton
   },
   computed: {
     gridx() {
@@ -253,10 +253,6 @@ export default {
   position: absolute;
   overflow: visible;
 }
-.offset-container.static > .zoom-container {
-  outline: 2px solid black;
-  outline-offset: -2px;
-}
 .offset-container.moving > zoom.container {
   outline: 2px solid white;
   outline-offset: -2px;
@@ -269,6 +265,7 @@ export default {
   display: inline-block;
   position: absolute;
   overflow: visible;
+  font-size: 0;
 }
 .slot-controls {
   display: inline-block;

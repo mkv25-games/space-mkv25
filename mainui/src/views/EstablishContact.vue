@@ -2,7 +2,9 @@
   <div class="template">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
-        <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+        <slot-viewer>
+          <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+        </slot-viewer>
       </template>
       <template v-slot:right>
         <h1>Establish Contact</h1>
@@ -32,15 +34,15 @@
 
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import ColumnLayout from '../components/ui/ColumnLayout.vue'
-import GalaxySvg from '../components/ui/GalaxySVG.vue'
-import GalaxyInputs from '@/components/ui/GalaxyInputs.vue'
-import QuadrantBreakdown from '../components/ui/QuadrantBreakdown.vue'
+import GalaxySvg from '@/views/galaxy/ui/GalaxySVG.vue'
+import GalaxyInputs from '@/views/galaxy/ui/GalaxyInputs.vue'
+import ColumnLayout from '@/components/ui/ColumnLayout.vue'
+import SlotViewer from '@/components/ui/SlotViewer.vue'
 import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
 
 export default {
   components: {
-    ColumnLayout, GalaxySvg, GalaxyInputs, QuadrantBreakdown, HighlightedQuadrantInfo
+    GalaxySvg, GalaxyInputs, ColumnLayout, SlotViewer, HighlightedQuadrantInfo
   },
   data: () => {
     return {
