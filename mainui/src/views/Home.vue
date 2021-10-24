@@ -76,7 +76,6 @@ h1 {
   padding: 10px;
 }
 
-
 .cover-image {
   background: url('../../public/assets/icon.png') no-repeat center center;
   background-size: contain;

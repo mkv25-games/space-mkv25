@@ -1,14 +1,16 @@
 <template>
   <div :class="['sidebar-nav', stateClass]">
-    <slot />
-    <a v-if="expanded" v-on:click="collapse">
-      <icon icon="angle-double-left" />
-      <span>Collapse</span>
-    </a>
-    <a v-else v-on:click="expand">
-      <icon icon="angle-double-right" />
-      <span>Expand</span>
-    </a>
+    <div class="sidebar-contents">
+      <slot />
+      <a v-if="expanded" v-on:click="collapse">
+        <icon icon="angle-double-left" />
+        <span>Collapse</span>
+      </a>
+      <a v-else v-on:click="expand">
+        <icon icon="angle-double-right" />
+        <span>Expand</span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -51,21 +53,21 @@ export default {
 }
 
 .sidebar-nav.collapse {
-  min-width: 38px;
-  max-width: 38px;
-}
-
-.sidebar-nav.collapse > a > span {
-  display: none;
+  width: 45px;
+  transition: width 250ms ease-in-out;
 }
 
 .sidebar-nav.expand {
-  min-width: 200px;
-  max-width: 200px;
+  width: 200px;
+  transition: width 250ms ease-in-out;
+}
+
+.sidebar-contents {
+  width: 200px;
 }
 
 .sidebar-nav a {
-  display: inline-flex;
+  display: flex;
   justify-items: flex-end;
   align-items: flex-end;
   font-weight: bold;
@@ -87,7 +89,7 @@ a {
   cursor: pointer;
 }
 a > span {
-  margin-left: 0.5em;
+  margin-left: 11px;
   flex: 1 1;
 }
 </style>
