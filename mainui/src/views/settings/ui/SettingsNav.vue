@@ -1,5 +1,5 @@
 <template>
-  <SidebarNav>
+  <sidebar-nav>
     <router-link to="/settings/home">
       <icon icon="object-group" />
       <span>Interface</span>
@@ -16,14 +16,5 @@
       <icon icon="boxes" />
       <span>Component Tests</span>
     </router-link>
-  </SidebarNav>
+  </sidebar-nav>
 </template>
-
-<script>
-import SidebarNav from '../../../components/SidebarNav.vue'
-import Icon from '../../../components/ui/Icon.vue'
-
-export default {
-  components: { SidebarNav, Icon }
-}
-</script>

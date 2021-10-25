@@ -37,7 +37,6 @@
 import listContacts from '@/formatting/listContacts'
 
 export default {
-  name: 'Universe',
   async mounted() {
     await this.$store.dispatch('refreshContactList')
   },

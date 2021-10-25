@@ -1,6 +1,6 @@
 <template>
   <div class="settings-view">
-    <SettingsNav />
+    <settings-nav />
     <div class="frame">
       <slot>
         <h1>Interface Settings</h1>
@@ -17,16 +17,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import SettingsNav from './ui/SettingsNav.vue'
-
-export default {
-  components: {
-    SettingsNav
-  }
-}
-</script>
 
 <style scoped>
 .settings-view {

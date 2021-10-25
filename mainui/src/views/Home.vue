@@ -17,10 +17,7 @@
 </template>
 
 <script>
-import Icon from "../components/ui/Icon.vue"
-
 export default {
-  components: { Icon },
   async mounted() {
     await this.$store.dispatch('refreshContactList')
   }

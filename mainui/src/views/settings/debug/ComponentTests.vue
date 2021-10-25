@@ -1,27 +1,22 @@
 <template>
-  <Settings class="component-tests">
+  <settings class="component-tests">
     <div class="grid-icons">
       <h1>Component Tests</h1>
       <h2>Story Teller</h2>
-      <StoryTeller />
+      <story-teller />
       <h2>Horizontal Tile Grid</h2>
-      <HorizontalTileGrid :tiles="iconTiles" :columns="20" :rows="14" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
+      <horizontal-tile-grid :tiles="iconTiles" :columns="20" :rows="14" :tileWidth="40" :tileHeight="60" style="font-size: 1.5em;" />
       <h2>Vertical Tile Grid</h2>
-      <VerticalTileGrid :tiles="iconTiles" :columns="4" :rows="6" :tileWidth="135" :tileHeight="60" style="font-size: 2em;" />
+      <vertical-tile-grid :tiles="iconTiles" :columns="4" :rows="6" :tileWidth="135" :tileHeight="60" style="font-size: 2em;" />
       <p>Total of {{ iconTiles.length }} icons.</p>
     </div>
-  </Settings>
+  </settings>
 </template>
 
 <script>
-import HorizontalTileGrid from '@/components/ui/HorizontalTileGrid.vue'
-import VerticalTileGrid from '@/components/ui/VerticalTileGrid.vue'
-import Settings from '../Settings.vue'
-import StoryTeller from '@/components/toys/StoryTeller.vue'
 import icons from '@/models/icons'
 
 export default {
-  components: { HorizontalTileGrid, VerticalTileGrid, Settings, StoryTeller },
   computed: {
     iconTiles () {
       return icons().map((icon) => {

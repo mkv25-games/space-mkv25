@@ -3,7 +3,7 @@
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <slot-viewer class="darkmode">
-          <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+          <GalaxySVG :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
         </slot-viewer>
       </template>
       <template v-slot:right>
@@ -31,20 +31,10 @@
 </template>
 
 <script>
-
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import GalaxySvg from '@/views/galaxy/ui/GalaxySVG.vue'
-import GalaxyInputs from '@/views/galaxy/ui/GalaxyInputs.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import SlotViewer from '@/components/ui/SlotViewer.vue'
-import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
-import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
 
 export default {
-  components: {
-    GalaxySvg, GalaxyInputs, ColumnLayout, SlotViewer, HighlightedQuadrantInfo, RegionTypes
-  },
   data: () => {
     return {
       filename: '',

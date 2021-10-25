@@ -28,7 +28,6 @@
 </template>
 
 <script>
-
 import formatDate from '@/formatting/formatDate'
 import listContacts from '@/formatting/listContacts'
 const exampleContacts = [{ name: 'Loading contacts', fileinfo: { mtime: new Date() }, filepath: '/' }]

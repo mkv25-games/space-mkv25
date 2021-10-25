@@ -1,5 +1,5 @@
 <template>
-  <Settings class="mods">
+  <settings class="mods">
     <div class="mods">
       <h3>Mod List</h3>
       <div class="modpack">
@@ -9,17 +9,11 @@
         </property>
       </div>
     </div>
-  </Settings>
+  </settings>
 </template>
 
 <script>
-import Settings from './Settings.vue'
-import Property from '@/components/ui/Property'
-
 export default {
-  components: {
-    Settings, Property
-  },
   async mounted() {
     await this.$store.dispatch('loadModpacks')
   },
