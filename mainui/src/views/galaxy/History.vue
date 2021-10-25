@@ -1,14 +1,6 @@
 <template>
-  <GalaxyView class="galaxy-history">
+  <galaxy-view class="galaxy-history">
     <h1>History</h1>
     <p>History of this galaxy...</p>
-  </GalaxyView>
+  </galaxy-view>
 </template>
-
-<script>
-import GalaxyView from '@/views/galaxy/GalaxyView.vue'
-
-export default {
-  components: { GalaxyView }
-}
-</script>

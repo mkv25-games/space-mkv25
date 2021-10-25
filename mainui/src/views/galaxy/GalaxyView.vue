@@ -6,7 +6,7 @@
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
             <slot-viewer class="darkmode">
-              <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+              <GalaxySVG :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
             </slot-viewer>
           </template>
           <template v-slot:right>
@@ -24,10 +24,6 @@
 <script>
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import GalaxyNav from '@/views/galaxy/ui/GalaxyNav.vue'
-import GalaxySvg from '@/views/galaxy/ui/GalaxySVG.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import SlotViewer from '@/components/ui/SlotViewer.vue'
 
 export default {
   data() {
@@ -36,9 +32,6 @@ export default {
         regions: []
       }
     }
-  },
-  components: {
-    GalaxyNav, GalaxySvg, ColumnLayout, SlotViewer
   },
   computed: {
     contact() {

@@ -30,13 +30,7 @@
 </template>
 
 <script>
-import Property from '@/components/ui/Property.vue'
-import Icon from '@/components/ui/Icon.vue'
-
 export default {
-  components: {
-    Property, Icon
-  },
   data() {
     return {
       createGalaxySeed: 0,
