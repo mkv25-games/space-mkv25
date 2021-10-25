@@ -41,8 +41,6 @@ import SlotViewer from '@/components/ui/SlotViewer.vue'
 import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
 import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
 
-const regions = require('../../../modpacks/mkv25/official/regions.json')
-
 export default {
   components: {
     GalaxySvg, GalaxyInputs, ColumnLayout, SlotViewer, HighlightedQuadrantInfo, RegionTypes
@@ -66,7 +64,7 @@ export default {
       return this.overrideGalaxy || this.$store.state.galaxy || newGalaxy()
     },
     regions() {
-      return regions.regions
+      return this.$store.state.allRegionTypes || []
     },
     quadrantWithAnalysis () {
       const quad = this.highlightedQuadrant || {}

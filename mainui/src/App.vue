@@ -19,7 +19,7 @@ export default defineComponent({
     this.$store.dispatch('getVersion')
     this.$store.dispatch('loadUserPreferences')
     this.$store.dispatch('refreshContactList')
-    this.$store.dispatch('updateModpackList')
+    this.$store.dispatch('loadModpacks')
   }
 })
 </script>

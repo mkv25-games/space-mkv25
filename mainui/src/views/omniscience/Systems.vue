@@ -33,8 +33,6 @@ import SystemTemplate from '@/models/visual/system-template.inkscape.svg'
 import Property from '@/components/ui/Property.vue'
 import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
 
-const regions = require('../../../../modpacks/mkv25/official/regions.json')
-
 export default {
   data() {
     return {
@@ -48,7 +46,7 @@ export default {
   },
   computed: {
     regions() {
-      return regions.regions
+      return this.$store.state.allRegionTypes || []
     },
     system () {
       const systemData = {

@@ -81,8 +81,6 @@ import SlotViewer from '@/components/ui/SlotViewer.vue'
 import RegionsSVG from '@/models/visual/regions.inkscape.svg'
 import Property from '@/components/ui/Property.vue'
 
-const regions = require('../../../../modpacks/mkv25/official/regions.json')
-
 export default {
   data() {
     return {
@@ -102,7 +100,7 @@ export default {
       return this.contact.galaxy || newGalaxy()
     },
     regions() {
-      return regions.regions
+      return this.$store.state.allRegionTypes || []
     },
     analysis() {
       return this.regions

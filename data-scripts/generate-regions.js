@@ -50,14 +50,14 @@ async function run() {
       }
     }
   })
-  const result = {
+  const info = {
     source: inputpath,
     svg: svg.length + ' bytes',
     boundary,
     rects,
     regions
   }
-  await write(outputpath, JSON.stringify(result, null, 2))
+  await write(outputpath, JSON.stringify(info.regions, null, 2))
 }
 
 run()

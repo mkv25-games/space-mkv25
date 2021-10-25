@@ -21,7 +21,7 @@ export default {
     Settings, Property
   },
   async mounted() {
-    await this.$store.dispatch('updateModpackList')
+    await this.$store.dispatch('loadModpacks')
   },
   computed: {
     modpacks() {
