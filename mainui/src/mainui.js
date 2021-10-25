@@ -6,6 +6,13 @@ import store from './store/main'
 
 import setupFontAwesome from './components/FontAwesome'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import componentIndex from './componentIndex'
+
+function registerAllComponentsGlobally(app) {
+  Object.entries(componentIndex).forEach(([name, value]) => {
+    app.component(name, value)
+  })
+}
 
 let mainUIStarted = false
 async function startMainUI () {
@@ -14,11 +21,14 @@ async function startMainUI () {
   }
   mainUIStarted = true
   setupFontAwesome(App)
-  createApp(App)
+  const app = createApp(App)
     .use(store)
     .use(router)
     .component('font-awesome-icon', FontAwesomeIcon)
-    .mount('#mainui-app')
+
+  registerAllComponentsGlobally(app)
+
+  app.mount('#mainui-app')
 }
 
 function glueSystemsTogether () {
