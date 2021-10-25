@@ -15,16 +15,11 @@
 </template>
 
 <script>
-import Icon from './ui/Icon.vue'
-
 export default {
   data() {
     return {
       stateClass: 'expand'
     }
-  },
-  components: {
-    Icon
   },
   computed: {
     expanded() {

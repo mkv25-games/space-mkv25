@@ -30,9 +30,6 @@
 </template>
 
 <script>
-import GridFill from './GridFill.vue'
-import IconButton from './IconButton.vue'
-
 function size(el) {
   if (el) {
     const width = el.scrollWidth
@@ -70,10 +67,6 @@ export default {
       trackOffsetY: 0,
       trackMoveOffset: false
     }
-  },
-  components: {
-    GridFill,
-    IconButton
   },
   computed: {
     gridx() {

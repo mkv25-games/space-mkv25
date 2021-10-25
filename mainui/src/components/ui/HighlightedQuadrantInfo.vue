@@ -17,12 +17,8 @@
 
 <script>
 import quadrantColourMethods from '@/utils/quadrantColourMethods'
-import Property from '@/components/ui/Property.vue'
 
 export default {
-  components: {
-    Property
-  },
   props: {
     quadrant: Object
   },
