@@ -1,5 +1,5 @@
 <template>
-  <SidebarNav>
+  <sidebar-nav>
     <router-link to="/omniscience/home">
       <icon icon="dot-circle" />
       <span>Omniscience</span>
@@ -12,14 +12,5 @@
       <icon icon="circle" />
       <span>Systems</span>
     </router-link>
-  </SidebarNav>
+  </sidebar-nav>
 </template>
-
-<script>
-import SidebarNav from '../../../components/SidebarNav.vue'
-import Icon from '../../../components/ui/Icon.vue'
-
-export default {
-  components: { SidebarNav, Icon }
-}
-</script>

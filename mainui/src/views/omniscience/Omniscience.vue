@@ -1,6 +1,6 @@
 <template>
   <div class="omniscience-view">
-    <OmniscienceNav />
+    <omniscience-nav />
     <div class="frame">
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
@@ -20,14 +20,8 @@
 
 <script>
 import newGalaxy from '@/models/galaxy'
-import OmniscienceNav from './ui/OmniscienceNav.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import Icon from '@/components/ui/Icon.vue'
 
 export default {
-  components: {
-    OmniscienceNav, ColumnLayout, Icon
-  },
   computed: {
     galaxy () {
       return this.contact.galaxy || newGalaxy()

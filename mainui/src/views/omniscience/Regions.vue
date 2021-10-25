@@ -1,5 +1,5 @@
 <template>
-  <OmniscienceView class="regions">
+  <omniscience class="regions">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <slot-viewer>
@@ -69,17 +69,11 @@
         </div>
       </template>
     </column-layout>
-  </OmniscienceView>
+  </omniscience>
 </template>
 
 <script>
 import newGalaxy from '@/models/galaxy'
-import OmniscienceView from './Omniscience.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import Icon from '@/components/ui/Icon.vue'
-import SlotViewer from '@/components/ui/SlotViewer.vue'
-import RegionsSVG from '@/models/visual/regions.inkscape.svg'
-import Property from '@/components/ui/Property.vue'
 
 export default {
   data() {
@@ -91,9 +85,6 @@ export default {
       },
       scale: 500
     }
-  },
-  components: {
-    OmniscienceView, ColumnLayout, Icon, RegionsSVG, SlotViewer, Icon, Property
   },
   computed: {
     galaxy() {

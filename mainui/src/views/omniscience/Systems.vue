@@ -1,6 +1,6 @@
 <template>
   <div class="omniscience-view">
-    <OmniscienceNav />
+    <omniscience-nav />
     <div class="frame">
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
@@ -24,14 +24,7 @@
 </template>
 
 <script>
-import OmniscienceNav from './ui/OmniscienceNav.vue'
-import ColumnLayout from '@/components/ui/ColumnLayout.vue'
-import Icon from '@/components/ui/Icon.vue'
-import IconButton from '@/components/ui/IconButton.vue'
-import SlotViewer from '@/components/ui/SlotViewer.vue'
-import SystemTemplate from '@/models/visual/system-template.inkscape.svg'
-import Property from '@/components/ui/Property.vue'
-import RegionTypes from '@/views/omniscience/ui/RegionTypes.vue'
+import SystemTemplate from '../../models/visual/system-template.inkscape.svg'
 
 export default {
   data() {
@@ -42,7 +35,7 @@ export default {
     }
   },
   components: {
-    OmniscienceNav, ColumnLayout, Icon, IconButton, SlotViewer, SystemTemplate, Property, RegionTypes
+    SystemTemplate
   },
   computed: {
     regions() {
