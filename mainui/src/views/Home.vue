@@ -17,10 +17,7 @@
 </template>
 
 <script>
-import Icon from "../components/ui/Icon.vue"
-
 export default {
-  components: { Icon },
   async mounted() {
     await this.$store.dispatch('refreshContactList')
   }
@@ -75,7 +72,6 @@ h1 {
   background: rgba(0, 0, 0, 0.9);
   padding: 10px;
 }
-
 
 .cover-image {
   background: url('../../public/assets/icon.png') no-repeat center center;

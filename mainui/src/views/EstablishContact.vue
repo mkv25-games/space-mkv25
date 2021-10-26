@@ -2,7 +2,9 @@
   <div class="template">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
-        <galaxy-svg :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+        <slot-viewer class="darkmode">
+          <GalaxySVG :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
+        </slot-viewer>
       </template>
       <template v-slot:right>
         <h1>Establish Contact</h1>
@@ -21,7 +23,7 @@
             <router-link to="/universe">Cancel</router-link>
             <button v-on:click="submitForm">Connect</button>
           </p>
-          <highlighted-quadrant-info :quadrant="highlightedQuadrant" />
+          <region-types :regions="quadrantWithAnalysis.regions" />
         </div>
       </template>
     </column-layout>
@@ -29,19 +31,10 @@
 </template>
 
 <script>
-
 import newContact from '@/models/contact'
 import newGalaxy from '@/models/galaxy'
-import ColumnLayout from '../components/ui/ColumnLayout.vue'
-import GalaxySvg from '../components/ui/GalaxySVG.vue'
-import GalaxyInputs from '@/components/ui/GalaxyInputs.vue'
-import QuadrantBreakdown from '../components/ui/QuadrantBreakdown.vue'
-import HighlightedQuadrantInfo from '@/components/ui/HighlightedQuadrantInfo.vue'
 
 export default {
-  components: {
-    ColumnLayout, GalaxySvg, GalaxyInputs, QuadrantBreakdown, HighlightedQuadrantInfo
-  },
   data: () => {
     return {
       filename: '',
@@ -59,6 +52,25 @@ export default {
     },
     galaxy() {
       return this.overrideGalaxy || this.$store.state.galaxy || newGalaxy()
+    },
+    regions() {
+      return this.$store.state.allRegionTypes || []
+    },
+    quadrantWithAnalysis () {
+      const quad = this.highlightedQuadrant || {}
+      const quadrantData = {
+        mass: quad.mass,
+        density: quad.density,
+        composition: quad.composition
+      }
+
+      quadrantData.regions = this.regions.filter(region => {
+        const inDensity = quadrantData.density >= region.density.lower && quadrantData.density <= region.density.upper 
+        const inMass = quadrantData.mass >= region.mass.lower && quadrantData.mass <= region.mass.upper 
+        return inDensity && inMass
+      })
+
+      return quadrantData
     }
   },
   methods: {

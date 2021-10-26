@@ -2,20 +2,39 @@ import { createStore } from 'vuex'
 import rpcModel from '@/api/rpc'
 import newContact from '@/models/contact.js'
 import newUserPreferences from '@/models/userPreferences.js'
+import newModpack from '@/models/modpack.js'
 
 function defaultUserPreferences () {
   return {
     userPreferences: newUserPreferences(),
     contact: newContact(),
-    contactList: []
+    contactList: [],
+    modpacks: [],
+    allRegionTypes: []
   }
 }
 
-function clone(data) {
+function combineModpacks(modpacks) {
+  const combined = modpacks.reduce((acc, item) => {
+    const modpack = clone(item)
+    Object.keys(acc).forEach(key => {
+      const packdata = modpack.packdata || {}
+      const items = packdata[key] || []
+      if (Array.isArray(acc[key]) && items.length > 0) {
+        acc[key].push(...items)
+      }
+    })
+    return acc
+  }, newModpack())
+  console.log('[main.js] Combined Modpacks:', combined)
+  return combined
+}
+
+function clone (data) {
   return JSON.parse(JSON.stringify(data))
 }
 
-function setup() {
+function setup () {
   const rpc = rpcModel.instance
   const main = createStore({
     state: defaultUserPreferences(),
@@ -38,16 +57,22 @@ function setup() {
       contactList (state, contactList) {
         state.contactList = contactList
       },
+      regions (state, newRegions) {
+        state.allRegionTypes = newRegions
+      },
       setVersion (state, version) {
         state.version = version
-      }
+      },
+      modpacks(state, modpacks) {
+        state.modpacks = modpacks
+      },
     },
     actions: {
       async increment ({ commit, dispatch }) {
         commit('increment')
         dispatch('saveUserPreferences')
       },
-      async saveUserPreferences({ state }) {
+      async saveUserPreferences ({ state }) {
         const rpcProxy = await rpc.fetch()
         return rpcProxy.sendData('userPreferences', clone(state.userPreferences))
       },
@@ -56,7 +81,7 @@ function setup() {
         const preferences = await rpcProxy.requestData('userPreferences') || {}
         commit('setUserPreferences', preferences.data)
       },
-      async resetUserPreferences ({ commit }) {
+      async resetUserPreferences ({ commit, state }) {
         commit('setUserPreferences', defaultUserPreferences())
         const rpcProxy = await rpc.fetch()
         await rpcProxy.sendData('userPreferences', state)
@@ -86,12 +111,20 @@ function setup() {
           .filter(file => !file.filepath.includes('userPreferences.json'))
         commit('contactList', contactList)
       },
-      async hideDeveloperTools({ commit, state }) {
+      async loadModpacks ({ commit }) {
+        const rpcProxy = await rpc.fetch()
+        const modpacks = await rpcProxy.findModpacks()
+        console.log('Update Modpack List:', modpacks)
+        commit('modpacks', modpacks)
+        const combinedModpacks = combineModpacks(modpacks)
+        commit('regions', combinedModpacks.regions)
+      },
+      async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')
         const rpcProxy = await rpc.fetch()
         return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)
       },
-      async showDeveloperTools({ commit, state }) {
+      async showDeveloperTools ({ commit, state }) {
         commit('showDeveloperTools')
         const rpcProxy = await rpc.fetch()
         return rpcProxy.updateDeveloperTools(state.userPreferences.developerTools.visible)

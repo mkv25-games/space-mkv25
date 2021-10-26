@@ -1,14 +1,6 @@
 <template>
-  <GalaxyView class="galaxy-planets">
+  <galaxy-view class="galaxy-planets">
     <h1>Planets</h1>
     <p>Known planets in the galaxy...</p>
-  </GalaxyView>
+  </galaxy-view>
 </template>
-
-<script>
-import GalaxyView from '@/views/GalaxyView.vue'
-
-export default {
-  components: { GalaxyView }
-}
-</script>

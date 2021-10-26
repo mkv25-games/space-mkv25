@@ -1,16 +1,5 @@
 <template>
-  <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
-        <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="rgba(100,100,100,0.8)" stroke-width="0.5"/>
-      </pattern>
-      <pattern id="grid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
-        :x="galaxyOffset.x % tile.size" :y="galaxyOffset.y % tile.size">
-        <rect :width="tile.size" :height="tile.size" fill="url(#smallGrid)"/>
-        <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(100,100,100,0.5)" stroke-width="1"/>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="black" style="pointer-events: none;" />
+  <svg class="galaxy-svg" xmlns="http://www.w3.org/2000/svg" :width="svgWidth" :height="svgHeight">
     <g :transform="`translate(${galaxyOffset.x}, ${galaxyOffset.y})`">
       <g>
         <rect v-for="q in galaxy.quadrants"
@@ -30,8 +19,6 @@
           style="pointer-events: none;" />
       </g>
     </g>
-    <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;" />
-    <text x="14" y="26" class="heavy">{{ message }}</text>
   </svg>
 </template>
 
@@ -54,11 +41,6 @@ export default {
     },
   },
   computed: {
-    message() {
-      const width = this.viewSizeX
-      const height = this.viewSizeY
-      return `Galaxy SVG: ${width}, ${height}`
-    },
     contact() {
       return this.$store.state.contact || newContact()
     },
@@ -80,6 +62,12 @@ export default {
     },
     tile() {
       return { size: this.tileSize, divider: this.tileSize / 5 }
+    },
+    svgWidth() {
+      return this.galaxyWidth
+    },
+    svgHeight() {
+      return this.galaxyHeight
     }
   },
   methods: Object.assign({}, quadrantColourMethods),
@@ -101,10 +89,5 @@ export default {
 text.heavy {
   font: bold 16px sans-serif;
   fill: white;
-}
-
-.galaxy-svg {
-  width: 100%;
-  height: 100%;
 }
 </style>

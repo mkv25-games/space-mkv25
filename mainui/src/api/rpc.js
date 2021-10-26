@@ -1,12 +1,11 @@
 import remoteModel from 'remote-model'
 
-
 const report = (...messages) => { console.log('[api/rpc.js]', ...messages) }
 
-const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'version']
+const exposedMethods = ['sendData', 'requestData', 'clearData', 'updateDeveloperTools', 'findFiles', 'findModpacks', 'version']
 
 let windowObject
-function checkForWindowReady(res, rej) {
+function checkForWindowReady (res, rej) {
   let work
   if (!res) {
     work = new Promise((resolve, reject) => {
@@ -25,7 +24,7 @@ function checkForWindowReady(res, rej) {
   return work
 }
 
-function notify(window) {
+function notify (window) {
   report('Updating window object:', window)
   windowObject = window
 }
@@ -33,7 +32,7 @@ function notify(window) {
 function setup () {
   const proxy = {}
   const rpcModel = remoteModel({
-    async fetcher() {
+    async fetcher () {
       await checkForWindowReady()
       exposedMethods.forEach(key => {
         proxy[key] = windowObject.electron[key]

@@ -6,7 +6,7 @@
       <h2>Explore</h2>
       <p>Scout</p>
       <p>Ancients</p>
-      <p>Omniscience</p>
+      <p><router-link to="/omniscience/home">Omniscience</router-link></p>
 
       <h2>Expand</h2>
       <p>
@@ -37,7 +37,6 @@
 import listContacts from '@/formatting/listContacts'
 
 export default {
-  name: 'Universe',
   async mounted() {
     await this.$store.dispatch('refreshContactList')
   },

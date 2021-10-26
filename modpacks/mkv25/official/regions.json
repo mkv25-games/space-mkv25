@@ -1,0 +1,236 @@
+[
+  {
+    "id": "neutron-stars",
+    "label": "Neutron Stars",
+    "color": "#ccffff",
+    "density": {
+      "lower": 0.727,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.727,
+      "upper": 1
+    }
+  },
+  {
+    "id": "asteroids",
+    "label": "Asteroids",
+    "color": "#333333",
+    "density": {
+      "lower": 0.182,
+      "upper": 0.727
+    },
+    "mass": {
+      "lower": 0,
+      "upper": 0.455
+    }
+  },
+  {
+    "id": "rock-worlds",
+    "label": "Rock Worlds",
+    "color": "#333333",
+    "density": {
+      "lower": 0.273,
+      "upper": 0.727
+    },
+    "mass": {
+      "lower": 0,
+      "upper": 0.455
+    }
+  },
+  {
+    "id": "frozen-giants",
+    "label": "Frozen Giants",
+    "color": "#004c99",
+    "density": {
+      "lower": 0.545,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0,
+      "upper": 0.455
+    }
+  },
+  {
+    "id": "water-worlds",
+    "label": "Water Worlds",
+    "color": "#004c99",
+    "density": {
+      "lower": 0.364,
+      "upper": 0.636
+    },
+    "mass": {
+      "lower": 0.091,
+      "upper": 0.727
+    }
+  },
+  {
+    "id": "main-sequence-solar-systems",
+    "label": "Main Sequence Solar Systems",
+    "color": "#cccc00",
+    "density": {
+      "lower": 0.182,
+      "upper": 0.818
+    },
+    "mass": {
+      "lower": 0.182,
+      "upper": 0.818
+    }
+  },
+  {
+    "id": "black-holes",
+    "label": "Black Holes",
+    "color": "#000000",
+    "density": {
+      "lower": 0.818,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.818,
+      "upper": 1
+    }
+  },
+  {
+    "id": "super-massive-black-holes",
+    "label": "Super Massive Black Holes",
+    "color": "#000000",
+    "density": {
+      "lower": 0.909,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.909,
+      "upper": 1
+    }
+  },
+  {
+    "id": "nebulae",
+    "label": "Nebulae",
+    "color": "#ff8000",
+    "density": {
+      "lower": 0,
+      "upper": 0.364
+    },
+    "mass": {
+      "lower": 0.182,
+      "upper": 0.818
+    }
+  },
+  {
+    "id": "super-giants",
+    "label": "Super Giants",
+    "color": "#ccffff",
+    "density": {
+      "lower": 0.273,
+      "upper": 0.727
+    },
+    "mass": {
+      "lower": 0.818,
+      "upper": 1
+    }
+  },
+  {
+    "id": "red-dwarf-stars",
+    "label": "Red Dwarf Stars",
+    "color": "#990000",
+    "density": {
+      "lower": 0.636,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.273,
+      "upper": 0.545
+    }
+  },
+  {
+    "id": "stellar-nursery",
+    "label": "Stellar Nursery",
+    "color": "#ccffff",
+    "density": {
+      "lower": 0,
+      "upper": 0.364
+    },
+    "mass": {
+      "lower": 0.636,
+      "upper": 1
+    }
+  },
+  {
+    "id": "rogue-comets",
+    "label": "Rogue Comets",
+    "color": "#333333",
+    "density": {
+      "lower": 0,
+      "upper": 0.364
+    },
+    "mass": {
+      "lower": 0,
+      "upper": 0.364
+    }
+  },
+  {
+    "id": "white-dwarf-stars",
+    "label": "White Dwarf Stars",
+    "color": "#ffffff",
+    "density": {
+      "lower": 0.545,
+      "upper": 0.909
+    },
+    "mass": {
+      "lower": 0.091,
+      "upper": 0.455
+    }
+  },
+  {
+    "id": "sub-giants",
+    "label": "Sub Giants",
+    "color": "#ccffff",
+    "density": {
+      "lower": 0.727,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.545,
+      "upper": 0.818
+    }
+  },
+  {
+    "id": "giant-stars",
+    "label": "Giant Stars",
+    "color": "#ccffff",
+    "density": {
+      "lower": 0.273,
+      "upper": 0.727
+    },
+    "mass": {
+      "lower": 0.636,
+      "upper": 0.818
+    }
+  },
+  {
+    "id": "black-dwarf-stars",
+    "label": "Black Dwarf Stars",
+    "color": "#004c99",
+    "density": {
+      "lower": 0.818,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0,
+      "upper": 0.182
+    }
+  },
+  {
+    "id": "carbon-stars",
+    "label": "Carbon Stars",
+    "color": "#990000",
+    "density": {
+      "lower": 0.727,
+      "upper": 1
+    },
+    "mass": {
+      "lower": 0.545,
+      "upper": 0.818
+    }
+  }
+]

@@ -1,14 +1,14 @@
 import perlin from '../utils/perlin'
 
-function perlinQuadrant ({ x, y, seed }) {
+function perlinQuadrant ({ x, y, ox, oy, seed }) {
   const seedFactor = (seed % 1000) / 10000
   const factor = 0.07 + seedFactor
-  const xseed = (seed + x) * factor
-  const yseed = (seed + y) * factor
+  const xseed = (seed + x + ox) * factor
+  const yseed = (seed + y + oy) * factor
   perlin.seed(seed)
   const density = Math.abs(perlin.perlin2(xseed, yseed))
-  const mass = Math.abs(perlin.perlin3(xseed, yseed, density))
-  const composition = Math.abs(perlin.perlin3(density, mass, x * y))
+  const mass = Math.abs(perlin.perlin3(seed, xseed, yseed))
+  const composition = Math.abs(perlin.perlin3(seed, mass, density))
   return {
     x,
     y,
@@ -20,7 +20,7 @@ function perlinQuadrant ({ x, y, seed }) {
   }
 }
 
-function cartesianQuadrant({ x, y, w, h, seed }) {
+function cartesianQuadrant ({ x, y, w, h, seed }) {
   const composition = 0.5
   const density = x / (w - 1)
   const mass = y / (h - 1)
@@ -35,11 +35,10 @@ function cartesianQuadrant({ x, y, w, h, seed }) {
   }
 }
 
-function createGalaxy ({ size, seed, qFn }) {
-
+function createGalaxy ({ size, offset, seed, qFn }) {
   const qFns = {
-    'perlin': perlinQuadrant,
-    'cartesian': cartesianQuadrant
+    perlin: perlinQuadrant,
+    cartesian: cartesianQuadrant
   }
   const createQuadrant = qFns[qFn]
 
@@ -47,7 +46,7 @@ function createGalaxy ({ size, seed, qFn }) {
   const quadrants = []
   for (let i = 0; i < w; i++) {
     for (let j = 0; j < h; j++) {
-      const q = createQuadrant({x: i, y: j, w, h, seed })
+      const q = createQuadrant({ x: i, y: j, ox: offset.x, oy: offset.y, w, h, seed })
       quadrants.push(q)
     }
   }
@@ -74,9 +73,10 @@ function createGalaxy ({ size, seed, qFn }) {
 
 function createDefault () {
   const size = { w: 10, h: 10 }
+  const offset = { x: 0, y: 0 }
   const seed = 0
   const qFn = 'perlin'
-  return { size, seed, qFn }
+  return { size, offset,seed, qFn }
 }
 
 function create (source) {

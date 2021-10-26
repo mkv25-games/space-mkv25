@@ -6,7 +6,7 @@
     <router-link to="/system-view">System View</router-link>
     <router-link to="/location-view">Locations</router-link>
     <router-link to="/designer">Designer</router-link>
-    <router-link to="/settings">Settings</router-link>
+    <router-link to="/settings/home">Settings</router-link>
   </div>
 </template>
 

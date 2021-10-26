@@ -9,7 +9,7 @@ const iconUrl = url.format({
   pathname: path.join(__dirname, 'icons/icon.icns'),
   protocol: 'file:',
   slashes: true
- })
+})
 
 function createWindow () {
   const mainWindow = new BrowserWindow({

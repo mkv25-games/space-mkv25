@@ -27,8 +27,26 @@ export default {
   height: 1.5em;
   text-align: center;
   vertical-align: middle;
+  user-select: none;
 }
-.icon.hoverable:hover {
-  color: darkslateblue;
+.icon.button {
+  border-radius: 50%;
+  border: 4px solid rgba(0,0,0,0);
+  margin: 0.1em;
+  cursor: pointer;
+  background: rgba(255,255,255,0.5);
+}
+.icon.button:hover {
+  color: #666;
+  border-color: white;
+}
+.icon.button:active {
+  color: black;
+  border-color: white;
+  background: rgba(0,0,0,0.1)
+}
+
+.darkmode .icon.button:hover {
+  color: white;
 }
 </style>

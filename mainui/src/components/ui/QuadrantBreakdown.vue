@@ -13,13 +13,11 @@
 
 <script>
 import quadrantColourMethods from '@/utils/quadrantColourMethods'
-import Property from '@/components/ui/Property'
 
 export default {
   props: {
     galaxy: Object
   },
-  components: { Property },
   computed: {
     sortedQuadrants() {
       const sort = this.galaxy.quadrants.sort((a, b) => {

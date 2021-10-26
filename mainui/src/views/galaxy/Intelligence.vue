@@ -1,14 +1,7 @@
 <template>
-  <GalaxyView class="galaxy-intelligence">
+  <galaxy-view class="galaxy-intelligence">
     <h1>Intelligence</h1>
     <p>Intelligence operations in the galaxy...</p>
-  </GalaxyView>
+  </galaxy-view>
 </template>
 
-<script>
-import GalaxyView from '@/views/GalaxyView.vue'
-
-export default {
-  components: { GalaxyView }
-}
-</script>

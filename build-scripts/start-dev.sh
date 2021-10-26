@@ -1,6 +1,7 @@
 #!/bin/bash
 
 run() {
+    node data-scripts/find-all-components.js
     cd mainui
     npm install
     npm run serve &

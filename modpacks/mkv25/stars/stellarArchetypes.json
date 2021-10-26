@@ -1,0 +1,8 @@
+[{
+  "id": "white-dwarf",
+  "label": "White Dwarf",
+  "mass": {
+    "minimum": 0.05,
+    "maximum": 0.10
+  }
+}]
