@@ -1,6 +1,6 @@
 const { find, read, position } = require('promise-path')
 
-async function searchDirectory(directory) {
+async function searchDirectory (directory) {
   const location = position(directory)
   const query = location('./**/modpack.json')
   const modpackPaths = await find(query)
@@ -12,12 +12,12 @@ async function searchDirectory(directory) {
   return modpacks
 }
 
-async function readJson(filepath) {
+async function readJson (filepath) {
   const body = await read(filepath, 'utf8')
   return JSON.parse(body)
 }
 
-async function loadModpackFile({ packpath, filename, packdata }) {
+async function loadModpackFile ({ packpath, filename, packdata }) {
   let error
   try {
     const filepath = packpath(`${filename}.json`)
@@ -28,9 +28,9 @@ async function loadModpackFile({ packpath, filename, packdata }) {
   return error
 }
 
-async function loadModpack(filepath) {
+async function loadModpack (filepath) {
   let packdata = {}
-  let packError, fileErrors = []
+  let packError; let fileErrors = []
   try {
     const body = await read(filepath, 'utf8')
     packdata = JSON.parse(body)
@@ -41,7 +41,7 @@ async function loadModpack(filepath) {
       loadModpackFile({ packpath, filename: 'stellarArchetypes', packdata })
     ])
   } catch (ex) {
-    error = ex.message
+    packError = ex.message
   }
 
   return {
@@ -51,7 +51,7 @@ async function loadModpack(filepath) {
   }
 }
 
-async function modpackLoader(directories) {
+async function modpackLoader (directories) {
   const modpacks = (await Promise.all(directories.map(searchDirectory))).reduce((acc, results) => {
     acc.push(...results)
     return acc

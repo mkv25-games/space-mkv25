@@ -5,7 +5,9 @@
          <font-awesome-icon :icon="['fas', 'caret-up']" />
       </div>
       <div v-for="tile in tilesInView" :style="style(tile)" :key="tile.id" :title="tile.icon" class="tile-grid-item">
-        <font-awesome-icon :icon="['fas', tile.icon]" />
+        <slot :tile="tile">
+          <font-awesome-icon :icon="['fas', tile.icon || 'star']" />
+        </slot>
       </div>
       <div v-for="tile in emptyTiles" :style="style(tile)" :key="tile.id" class="tile-grid-item empty">
         <font-awesome-icon :icon="['fas', 'expand']" />
@@ -31,16 +33,35 @@ export default {
     }
   },
   props: {
-    tiles: Array,
-    columns: Number,
-    rows: Number,
-    tileWidth: Number,
-    tileHeight: Number,
-    showPageMarkers: Boolean
+    tiles: {
+      type: Array,
+      default: []
+    },
+    columns: {
+      type: Number,
+      default: 1
+    },
+    rows: {
+      type: Number,
+      default: 1
+    },
+    tileWidth: {
+      type: Number,
+      default: 50
+    },
+    tileHeight: {
+      type: Number,
+      default: 50
+    },
+    showPageMarkers: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     tilesInView() {
-      return this.tiles.slice(this.viewPosition, this.viewPosition + this.pageSize)
+      const tiles = this.tiles || []
+      return tiles.slice(this.viewPosition, this.viewPosition + this.pageSize)
     },
     emptyTiles() {
       const tiles = []
@@ -80,7 +101,8 @@ export default {
       return Math.floor(this.viewPosition / this.pageSize)
     },
     maxPages() {
-      return Math.ceil(this.tiles.length / this.pageSize)
+      const tiles = this.tiles || []
+      return Math.ceil(tiles.length / this.pageSize)
     }
   },
   methods: {
@@ -133,8 +155,7 @@ export default {
 }
 
 .tile-grid-item {
-  display: flex;
-  justify-content: center;
+  justify-content: stretch;
   align-items: center;
   flex: auto;
   outline: 2px solid #333;
@@ -142,6 +163,9 @@ export default {
 }
 
 .tile-grid-item.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #222;
   color: #333;
 }

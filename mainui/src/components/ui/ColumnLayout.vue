@@ -23,7 +23,7 @@
 }
 
 .overflow-hidden > .column.right { 
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -32,8 +32,8 @@
 }
 .fixed-width-right > .column.right {
   flex: auto;
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 300px;
+  max-width: 300px;
   border-left: 2px solid #999;
   margin-left: -2px;
 }

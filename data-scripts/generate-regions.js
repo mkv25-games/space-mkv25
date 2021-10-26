@@ -5,15 +5,15 @@ const here = position(__dirname)
 const inputpath = here('../mainui/src/models/visual/regions.inkscape.svg')
 const outputpath = here('../modpacks/mkv25/official/regions.json')
 
-function sn(num) {
+function sn (num) {
   return Number.parseFloat(num.toFixed(3))
 }
 
-async function run() {
+async function run () {
   const svg = await read(inputpath)
   const $svg = cheerio.load(svg)
   const rects = $svg('rect').toArray().map(el => {
-    $el = $svg(el)
+    const $el = $svg(el)
     return {
       id: $el.attr('id'),
       label: $svg(el, 'title').text().trim(),

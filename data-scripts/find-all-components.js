@@ -1,10 +1,10 @@
 const { find, position, write } = require('promise-path')
 
-function filenameFromPath(vueFile) {
+function filenameFromPath (vueFile) {
   return vueFile.split('/').pop().split('.vue')[0]
 }
 
-async function run() {
+async function run () {
   console.log('Find All Components (*.vue files)')
   const mainui = position(__dirname, '../mainui/src')
   const search = mainui('**/*.vue')

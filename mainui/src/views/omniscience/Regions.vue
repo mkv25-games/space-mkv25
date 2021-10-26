@@ -39,10 +39,13 @@
         </slot-viewer>
       </template>
       <template v-slot:right>
-        <h2>Regions</h2>
-        <div class="region info" v-for="region in sortRegions(regions)" :key="region.id" v-on:mouseover="highlightRegion(region)">
-          <icon icon="expand" :style="`color: ${region.color}`" /> {{ region.label }}
-        </div>
+        <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
+          <template v-slot:default="{ tile }">
+            <div class="region info" v-on:mouseover="highlightRegion(tile)">
+              <icon icon="expand" :style="`color: ${tile.color}`" /> {{ tile.label }}
+            </div>
+          </template>
+        </vertical-tile-grid>
         <div v-if="activeRegion" class="active region">
           <h3>{{ activeRegion.label }}</h3>
           <p>
