@@ -6,7 +6,13 @@ This project will eventually be named "Space Infinite" once it reaches critical 
 
 ## Preview
 
-![Galaxy Map](./docs/images/galaxy.png)
+![Establish Contact](./docs/images/establish-contact.png)
+
+![Galaxy Map](./docs/images/galaxy-map.png)
+
+![Omniscience Regions](./docs/images/omniscience-regions.png)
+
+![Omniscience Systems](./docs/images/omniscience-systems.png)
 
 ## Quick Start for Local Development
 
@@ -34,13 +40,32 @@ Find a compatable build based on your local platform, and launch to test.
 
 ## TODO
 
-- Add selectable map area (x, y) coordinates
-- Procedurally generate areas outside of selected map
-- Support harsh boundary, island boundary, and continual boundary maps.
+- Generate individual systems using region types and stellar archetypes
+- Create navigable map from galaxy, down to system
+- Create navigable map from system, down to stellar entity
+- Create navigable map from stellar entity, down to faction entity
+- Procedurally generate inaccessible areas outside of selected map
+- Support harsh boundary, island boundary, and continual boundary maps
+- Create default player faction
+- Create NPC factions
+- Create multiplay player factions
+- Create basic colony
+- Create basic ship
+- Create gameloop - progress time based on event stream
+- Create turn loop - end turn, play forward, pause
+- Allow unconstrained movement within system
+- Allow unconstrained movement between systems 
 - Add Start, Game, and End screens
 
 ## Done
 
+- Create omniscience section for region types
+- Load region types from modpack data
+- Create modpack loader
+- Create navigable area viewer, with pan, and zoom controls
+- Create Regions Viewer 
+- Create Omniscience section
+- Create procedural map generator using perlin noise generator
 - Replace default image assets
 - Save, and Load screens
 - Introduce Font Awesome
