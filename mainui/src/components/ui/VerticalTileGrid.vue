@@ -155,8 +155,9 @@ export default {
 }
 
 .tile-grid-item {
+  height: 100%;
   justify-content: stretch;
-  align-items: center;
+  align-items: stretch;
   flex: auto;
   outline: 2px solid #333;
   outline-offset: -2px;

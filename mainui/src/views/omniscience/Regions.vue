@@ -42,7 +42,8 @@
         <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
           <template v-slot:default="{ tile }">
             <div class="region info" v-on:mouseover="highlightRegion(tile)">
-              <icon icon="expand" :style="`color: ${tile.color}`" /> {{ tile.label }}
+              <icon icon="expand" :style="`color: ${tile.color}`" />
+              <span>{{ tile.label }}</span>
             </div>
           </template>
         </vertical-tile-grid>
@@ -127,13 +128,15 @@ export default {
 
 <style scoped>
 .region.info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   text-align: left;
   background: #222;
   color: white;
-  padding: 0.2em;
-  margin: 0.1em 0;
   vertical-align: middle;
   cursor: pointer;
+  height: 100%;
 }
 .region.info:hover {
   background: #111;
