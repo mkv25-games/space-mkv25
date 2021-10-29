@@ -5,9 +5,9 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <slot-viewer>
+            <pan-and-zoom>
               <div style="font-size: 0;"><system-template /></div>
-            </slot-viewer>
+            </pan-and-zoom>
           </template>
           <template v-slot:right>
             <h2>Systems</h2>

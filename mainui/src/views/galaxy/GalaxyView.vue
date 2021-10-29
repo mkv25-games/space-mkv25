@@ -5,9 +5,9 @@
       <slot>
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
-            <slot-viewer class="darkmode">
+            <pan-and-zoom class="darkmode">
               <GalaxySVG :galaxy="galaxy" :tileSize="40" v-on:quadrantHover="showQuadrantInfo" />
-            </slot-viewer>
+            </pan-and-zoom>
           </template>
           <template v-slot:right>
             <h2>{{ contact.name }}</h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="slot-viewer">
+  <div class="pan-and-zoom">
     <div ref="slot-content" class="slot-content"
       v-on:mouseover="gainKeyFocus"
       v-on:mouseout="loseKeyFocus"
@@ -225,14 +225,14 @@ export default {
 </script>
 
 <style>
-.slot-viewer {
+.pan-and-zoom {
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
   user-select: none;
 }
-.slot-viewer.darkmode {
+.pan-and-zoom.darkmode {
   background: black;
 }
 

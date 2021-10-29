@@ -2,7 +2,7 @@
   <omniscience class="regions">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
-        <slot-viewer>
+        <pan-and-zoom>
           <div ref="region-svg">
             <svg style="width: 540px; height: 540px; display: block;" :viewBox="`-20 -20 ${scale + 40} ${scale + 40}`">
               <g>
@@ -36,7 +36,7 @@
               </g>
             </svg>
           </div>
-        </slot-viewer>
+        </pan-and-zoom>
       </template>
       <template v-slot:right>
         <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">

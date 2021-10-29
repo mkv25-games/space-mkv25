@@ -11,7 +11,7 @@ import Icon from './components/ui/Icon.vue'
 import IconButton from './components/ui/IconButton.vue'
 import Property from './components/ui/Property.vue'
 import QuadrantBreakdown from './components/ui/QuadrantBreakdown.vue'
-import SlotViewer from './components/ui/SlotViewer.vue'
+import PanAndZoom from './components/ui/PanAndZoom.vue'
 import VerticalTileGrid from './components/ui/VerticalTileGrid.vue'
 import ContactManagement from './views/ContactManagement.vue'
 import Designer from './views/Designer.vue'
@@ -48,5 +48,5 @@ import Template from './views/Template.vue'
 import Universe from './views/Universe.vue'
 
 export default {
-  PrimaryNav, SidebarNav, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, Property, QuadrantBreakdown, SlotViewer, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
+  PrimaryNav, SidebarNav, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, Property, QuadrantBreakdown, PanAndZoom, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
 }
