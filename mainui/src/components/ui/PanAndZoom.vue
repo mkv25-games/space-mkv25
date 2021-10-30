@@ -79,10 +79,28 @@ export default {
   },
   computed: {
     gridx() {
-      return this.offsetX - this.trackOffsetX
+      const { offsetX, trackOffsetX } = this
+      return offsetX - trackOffsetX
     },
     gridy() {
-      return this.offsetY - this.trackOffsetY
+      const { offsetY, trackOffsetY } = this
+      return offsetY - trackOffsetY
+    },
+    hw() {
+      const { viewSizeX } = this
+      return viewSizeX / 2
+    },
+    hh() {
+      const { viewSizeY } = this
+      return viewSizeY / 2
+    },
+    hzw() {
+      const { zoomWidth, zoom } = this
+      return zoomWidth / 2 / zoom
+    },
+    hzh() {
+      const { zoomHeight, zoom } = this
+      return zoomHeight / 2 / zoom
     }
   },
   props: {
@@ -90,10 +108,9 @@ export default {
   },
   methods: {
     offsetStyle() {
-      const hw = this.viewSizeX / 2
-      const hh = this.viewSizeY / 2
-      const x = this.offsetX - this.trackOffsetX + hw
-      const y = this.offsetY - this.trackOffsetY + hh
+      const { offsetX, offsetY, hw, hh, trackOffsetX, trackOffsetY } = this
+      const x = offsetX - trackOffsetX + hw
+      const y = offsetY - trackOffsetY + hh
       return `left: ${x}px; top: ${y}px; width: 1px; height: 1px;`
     },
     offsetClass() {
@@ -101,10 +118,8 @@ export default {
       return ['offset-container', state].join(' ')
     },
     zoomStyle() {
-      const zoomScale = this.zoom
-      const hw = this.zoomWidth / 2 / this.zoom
-      const hh = this.zoomHeight / 2 / this.zoom
-      return `zoom: ${zoomScale}; left: ${-hw}px; top: ${-hh}px;`
+      const { zoom, hzw, hzh } = this
+      return `zoom: ${zoom}; left: ${-hzw}px; top: ${-hzh}px;`
     },
     scrollLeft() {
       this.scrollDirection(-100, 0)
@@ -160,44 +175,40 @@ export default {
       fn()
     },
     startOffset(ev) {
-      // console.log('Start offset:', ev)
-      this.moveOffsetX = ev.x
-      this.moveOffsetY = ev.y
+      const { x, y } = ev
+      this.moveOffsetX = x
+      this.moveOffsetY = y
       this.trackMoveOffset = true
-      const self = this
       document.addEventListener('mouseup', this.endOffset)
     },
     trackOffset(ev) {
-      if (this.trackMoveOffset) {
-        const x = this.moveOffsetX - ev.x
-        const y = this.moveOffsetY - ev.y
-        this.trackOffsetX = x
-        this.trackOffsetY = y
+      const { x, y } = ev
+      const { trackMoveOffset, trackOffsetX, trackOffsetY, moveOffsetX, moveOffsetY, hw, hh, offsetX, offsetY } = this
+      const { top, left } = this.$el.getBoundingClientRect()
+      if (trackMoveOffset) {
+        this.trackOffsetX = moveOffsetX - x
+        this.trackOffsetY = moveOffsetY - y
       } else {
         this.trackOffsetX = 0
         this.trackOffsetY = 0
       }
-      const hw = this.viewSizeX / 2
-      const hh = this.viewSizeY / 2
-      const { top, left } = this.$el.getBoundingClientRect()
-      this.cursorX = Math.round(ev.clientX - left - hw - this.offsetX + this.trackOffsetX)
-      this.cursorY = Math.round(ev.clientY - top - hh - this.offsetY + this.trackOffsetY)
+      this.cursorX = Math.round(ev.clientX - left - hw - offsetX + trackOffsetX)
+      this.cursorY = Math.round(ev.clientY - top - hh - offsetY + trackOffsetY)
     },
     endOffset() {
-      // console.log('End offset:', ev)
+      const { trackOffsetX, trackOffsetY } = this
       this.trackMoveOffset = false
-      const x = this.trackOffsetX
-      const y = this.trackOffsetY
       this.trackOffsetX = 0
       this.trackOffsetY = 0
-      this.scrollDirection(-x, -y)
+      this.scrollDirection(-trackOffsetX, -trackOffsetY)
       document.removeEventListener('mouseup', this.endOffset)
     },
     limitBoundaries() {
-      if (this.zoom > 10) {
+      const { zoom } = this
+      if (zoom > 10) {
         this.zoom = 10
       }
-      if (this.zoom < 0.1) {
+      if (zoom < 0.1) {
         this.zoom = 0.1
       }
     },
