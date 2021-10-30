@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="slot-controls">
+    <div class="slot-controls" v-on:mouseover="clearCursor">
       <icon-button icon="chevron-circle-left" v-on:click="scrollLeft()" />
       <icon-button icon="chevron-circle-right" v-on:click="scrollRight()"  />
       <icon-button icon="chevron-circle-down" v-on:click="scrollDown()"  />
@@ -81,7 +81,15 @@ export default {
   props: {
     showLabels: {
       type: Boolean,
-      default: false
+      default: true
+    },
+    maxZoom: {
+      type: Number,
+      default: 0.1
+    },
+    minZoom: {
+      type: Number,
+      default: 50
     }
   },
   computed: {
@@ -140,21 +148,21 @@ export default {
     scrollZoom(ev) {
       ev.preventDefault()
       const { zoom } = this
-      const newZoom = zoom + (ev.deltaY * -0.005)
+      const newZoom = zoom + (ev.deltaY * -0.005 * zoom)
       this.setZoom(newZoom)
     },
     scrollDirection(x, y, newZoom) {
-      const { zoom, offsetX, offsetY } = this
+      const { zoom, offsetX, offsetY, maxZoom, minZoom } = this
       const newX = Math.round(offsetX + x)
       const newY = Math.round(offsetY + y)
       this.offsetX = newX
       this.offsetY = newY
-      this.zoom = Math.min(Math.max(newZoom || zoom, 0.1), 10)
+      this.zoom = Math.min(Math.max(newZoom || zoom, maxZoom), minZoom)
       this.recaculateSizes('scrollDirection')
     },
     setZoom(newZoom) {
-      const { zoom, cursorX, cursorY, offsetX, offsetY } = this
-      const constrainedZoom = Math.min(Math.max(newZoom, 0.1), 10)
+      const { zoom, cursorX, cursorY, offsetX, offsetY, maxZoom, minZoom } = this
+      const constrainedZoom = Math.min(Math.max(newZoom, maxZoom), minZoom)
       const delta = zoom - constrainedZoom
       const cursorXOffset = cursorX - offsetX
       const cursorYOffset = cursorY - offsetY
@@ -178,6 +186,10 @@ export default {
     },
     loseKeyFocus() {
       document.removeEventListener('keydown', this.checkKeyboardKeys)
+    },
+    clearCursor() {
+      this.cursorX = 0
+      this.cursorY = 0
     },
     checkKeyboardKeys(ev) {
       console.log('Check Keyboard Keys', ev)

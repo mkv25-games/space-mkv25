@@ -6,7 +6,7 @@
         <column-layout class="fixed-width-right overflow-hidden">
           <template v-slot:left>
             <pan-and-zoom>
-              <div style="font-size: 0;"><system-template /></div>
+              <system-template style="width: 4000px; height: 4000px;" />
             </pan-and-zoom>
           </template>
           <template v-slot:right>
