@@ -19,13 +19,14 @@
     <div class="slot-controls">
       <icon-button icon="chevron-circle-left" v-on:click="scrollLeft()" />
       <icon-button icon="chevron-circle-right" v-on:click="scrollRight()"  />
-      <icon-button icon="plus-circle" v-on:click="zoomIn()"  />
-      <icon-button icon="minus-circle" v-on:click="zoomOut()"  />
       <icon-button icon="chevron-circle-down" v-on:click="scrollDown()"  />
       <icon-button icon="chevron-circle-up" v-on:click="scrollUp()"  />
-      <br />
-      <b>X: {{ offsetX }}, Y: {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b><br />
-      <b>CX: {{ cursorX }}, CY: {{ cursorY }} </b>
+      <icon-button icon="plus-circle" v-on:click="zoomIn()"  />
+      <icon-button icon="minus-circle" v-on:click="zoomOut()"  />
+      <div v-if="showLabels">
+        <b>X: {{ offsetX }}, Y: {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b><br />
+        <b>CX: {{ cursorX }}, CY: {{ cursorY }} </b>
+      </div>
     </div>
   </div>
 </template>
@@ -77,6 +78,12 @@ export default {
       trackMoveOffset: false
     }
   },
+  props: {
+    showLabels: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     gridx() {
       const { offsetX, trackOffsetX } = this
@@ -103,9 +110,6 @@ export default {
       return zoomHeight / 2 / zoom
     }
   },
-  props: {
-    galaxy: Object
-  },
   methods: {
     offsetStyle() {
       const { offsetX, offsetY, hw, hh, trackOffsetX, trackOffsetY } = this
@@ -122,38 +126,52 @@ export default {
       return `zoom: ${zoom}; left: ${-hzw}px; top: ${-hzh}px;`
     },
     scrollLeft() {
-      this.scrollDirection(-100, 0)
-    },
-    scrollRight() {
       this.scrollDirection(100, 0)
     },
+    scrollRight() {
+      this.scrollDirection(-100, 0)
+    },
     scrollUp() {
-      this.scrollDirection(0, -100)
+      this.scrollDirection(0, 100)
     },
     scrollDown() {
-      this.scrollDirection(0, 100)
+      this.scrollDirection(0, -100)
     },
     scrollZoom(ev) {
       ev.preventDefault()
-      this.zoom += ev.deltaY * -0.005
-      this.recaculateSizes('scrollZoom')
+      const { zoom } = this
+      const newZoom = zoom + (ev.deltaY * -0.005)
+      this.setZoom(newZoom)
     },
-    scrollDirection(x, y) {
-      let newX = this.offsetX + x
-      let newY = this.offsetY + y
+    scrollDirection(x, y, newZoom) {
+      const { zoom, offsetX, offsetY } = this
+      const newX = Math.round(offsetX + x)
+      const newY = Math.round(offsetY + y)
       this.offsetX = newX
       this.offsetY = newY
+      this.zoom = Math.min(Math.max(newZoom || zoom, 0.1), 10)
       this.recaculateSizes('scrollDirection')
     },
+    setZoom(newZoom) {
+      const { zoom, cursorX, cursorY, offsetX, offsetY } = this
+      const constrainedZoom = Math.min(Math.max(newZoom, 0.1), 10)
+      const delta = zoom - constrainedZoom
+      const cursorXOffset = cursorX - offsetX
+      const cursorYOffset = cursorY - offsetY
+      const deltaX = (cursorXOffset * delta / zoom)
+      const deltaY = (cursorYOffset * delta / zoom)
+      this.scrollDirection(deltaX, deltaY, constrainedZoom)
+      this.recaculateSizes('setZoom')
+    },
     zoomIn() {
-      const baseZoom = Math.round(this.zoom * 2 * 1000) / 1000;
-      this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
-      this.recaculateSizes('zoomIn')
+      const { zoom } = this
+      const baseZoom = Math.round(zoom * 2 * 1000) / 1000;
+      this.setZoom(baseZoom)
     },
     zoomOut() {
-      const baseZoom = Math.round(this.zoom / 2 * 1000) / 1000;
-      this.zoom = Math.min(Math.max(baseZoom, 0.1), 10)
-      this.recaculateSizes('zoomOut')
+      const { zoom } = this
+      const baseZoom = Math.round(zoom / 2 * 1000) / 1000;
+      this.setZoom(baseZoom)
     },
     gainKeyFocus() {
       document.addEventListener('keydown', this.checkKeyboardKeys)
@@ -163,12 +181,12 @@ export default {
     },
     checkKeyboardKeys(ev) {
       console.log('Check Keyboard Keys', ev)
-      const delta = (ev.shiftKey || ev.altKey) ? 100 : 20 
+      const delta = (ev.shiftKey || ev.altKey) ? 100 : 50 
       const map = {
-        ArrowUp: () => this.scrollDirection(0, -delta),
-        ArrowDown: () => this.scrollDirection(0, delta),
-        ArrowLeft: () => this.scrollDirection(-delta, 0),
-        ArrowRight: () => this.scrollDirection(delta, 0)
+        ArrowUp: () => this.scrollDirection(0, delta),
+        ArrowDown: () => this.scrollDirection(0, -delta),
+        ArrowLeft: () => this.scrollDirection(delta, 0),
+        ArrowRight: () => this.scrollDirection(-delta, 0)
       }
       const noop = () => {}
       const fn = map[ev.code] || noop
@@ -183,7 +201,7 @@ export default {
     },
     trackOffset(ev) {
       const { x, y } = ev
-      const { trackMoveOffset, trackOffsetX, trackOffsetY, moveOffsetX, moveOffsetY, hw, hh, offsetX, offsetY } = this
+      const { trackMoveOffset, moveOffsetX, moveOffsetY, hw, hh } = this
       const { top, left } = this.$el.getBoundingClientRect()
       if (trackMoveOffset) {
         this.trackOffsetX = moveOffsetX - x
@@ -192,8 +210,8 @@ export default {
         this.trackOffsetX = 0
         this.trackOffsetY = 0
       }
-      this.cursorX = Math.round(ev.clientX - left - hw - offsetX + trackOffsetX)
-      this.cursorY = Math.round(ev.clientY - top - hh - offsetY + trackOffsetY)
+      this.cursorX = ev.clientX - left - hw
+      this.cursorY = ev.clientY - top - hh
     },
     endOffset() {
       const { trackOffsetX, trackOffsetY } = this
@@ -203,18 +221,8 @@ export default {
       this.scrollDirection(-trackOffsetX, -trackOffsetY)
       document.removeEventListener('mouseup', this.endOffset)
     },
-    limitBoundaries() {
-      const { zoom } = this
-      if (zoom > 10) {
-        this.zoom = 10
-      }
-      if (zoom < 0.1) {
-        this.zoom = 0.1
-      }
-    },
     recaculateSizes(source) {
       // console.log('Recalc', source)
-      this.limitBoundaries()
       const self = this
       const offsetSize = size(this.$refs['offset-content'])
       self.offsetWidth = offsetSize.width
@@ -290,8 +298,8 @@ export default {
 .slot-controls {
   display: inline-block;
   position: absolute;
-  bottom: 2em;
-  left: 2em;
+  bottom: 1em;
+  left: 1em;
   font-size: 2em;
   color: black;
 }
