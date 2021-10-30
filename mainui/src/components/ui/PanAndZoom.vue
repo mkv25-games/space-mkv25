@@ -24,7 +24,8 @@
       <icon-button icon="chevron-circle-down" v-on:click="scrollDown()"  />
       <icon-button icon="chevron-circle-up" v-on:click="scrollUp()"  />
       <br />
-      <b>X: {{ offsetX }}, Y: {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b>
+      <b>X: {{ offsetX }}, Y: {{ offsetY }}, Z: {{ zoom.toPrecision(2) }}</b><br />
+      <b>CX: {{ cursorX }}, CY: {{ cursorY }} </b>
     </div>
   </div>
 </template>
@@ -34,14 +35,20 @@ function size(el) {
   if (el) {
     const width = el.scrollWidth
     const height = el.scrollHeight
+    const x = el.offsetX
+    const y = el.offsetY
     return {
       width,
-      height
+      height,
+      x,
+      y
     }
   } else {
     return {
       width: 0,
-      height: 0
+      height: 0,
+      x: 0,
+      y: 0
     }
   }
 }
@@ -61,6 +68,8 @@ export default {
       zoomWidth: 0,
       zoomHeight: 0,
       zoom: 1.0,
+      cursorX: 0,
+      cursorY: 0,
       moveOffsetX: 0,
       moveOffsetY: 0,
       trackOffsetX: 0,
@@ -168,6 +177,11 @@ export default {
         this.trackOffsetX = 0
         this.trackOffsetY = 0
       }
+      const hw = this.viewSizeX / 2
+      const hh = this.viewSizeY / 2
+      const { top, left } = this.$el.getBoundingClientRect()
+      this.cursorX = Math.round(ev.clientX - left - hw - this.offsetX + this.trackOffsetX)
+      this.cursorY = Math.round(ev.clientY - top - hh - this.offsetY + this.trackOffsetY)
     },
     endOffset() {
       // console.log('End offset:', ev)
