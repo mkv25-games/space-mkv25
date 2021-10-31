@@ -7,7 +7,7 @@
       v-on:mouseup="endOffset"
       v-on:mousemove="trackOffset"
       v-on:wheel="scrollZoom">
-      <grid-fill :viewx="gridx" :viewy="gridy" :offsetx="viewSizeX/2" :offsety="viewSizeY/2" :zoom="zoom" />
+      <grid-fill :viewx="gridX" :viewy="gridY" :offsetx="gridOffsetX" :offsety="gridOffsetY" :zoom="zoom" />
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
           <slot>
@@ -79,6 +79,10 @@ export default {
     }
   },
   props: {
+    centerContent: {
+      type: Boolean,
+      default: true
+    },
     showLabels: {
       type: Boolean,
       default: true
@@ -93,13 +97,21 @@ export default {
     }
   },
   computed: {
-    gridx() {
+    gridX() {
       const { offsetX, trackOffsetX } = this
       return offsetX - trackOffsetX
     },
-    gridy() {
+    gridY() {
       const { offsetY, trackOffsetY } = this
       return offsetY - trackOffsetY
+    },
+    gridOffsetX() {
+      const { centerContent, hw } = this
+      return centerContent ? hw : 0
+    },
+    gridOffsetY() {
+      const { centerContent, hh } = this
+      return centerContent ? hh : 0
     },
     hw() {
       const { viewSizeX } = this
@@ -120,9 +132,15 @@ export default {
   },
   methods: {
     offsetStyle() {
-      const { offsetX, offsetY, hw, hh, trackOffsetX, trackOffsetY } = this
-      const x = offsetX - trackOffsetX + hw
-      const y = offsetY - trackOffsetY + hh
+      const { centerContent, offsetX, offsetY, hw, hh, trackOffsetX, trackOffsetY } = this
+      let x, y
+      if (centerContent) {
+        x = offsetX - trackOffsetX + hw
+        y = offsetY - trackOffsetY + hh
+      } else {
+        x = offsetX - trackOffsetX
+        y = offsetY - trackOffsetY
+      }
       return `left: ${x}px; top: ${y}px; width: 1px; height: 1px;`
     },
     offsetClass() {
@@ -130,8 +148,12 @@ export default {
       return ['offset-container', state].join(' ')
     },
     zoomStyle() {
-      const { zoom, hzw, hzh } = this
-      return `zoom: ${zoom}; left: ${-hzw}px; top: ${-hzh}px;`
+      const { zoom, hzw, hzh, centerContent } = this
+      if (centerContent) {
+        return `zoom: ${zoom}; left: ${-hzw}px; top: ${-hzh}px;`
+      } else {
+        return `zoom: ${zoom}; left: 0; top: 0;`
+      }
     },
     scrollLeft() {
       this.scrollDirection(100, 0)
@@ -213,7 +235,7 @@ export default {
     },
     trackOffset(ev) {
       const { x, y } = ev
-      const { trackMoveOffset, moveOffsetX, moveOffsetY, hw, hh } = this
+      const { centerContent, trackMoveOffset, moveOffsetX, moveOffsetY, hw, hh } = this
       const { top, left } = this.$el.getBoundingClientRect()
       if (trackMoveOffset) {
         this.trackOffsetX = moveOffsetX - x
@@ -222,8 +244,13 @@ export default {
         this.trackOffsetX = 0
         this.trackOffsetY = 0
       }
-      this.cursorX = ev.clientX - left - hw
-      this.cursorY = ev.clientY - top - hh
+      if (centerContent) {
+        this.cursorX = ev.clientX - left - hw
+        this.cursorY = ev.clientY - top - hh
+      } else {
+        this.cursorX = ev.clientX - left
+        this.cursorY = ev.clientY - top
+      }
     },
     endOffset() {
       const { trackOffsetX, trackOffsetY } = this
