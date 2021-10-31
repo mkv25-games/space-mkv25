@@ -1,18 +1,16 @@
 <template>
-  <omniscience class="systems">
+  <omniscience class="stellar-archetypes">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <pan-and-zoom>
-          <system-template />
+          <svg>
+            <circle r="200" fill="black" />
+          </svg>
         </pan-and-zoom>
       </template>
       <template v-slot:right>
-        <h2>Systems</h2>
-        <property label="Mass"><input type="number" v-model="mass" step="0.001" min="0" max="1" /><icon-button icon="dice" v-on:click="randomiseMass" /></property>
-        <property label="Density"><input type="number" v-model="density" step="0.001" min="0" max="1" /><icon-button icon="dice" v-on:click="randomiseDensity" /></property>
-        <property label="Composition"><input type="number" v-model="composition" step="0.001" min="0" max="1" /><icon-button icon="dice" v-on:click="randomiseComposition" /></property>
-        <h3>Region Type</h3>
-        <region-types :regions="sortRegions(system.regions)" />
+        <h2>Stellar Archetypes</h2>
+        <p>List of types?</p>
       </template>
     </column-layout>
   </omniscience>

@@ -1,6 +1,6 @@
 <template>
   <sidebar-nav>
-    <router-link to="/settings/home">
+    <router-link to="/settings/settings">
       <icon icon="object-group" />
       <span>Interface</span>
     </router-link>
@@ -8,7 +8,7 @@
       <icon icon="puzzle-piece" />
       <span>Mods</span>
     </router-link>
-    <router-link to="/settings/debug">
+    <router-link to="/settings/debug/debug">
       <icon icon="cogs" />
       <span>Debug</span>
     </router-link>

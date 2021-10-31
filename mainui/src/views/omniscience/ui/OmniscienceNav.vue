@@ -1,6 +1,6 @@
 <template>
   <sidebar-nav>
-    <router-link to="/omniscience/home">
+    <router-link to="/omniscience/omniscience">
       <icon icon="dot-circle" />
       <span>Omniscience</span>
     </router-link>

@@ -6,7 +6,7 @@
       <h2>Explore</h2>
       <p>Scout</p>
       <p>Ancients</p>
-      <p><router-link to="/omniscience/home">Omniscience</router-link></p>
+      <p><router-link to="/omniscience/omniscience">Omniscience</router-link></p>
 
       <h2>Expand</h2>
       <p>
@@ -51,7 +51,7 @@ export default {
   methods: {
     async reestablishContact(contact) {
       await this.$store.dispatch('loadContact', contact)
-      this.$router.push({ path: 'galaxy-view' })
+      this.$router.push({ path: '/galaxy/galaxy-view' })
     }
   }
 }

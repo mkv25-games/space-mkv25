@@ -1,6 +1,6 @@
 <template>
   <sidebar-nav>
-    <router-link to="/galaxy-view">
+    <router-link to="/galaxy/galaxy-view">
       <icon icon="sun" />
       <span>Solar Systems</span>
     </router-link>
