@@ -85,7 +85,7 @@ export default {
     },
     showLabels: {
       type: Boolean,
-      default: true
+      default: false
     },
     maxZoom: {
       type: Number,
