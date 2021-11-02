@@ -84,6 +84,7 @@ export default {
     return {
       visualModel: false,
       activeRegion: {
+        label: 'No region selected',
         mass: {},
         density: {}
       },

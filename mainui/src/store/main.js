@@ -10,7 +10,8 @@ function defaultUserPreferences () {
     contact: newContact(),
     contactList: [],
     modpacks: [],
-    allRegionTypes: []
+    allRegionTypes: [],
+    allStellarArchetypes: []
   }
 }
 
@@ -59,6 +60,9 @@ function setup () {
       },
       regions (state, newRegions) {
         state.allRegionTypes = newRegions
+      },
+      stellarArchetypes (state, newStellarAchetypes) {
+        state.allStellarArchetypes = newStellarAchetypes
       },
       setVersion (state, version) {
         state.version = version
@@ -116,8 +120,9 @@ function setup () {
         const modpacks = await rpcProxy.findModpacks()
         console.log('Update Modpack List:', modpacks)
         commit('modpacks', modpacks)
-        const combinedModpacks = combineModpacks(modpacks)
-        commit('regions', combinedModpacks.regions)
+        const { regions, stellarArchetypes } = combineModpacks(modpacks)
+        commit('regions', regions)
+        commit('stellarArchetypes', stellarArchetypes)
       },
       async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')

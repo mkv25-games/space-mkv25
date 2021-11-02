@@ -4,5 +4,34 @@
   "mass": {
     "minimum": 0.05,
     "maximum": 0.10
-  }
+  },
+  "icon": "circle",
+  "color": "#fff"
+}, {
+  "id": "main-sequence-sun",
+  "label": "Main Sequence Sun",
+  "mass": {
+    "minimum": 0.10,
+    "maximum": 0.50
+  },
+  "icon": "circle",
+  "color": "#ffe"
+}, {
+  "id": "black-hole",
+  "label": "Black Hole",
+  "mass": {
+    "minimum": 0.90,
+    "maximum": 0.99
+  },
+  "icon": "circle",
+  "color": "#000"
+}, {
+  "id": "super-massive-black-hole",
+  "label": "Super Massive Black Hole",
+  "mass": {
+    "minimum": 0.90,
+    "maximum": 0.99
+  },
+  "icon": "circle",
+  "color": "#000"
 }]

@@ -15,60 +15,39 @@
       </template>
       <template v-slot:right>
         <h2>Stellar Archetypes</h2>
-        <p>List of types?</p>
+        <p>
+          <property v-for="key in Object.keys(highlightedStellarArchetype)" :key="key" :label="key">{{ highlightedStellarArchetype[key] }}</property>
+        </p>
+        <vertical-tile-grid :tiles="stellarArchetypes" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
+          <template v-slot:default="{ tile }">
+            <div class="stellar archetype info" v-on:mouseover="highlightedStellarArchetype = tile">
+              <icon icon="expand" :style="`color: ${tile.color}`" />
+              <span>{{ tile.label }}</span>
+            </div>
+          </template>
+        </vertical-tile-grid>
       </template>
     </column-layout>
   </omniscience>
 </template>
 
 <script>
-import SystemTemplate from '../../models/visual/system-template.inkscape.svg'
-
 export default {
   data() {
     return {
-      mass: 0,
-      density: 0,
-      composition: 0
+      highlightedStellarArchetype: false
     }
   },
-  components: {
-    SystemTemplate
-  },
   computed: {
-    regions() {
-      return this.$store.state.allRegionTypes || []
-    },
-    system () {
-      const systemData = {
-        mass: this.mass,
-        density: this.density,
-        composition: this.composition
-      }
-
-      systemData.regions = this.regions.filter(region => {
-        const inDensity = systemData.density >= region.density.lower && systemData.density <= region.density.upper 
-        const inMass = systemData.mass >= region.mass.lower && systemData.mass <= region.mass.upper 
-        return inDensity && inMass
-      })
-
-      return systemData
+    stellarArchetypes() {
+      return this.$store.state.allStellarArchetypes || []
     }
   },
   methods: {
     limitNumber(num) {
       return Number.parseFloat(num.toFixed(3))
     },
-    randomiseMass() {
-      this.mass = this.limitNumber(Math.random())
-    },
-    randomiseDensity() {
-      this.density = this.limitNumber(Math.random())
-    },
-    randomiseComposition() {
-      this.composition = this.limitNumber(Math.random())
-    },
-    sortRegions(regions) {
+    sortArchetypes(archetypes) {
       return regions.sort((a, b) => {
         return a.label.localeCompare(b.label)
       })
@@ -78,12 +57,19 @@ export default {
 </script>
 
 <style scoped>
-.omniscience-view {
+.stellar.archetype.info {
   display: flex;
-  align-items: stretch;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  background: #222;
+  color: white;
+  vertical-align: middle;
+  cursor: pointer;
+  height: 100%;
 }
-.frame {
-  flex: auto;
-  overflow: hidden;
+.stellar.archetype.info:hover {
+  background: #111;
+  transition: background 250ms ease-in-out;
 }
 </style>
