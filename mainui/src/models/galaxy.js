@@ -76,7 +76,7 @@ function createDefault () {
   const offset = { x: 0, y: 0 }
   const seed = 0
   const qFn = 'perlin'
-  return { size, offset,seed, qFn }
+  return { size, offset, seed, qFn }
 }
 
 function create (source) {

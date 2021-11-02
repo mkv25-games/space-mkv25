@@ -15,7 +15,7 @@ function defaultUserPreferences () {
   }
 }
 
-function combineModpacks(modpacks) {
+function combineModpacks (modpacks) {
   const combined = modpacks.reduce((acc, item) => {
     const modpack = clone(item)
     Object.keys(acc).forEach(key => {
@@ -67,9 +67,9 @@ function setup () {
       setVersion (state, version) {
         state.version = version
       },
-      modpacks(state, modpacks) {
+      modpacks (state, modpacks) {
         state.modpacks = modpacks
-      },
+      }
     },
     actions: {
       async increment ({ commit, dispatch }) {

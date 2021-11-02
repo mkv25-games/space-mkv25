@@ -8,7 +8,7 @@ import setupFontAwesome from './components/FontAwesome'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import componentIndex from './componentIndex'
 
-function registerAllComponentsGlobally(app) {
+function registerAllComponentsGlobally (app) {
   Object.entries(componentIndex).forEach(([name, value]) => {
     app.component(name, value)
   })
