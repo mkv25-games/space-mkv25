@@ -86,5 +86,8 @@ a {
 a > span {
   margin-left: 11px;
   flex: 1 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>

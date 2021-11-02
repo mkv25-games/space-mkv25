@@ -2,9 +2,14 @@
   <omniscience class="stellar-archetypes">
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
-        <pan-and-zoom>
-          <svg>
-            <circle r="200" fill="black" />
+        <pan-and-zoom class="darkmode">
+          <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
+            <circle cx="0" cy="0" r="200" fill="transparent" stroke="orange" stroke-width="2" opacity="0.5" />
+            <circle cx="-200" cy="0" r="10" fill="orange" />
+            <circle cx="0" cy="0" r="60" fill="transparent" stroke="white" stroke-width="2" opacity="0.5" />
+            <circle cx="60" cy="0" r="15" fill="white" />
+            <circle cx="0" cy="0" r="20" fill="transparent" stroke="grey" stroke-width="4" opacity="0.5" />
+            <circle cx="0" cy="0" r="20" fill="black" />
           </svg>
         </pan-and-zoom>
       </template>

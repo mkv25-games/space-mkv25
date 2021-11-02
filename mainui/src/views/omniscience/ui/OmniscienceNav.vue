@@ -12,5 +12,9 @@
       <icon icon="circle" />
       <span>Systems</span>
     </router-link>
+    <router-link to="/omniscience/stellar-archetypes">
+      <icon icon="circle" />
+      <span>Stellar Archetypes of Joy</span>
+    </router-link>
   </sidebar-nav>
 </template>
