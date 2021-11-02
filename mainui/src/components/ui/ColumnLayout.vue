@@ -3,7 +3,7 @@
     <div class="column left">
       <slot name="left"></slot>
     </div>
-    <div class="column right">
+    <div class="column right darkmode">
       <slot name="right"></slot>
     </div>
   </div>
@@ -36,5 +36,9 @@
   max-width: 300px;
   border-left: 2px solid #999;
   margin-left: -2px;
+}
+.darkmode {
+  background: black;
+  color: white;
 }
 </style>

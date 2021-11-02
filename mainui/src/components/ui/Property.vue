@@ -28,9 +28,13 @@ span.property {
 }
 span.property > span.label {
   flex: 1 1;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
   margin: 0.2em 0.5em 0.2em 0.5em;
   font-weight: bold;
   text-align: left;
+  user-select: none;
 }
 span.property > span.value {
   flex: 1 1;
@@ -64,5 +68,16 @@ span.property > span.value > span.va > input {
 }
 span.property > span.value > span.va > input:focus {
   outline: none;
+}
+
+.darkmode span.property > span.value {
+  background: #111;
+}
+.darkmode span.property > span.value:hover {
+  background: #333;
+}
+.darkmode span.property > span.value > span.va > input {
+  background: #222;
+  color: white;
 }
 </style>

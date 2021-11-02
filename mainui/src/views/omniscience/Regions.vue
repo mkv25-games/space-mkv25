@@ -39,14 +39,6 @@
         </pan-and-zoom>
       </template>
       <template v-slot:right>
-        <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
-          <template v-slot:default="{ tile }">
-            <div class="region info" v-on:mouseover="highlightRegion(tile)">
-              <icon icon="expand" :style="`color: ${tile.color}`" />
-              <span>{{ tile.label }}</span>
-            </div>
-          </template>
-        </vertical-tile-grid>
         <div v-if="activeRegion" class="active region">
           <h3>{{ activeRegion.label }}</h3>
           <p>
@@ -71,6 +63,14 @@
               <icon icon="circle" /> </property>
           </p>
         </div>
+        <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
+          <template v-slot:default="{ tile }">
+            <div class="region info" v-on:mouseover="highlightRegion(tile)">
+              <icon icon="expand" :style="`color: ${tile.color}`" />
+              <span>{{ tile.label }}</span>
+            </div>
+          </template>
+        </vertical-tile-grid>
       </template>
     </column-layout>
   </omniscience>
