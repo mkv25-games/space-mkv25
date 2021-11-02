@@ -35,6 +35,7 @@ span.property > span.label {
   font-weight: bold;
   text-align: left;
   user-select: none;
+  white-space: nowrap;
 }
 span.property > span.value {
   flex: 1 1;
@@ -45,6 +46,7 @@ span.property > span.value {
   font-weight: bold;
   text-align: right;
   background: #EEE;
+  white-space: nowrap;
 }
 span.property > span.value:hover {
   background: #DDD;

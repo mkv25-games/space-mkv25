@@ -20,8 +20,8 @@
         </p>
         <vertical-tile-grid :tiles="stellarArchetypes" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
           <template v-slot:default="{ tile }">
-            <div class="stellar archetype info" v-on:mouseover="highlightedStellarArchetype = tile">
-              <icon icon="expand" :style="`color: ${tile.color}`" />
+            <div class="stellar archetype info" v-on:mouseover="highlightedStellarArchetype = flatten(tile)">
+              <icon :icon="tile.icon || 'circle'" :style="`color: ${tile.color}`" />
               <span>{{ tile.label }}</span>
             </div>
           </template>
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import flattenObject from '../../utils/flattenObject'
+
 export default {
   data() {
     return {
@@ -51,6 +53,9 @@ export default {
       return regions.sort((a, b) => {
         return a.label.localeCompare(b.label)
       })
+    },
+    flatten(obj) {
+      return flattenObject(obj)
     }
   }
 }
