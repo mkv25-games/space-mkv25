@@ -14,13 +14,11 @@
         </pan-and-zoom>
       </template>
       <template v-slot:right>
+        <property-panel :item="highlightedStellarArchetype" :rows="8" />
         <h2>Stellar Archetypes</h2>
-        <p>
-          <property v-for="key in Object.keys(highlightedStellarArchetype)" :key="key" :label="key">{{ highlightedStellarArchetype[key] }}</property>
-        </p>
-        <vertical-tile-grid :tiles="stellarArchetypes" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
+        <vertical-tile-grid :tiles="sortArchetypes(stellarArchetypes)" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
           <template v-slot:default="{ tile }">
-            <div class="stellar archetype info" v-on:mouseover="highlightedStellarArchetype = flatten(tile)">
+            <div class="stellar archetype info" v-on:mouseover="highlightedStellarArchetype = tile">
               <icon :icon="tile.icon || 'circle'" :style="`color: ${tile.color}`" />
               <span>{{ tile.label }}</span>
             </div>
@@ -32,7 +30,6 @@
 </template>
 
 <script>
-import flattenObject from '../../utils/flattenObject'
 
 export default {
   data() {
@@ -50,13 +47,10 @@ export default {
       return Number.parseFloat(num.toFixed(3))
     },
     sortArchetypes(archetypes) {
-      return regions.sort((a, b) => {
+      return archetypes.sort((a, b) => {
         return a.label.localeCompare(b.label)
       })
     },
-    flatten(obj) {
-      return flattenObject(obj)
-    }
   }
 }
 </script>

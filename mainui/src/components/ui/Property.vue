@@ -26,8 +26,12 @@ span.property {
   outline: 1px solid #666;
   outline-offset: -1px;
 }
+span.property.borderless {
+  outline: none;
+  outline-offset: 0;
+}
 span.property > span.label {
-  flex: 1 1;
+  flex: 2 3;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center;
@@ -38,7 +42,7 @@ span.property > span.label {
   white-space: nowrap;
 }
 span.property > span.value {
-  flex: 1 1;
+  flex: 3 4;
   display: flex;
   padding: 0 0.5em;
   justify-content: flex-end;
@@ -72,7 +76,11 @@ span.property > span.value > span.va > input:focus {
   outline: none;
 }
 
+.darkmode span.property > span.label {
+  color: #eee;
+}
 .darkmode span.property > span.value {
+  color: white;
   background: #111;
 }
 .darkmode span.property > span.value:hover {

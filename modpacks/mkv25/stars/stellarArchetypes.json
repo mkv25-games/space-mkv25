@@ -2,8 +2,8 @@
   "id": "white-dwarf",
   "label": "White Dwarf",
   "mass": {
-    "minimum": 0.05,
-    "maximum": 0.10
+    "min": 0.05,
+    "max": 0.10
   },
   "icon": "circle",
   "color": "#fff"
@@ -11,8 +11,8 @@
   "id": "main-sequence-sun",
   "label": "Main Sequence Sun",
   "mass": {
-    "minimum": 0.10,
-    "maximum": 0.50
+    "min": 0.10,
+    "max": 0.50
   },
   "icon": "circle",
   "color": "#ff5"
@@ -20,8 +20,8 @@
   "id": "black-hole",
   "label": "Black Hole",
   "mass": {
-    "minimum": 0.90,
-    "maximum": 0.99
+    "min": 0.90,
+    "max": 0.99
   },
   "icon": "circle",
   "color": "#000"
@@ -29,8 +29,8 @@
   "id": "super-massive-black-hole",
   "label": "Super Massive Black Hole",
   "mass": {
-    "minimum": 0.90,
-    "maximum": 0.99
+    "min": 0.90,
+    "max": 0.99
   },
   "icon": "circle",
   "color": "#000"

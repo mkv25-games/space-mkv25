@@ -3,20 +3,20 @@ const { find, position, write } = require('promise-path')
 const kebabize = str => {
   return str.split('').map((letter, idx) => {
     return letter.toUpperCase() === letter
-     ? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
-     : letter;
-  }).join('');
+      ? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
+      : letter
+  }).join('')
 }
 
 const titleize = str => {
   return str.split('').map((letter, idx) => {
     return letter.toUpperCase() === letter
-     ? `${idx !== 0 ? ' ' : ''}${letter}`
-     : letter;
-  }).join('');
+      ? `${idx !== 0 ? ' ' : ''}${letter}`
+      : letter
+  }).join('')
 }
 
-function routeFromPath(vueFile) {
+function routeFromPath (vueFile) {
   const filename = filenameFromPath(vueFile)
   const path = `/${vueFile.replace('.vue', '').split('/').map(kebabize).join('/')}`
   const name = titleize(filename)
@@ -63,10 +63,10 @@ async function run () {
     const { component } = route
     body = body.replace(`"component": "${component}"`, `component: ${component}`)
   })
-  body = body.replace(/\"/g, "'")
+  body = body.replace(/"/g, "'")
   body = body.replace(/'path'/g, 'path')
   body = body.replace(/'name'/g, 'name')
-  
+
   console.log('Writing', body.length, 'bytes to', outputFile)
   await write(mainui(outputFile), body, 'utf8')
 }
