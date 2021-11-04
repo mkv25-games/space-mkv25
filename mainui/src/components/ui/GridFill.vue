@@ -1,15 +1,15 @@
 <template>
   <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <pattern id="smallGrid" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
+      <pattern :id="smallGridId" :width="tile.divider" :height="tile.divider" patternUnits="userSpaceOnUse">
         <path :d="`M ${tile.divider} 0 L 0 0 0 ${tile.divider}`" fill="none" stroke="rgba(100,100,100,0.8)" stroke-width="0.5"/>
       </pattern>
-      <pattern id="grid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
+      <pattern :id="gridId" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
         :x="tile.x % tile.size" :y="tile.y % tile.size">
-        <rect :width="tile.size" :height="tile.size" fill="url(#smallGrid)"/>
+        <rect :width="tile.size" :height="tile.size" :fill="`url(#${smallGridId})`"/>
         <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(100,100,100,0.5)" stroke-width="1"/>
       </pattern>
-      <pattern id="largeGrid" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
+      <pattern :id="largeGridId" :width="tile.size" :height="tile.size" patternUnits="userSpaceOnUse"
         :x="tile.x % tile.size" :y="tile.y % tile.size">
         <rect :width="tile.size" :height="tile.size" fill="none" />
         <path :d="`M ${tile.size} 0 L 0 0 0 ${tile.size}`" fill="none" stroke="rgba(50,50,50,0.5)" stroke-width="1"/>
@@ -28,6 +28,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      id: Math.random().toFixed(16)
+    }
+  },
   props: {
     viewx: {
       type: Number,
@@ -69,9 +74,22 @@ export default {
         multiplier: 10
       }
     },
+    smallGridId() {
+      const { id } = this
+      return `g${id}-smallGrid` 
+    },
+    gridId() {
+      const { id } = this
+      return `g${id}-grid` 
+    },
+    largeGridId() {
+      const { id } = this
+      return `g${id}-largeGrid` 
+    },
     gridBasedOnZoom() {
-      const gridId = this.zoom > 0.5 ? 'grid' : 'largeGrid'
-      return `url(#${gridId})`
+      const { gridId, largeGridId } = this
+      const fillId = this.zoom > 0.5 ? gridId : largeGridId
+      return `url(#${fillId})`
     }
   }
 }
