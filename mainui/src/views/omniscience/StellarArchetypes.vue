@@ -4,12 +4,15 @@
       <template v-slot:left>
         <pan-and-zoom class="darkmode">
           <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
-            <circle cx="0" cy="0" r="200" fill="transparent" stroke="orange" stroke-width="2" opacity="0.5" />
-            <circle cx="-200" cy="0" r="10" fill="orange" />
-            <circle cx="0" cy="0" r="60" fill="transparent" stroke="white" stroke-width="2" opacity="0.5" />
-            <circle cx="60" cy="0" r="15" fill="white" />
-            <circle cx="0" cy="0" r="20" fill="transparent" stroke="grey" stroke-width="4" opacity="0.5" />
-            <circle cx="0" cy="0" r="20" fill="black" />
+            <orbit symbolSize="1" radius="0" symbolColor="#fff7c8" orbitColor="#fff7c8" label="Sol" />
+            <orbit symbolSize="1" radius="3" symbolColor="#b1adad" orbitColor="#b1adad" label="Mercury" />
+            <orbit symbolSize="1" radius="6" symbolColor="#e3bb76" orbitColor="#e3bb76" label="Venus" />
+            <orbit symbolSize="1" radius="8" symbolColor="#6b93d6" orbitColor="#6b93d6" label="Earth" />
+            <orbit symbolSize="1" radius="13" symbolColor="#c1440e" orbitColor="#c1440e" label="Mars" />
+            <orbit symbolSize="1" radius="43" symbolColor="#a59186" orbitColor="#a59186" label="Jupiter" />
+            <orbit symbolSize="1" radius="79" symbolColor="#f4a15c" orbitColor="#f4a15c" label="Saturn" />
+            <orbit symbolSize="1" radius="160" symbolColor="#62aee7" orbitColor="#62aee7" label="Uranus" />
+            <orbit symbolSize="1" radius="250" symbolColor="#74d6fd" orbitColor="#74d6fd" label="Neptune" />
           </svg>
         </pan-and-zoom>
       </template>
@@ -34,7 +37,7 @@
 export default {
   data() {
     return {
-      highlightedStellarArchetype: false
+      highlightedStellarArchetype: {}
     }
   },
   computed: {

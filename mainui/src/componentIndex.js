@@ -2,6 +2,7 @@
 
 import PrimaryNav from './components/PrimaryNav.vue'
 import SidebarNav from './components/SidebarNav.vue'
+import Orbit from './components/space/Orbit.vue'
 import StoryTeller from './components/toys/StoryTeller.vue'
 import ColumnLayout from './components/ui/ColumnLayout.vue'
 import GridFill from './components/ui/GridFill.vue'
@@ -50,5 +51,5 @@ import Template from './views/Template.vue'
 import Universe from './views/Universe.vue'
 
 export default {
-  PrimaryNav, SidebarNav, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
+  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
 }
