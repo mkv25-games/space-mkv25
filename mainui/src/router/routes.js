@@ -19,6 +19,7 @@ import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
 import Omniscience from '../views/omniscience/Omniscience.vue'
 import Regions from '../views/omniscience/Regions.vue'
+import SolarSystem from '../views/omniscience/SolarSystem.vue'
 import StellarArchetypes from '../views/omniscience/StellarArchetypes.vue'
 import Systems from '../views/omniscience/Systems.vue'
 import ComponentTests from '../views/settings/debug/ComponentTests.vue'
@@ -28,6 +29,7 @@ import Settings from '../views/settings/Settings.vue'
 import SystemView from '../views/SystemView.vue'
 import Template from '../views/Template.vue'
 import Universe from '../views/Universe.vue'
+
 
 const routes = [
   {
@@ -124,6 +126,11 @@ const routes = [
     path: '/omniscience/regions',
     name: 'Regions',
     component: Regions
+  },
+  {
+    path: '/omniscience/solar-system',
+    name: 'Solar System',
+    component: SolarSystem
   },
   {
     path: '/omniscience/stellar-archetypes',

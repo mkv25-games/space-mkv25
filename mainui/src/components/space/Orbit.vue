@@ -51,11 +51,11 @@ export default {
   computed: {
     ix() {
       const { radius, time } = this
-      return radius * Math.sin(time / 100 / radius)
+      return radius * Math.sin(time / 100 / radius) || 0
     },
     iy() {
       const { radius, time } = this
-      return radius * Math.cos(time / 100 / radius)
+      return radius * Math.cos(time / 100 / radius) || 0
     },
     labelFont() {
       return this.radius < 20 ? {

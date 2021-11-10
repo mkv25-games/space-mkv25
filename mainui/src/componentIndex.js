@@ -37,6 +37,7 @@ import Home from './views/Home.vue'
 import LocationView from './views/LocationView.vue'
 import Omniscience from './views/omniscience/Omniscience.vue'
 import Regions from './views/omniscience/Regions.vue'
+import SolarSystem from './views/omniscience/SolarSystem.vue'
 import StellarArchetypes from './views/omniscience/StellarArchetypes.vue'
 import Systems from './views/omniscience/Systems.vue'
 import OmniscienceNav from './views/omniscience/ui/OmniscienceNav.vue'
@@ -51,5 +52,5 @@ import Template from './views/Template.vue'
 import Universe from './views/Universe.vue'
 
 export default {
-  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
+  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, SolarSystem, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
 }
