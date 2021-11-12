@@ -3,10 +3,11 @@
     <column-layout class="fixed-width-right overflow-hidden">
       <template v-slot:left>
         <pan-and-zoom class="darkmode">
-          <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
-            <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="so.orbit" :symbolColor="so.color" :orbitColor="so.color" :label="so.name"  :key="so.name" />
-            <orbit v-if="hso" :symbolSize="5" :radius="hso.orbit" :symbolColor="hso.color" :orbitColor="hso.color" :label="hso.name" />
-          </svg>
+          <template v-slot:default="{ zoom }">
+            <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
+              <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="so.orbit" :symbolColor="so.color" :orbitColor="so.color" :label="so.name"  :key="so.name" :highlighted="hso.name === so.name" :zoom="zoom" />
+            </svg>
+          </template>
         </pan-and-zoom>
       </template>
       <template v-slot:right>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import Template from '../Template.vue'
 
 const stellarObjects = [{
   name: 'Sol',

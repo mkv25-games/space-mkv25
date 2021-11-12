@@ -10,7 +10,7 @@
       <grid-fill :viewx="gridX" :viewy="gridY" :offsetx="gridOffsetX" :offsety="gridOffsetY" :zoom="zoom" />
       <div ref="offset-container" :class="offsetClass()" :style="offsetStyle()">
         <div ref="zoom-container" class="zoom-container" :style="zoomStyle()">
-          <slot>
+          <slot :zoom="zoom" :offsetX="offsetX" :offsetY="offsetY">
 
           </slot>
         </div>

@@ -1,11 +1,12 @@
 <template>
   <g class="orbit group">
-    <circle class="orbit ring" :cx="cx" :cy="cy" :r="radius" :stroke="orbitColor" fill="none" />
+    <circle class="orbit ring" :cx="cx" :cy="cy" :r="radius" :stroke="orbitColor" :stroke-width="strokeWidth" fill="none" />
     <g class="orbit position" :transform="`translate(${ix} ${iy})`">
       <slot>
         <circle class="orbit symbol" :r="symbolSize" :fill="symbolColor" />
         <text class="orbit label" fill="white" :x="labelFont.x" :font-size="labelFont.fontSize">{{ label }}</text>
       </slot>
+      <circle v-if="highlighted" :cx="cx" :cy="cy" :r="Math.max(5, symbolSize * 20 / zoom)" fill="none" :stroke="orbitColor" :stroke-width="strokeWidth" />
     </g>
   </g>
 </template>
@@ -46,16 +47,33 @@ export default {
     cy: {
       type: Number,
       default: 0
+    },
+    startAngle: {
+      type: Number,
+      default: 0
+    },
+    highlighted: {
+      type: Boolean,
+      default: false
+    },
+    zoom: {
+      type: Number,
+      default: 1.0
     }
   },
   computed: {
     ix() {
-      const { radius, time } = this
-      return radius * Math.sin(time / 100 / radius) || 0
+      const { radius, theta } = this
+      return radius * Math.sin(theta) || 0
     },
     iy() {
-      const { radius, time } = this
-      return radius * Math.cos(time / 100 / radius) || 0
+      const { radius, theta } = this
+      return radius * Math.cos(theta) || 0
+    },
+    theta() {
+      const { startAngle, time, radius } = this
+      const timeAngle = time / 100 / radius
+      return startAngle + timeAngle
     },
     labelFont() {
       return this.radius < 20 ? {
@@ -65,6 +83,10 @@ export default {
         fontSize: '5px',
         x: 5
       }
+    },
+    strokeWidth() {
+      const { zoom } = this
+      return 2 / zoom
     }
   },
   methods: {
