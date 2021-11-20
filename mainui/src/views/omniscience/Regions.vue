@@ -41,28 +41,9 @@
       <template v-slot:right>
         <div v-if="activeRegion" class="active region">
           <h3>{{ activeRegion.label }}</h3>
-          <p>
-            <property label="Mass:Lower">
-              {{ activeRegion.mass.lower }}
-              <icon icon="truck-loading" /> </property>
-            <property label="Mass:Upper">
-              {{ activeRegion.mass.upper }}
-              <icon icon="weight-hanging" /> </property>
-            <property label="Density:Lower">
-              {{ activeRegion.density.lower }}
-              <icon icon="feather" /> </property>
-            <property label="Density:Upper">
-              {{ activeRegion.density.upper }}
-              <icon icon="weight-hanging" /> </property>
-            <property label="Color">
-              {{ activeRegion.color }}
-              <icon icon="square" :style="`color: ${activeRegion.color}`" /> 
-            </property>
-            <property label="Frequency">
-              {{ pc(expectedFrequency(activeRegion)) }}
-              <icon icon="circle" /> </property>
-          </p>
+          <property-panel :item="activeRegionProperties" :rows="8" />
         </div>
+        <h3>Regions</h3>
         <vertical-tile-grid :tiles="regions" :columns="1" :rows="10" :tileWidth="300" :tileHeight="30">
           <template v-slot:default="{ tile }">
             <div class="region info" v-on:mouseover="highlightRegion(tile)">
@@ -85,8 +66,8 @@ export default {
       visualModel: false,
       activeRegion: {
         label: 'No region selected',
-        mass: {},
-        density: {}
+        mass: { upper: 0, lower: 0 },
+        density: { upper: 0, lower: 0 }
       },
       scale: 500
     }
@@ -100,6 +81,13 @@ export default {
     },
     analysis() {
       return this.regions
+    },
+    activeRegionProperties() {
+      const { id, color, density, mass } = this.activeRegion
+      const expected = {
+        frequency: this.pc(this.expectedFrequency({ density, mass }))
+      }
+      return { id, color, density, mass, expected }
     }
   },
   methods: {
