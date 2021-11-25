@@ -1,12 +1,11 @@
 <template>
   <settings class="mods">
     <div class="mods">
-      <h3>Mod List</h3>
-      <div class="modpack">
-        <property :label="modpack.packdata.package || 'No package info'" v-for="modpack in modpacks" :key="modpack">
-          <b>Keys: {{ Object.keys(modpack.packdata).join(', ') }}</b>
-          <p v-if="modpack.messages.length">{{ modpack.messages }}</p>
-        </property>
+      <div class="modpack" v-for="modpack in modpacks" :key="modpack">
+        <h3>{{ modpack.packdata.package || 'No package info' }}</h3>
+        <p>Contents: {{ summarise(modpack).join(', ') }}</p>
+        <p v-if="modpack.messages.length">{{ modpack.messages }}</p>
+        <pre>{{ modpack.packdata.package }}</pre>
       </div>
     </div>
   </settings>
@@ -20,6 +19,17 @@ export default {
   computed: {
     modpacks() {
       return this.$store.state.modpacks || []
+    }
+  },
+  methods: {
+    summarise(modpack) {
+       return Object.entries(modpack.packdata)
+        .filter(([key, value]) => {
+          return key !== 'package'
+        })
+        .map(([key, value]) => {
+          return `${key} (${value.length})`
+        })
     }
   }
 }

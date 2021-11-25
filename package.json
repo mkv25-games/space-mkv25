@@ -43,6 +43,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vue/composition-api": "^1.2.2",
     "electron-squirrel-startup": "^1.0.0",
+    "mkvconf": "^1.1.0",
     "promise-path": "^1.4.1",
     "remote-model": "^1.1.0"
   },

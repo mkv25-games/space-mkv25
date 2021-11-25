@@ -120,9 +120,9 @@ function setup () {
         const modpacks = await rpcProxy.findModpacks()
         console.log('Update Modpack List:', modpacks)
         commit('modpacks', modpacks)
-        const { regions, stellarArchetypes } = combineModpacks(modpacks)
-        commit('regions', regions)
-        commit('stellarArchetypes', stellarArchetypes)
+        const allModpackData = combineModpacks(modpacks)
+        commit('regions', allModpackData['Stellar Region'])
+        commit('stellarArchetypes', allModpackData['Stellar Archetype'])
       },
       async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')

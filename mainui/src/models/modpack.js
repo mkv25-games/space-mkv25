@@ -1,7 +1,7 @@
 function createModpack () {
   return {
-    regions: [],
-    stellarArchetypes: []
+    "Stellar Region": [],
+    "Stellar Archetype": []
   }
 }
 

@@ -1,4 +1,5 @@
 const { find, read, position } = require('promise-path')
+const mkvconf = require('mkvconf')
 
 async function searchDirectory (directory) {
   const location = position(directory)
@@ -17,11 +18,23 @@ async function readJson (filepath) {
   return JSON.parse(body)
 }
 
-async function loadModpackFile ({ packpath, filename, packdata }) {
+function copyItemsIntoTarget(source, target) {
+  Object.keys(source).forEach(key => {
+    const sourceItems = source[key]
+    const targetItems = target[key] || []
+    sourceItems.forEach(item => {
+      targetItems.push(item)
+    })
+    target[key] = targetItems
+  })
+}
+
+async function loadModpackFile ({ filename, packdata }) {
   let error
   try {
-    const filepath = packpath(`${filename}.json`)
-    packdata[filename] = await readJson(filepath)
+    const filebody = await read(filename, 'utf8')
+    const filedata = mkvconf.parse(filebody)
+    copyItemsIntoTarget(filedata, packdata)
   } catch (ex) {
     error = `Unable to read ${filename}: ${ex.message}`
   }
@@ -36,10 +49,9 @@ async function loadModpack (filepath) {
     packdata = JSON.parse(body)
 
     const packpath = position(filepath.replace('modpack.json', ''))
-    fileErrors = await Promise.all([
-      loadModpackFile({ packpath, filename: 'regions', packdata }),
-      loadModpackFile({ packpath, filename: 'stellarArchetypes', packdata })
-    ])
+    const confFiles = await find(packpath('./**/*.conf'))
+    const loadingWork = confFiles.map(filename => loadModpackFile({ packpath, filename, packdata }))
+    fileErrors = await Promise.all(loadingWork)
   } catch (ex) {
     packError = ex.message
   }
