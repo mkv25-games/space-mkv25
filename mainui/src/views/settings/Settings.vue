@@ -27,4 +27,7 @@
   flex: auto;
   overflow: hidden;
 }
+.scroll > .frame {
+  overflow-y: auto;
+}
 </style>
