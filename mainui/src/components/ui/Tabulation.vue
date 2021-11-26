@@ -32,7 +32,22 @@
             :column="column"
             :columnKey="columnKey(column)"
           >
-            {{ contentsOf(cell, column) }}
+            <div v-if="cellType(cell, column) === 'object'">
+              <div v-for="[entryKey, entryValue] in cellEntries(cell, column)" :key="entryKey" class="cell property">
+                <b>{{ entryKey }}</b>
+                <span>{{ entryValue }}</span>
+              </div>
+            </div>
+            <span v-else-if="cellType(cell, column) === 'icon'">
+              <icon :icon="contentsOf(cell, column)" />
+            </span>
+            <div v-else-if="cellType(cell, column) === 'color'" style="text-transform: uppercase; font-family: monospace;">
+              <span>{{ contentsOf(cell, column) }}</span>
+              <icon icon="square" :style="`color: ${contentsOf(cell, column)}`" />
+            </div>
+            <span v-else>
+              {{ contentsOf(cell, column) }}
+            </span>
           </slot>
         </td>
       </tr>
@@ -41,12 +56,13 @@
 </template>
 
 <script>
+import flattenObject from '../../utils/flattenObject'
+
 function removeArrayListeners(data) {
   return JSON.parse(JSON.stringify(data))
 }
 
 export default {
-  name: 'Tabulation',
   data() {
     return {
       internalSortedColumn: '',
@@ -138,8 +154,8 @@ export default {
       const clonedRows = removeArrayListeners(rows)
       if (col) {
         clonedRows.sort((a, b) => {
-          const sa = a[0][col] + ''
-          const sb = b[0][col] + ''
+          const sa = JSON.stringify(a[0][col])
+          const sb = JSON.stringify(b[0][col])
           return asc ? sa.localeCompare(sb) : sb.localeCompare(sa)
         })
       }
@@ -147,6 +163,22 @@ export default {
     }
   },
   methods: {
+    cellEntries(cell, column) {
+      const value = this.contentsOf(cell, column)
+      const flattened = flattenObject(value)
+      return Object.entries(flattened)
+    },
+    cellType(cell, column) {
+      const value = this.contentsOf(cell, column)
+      const columnKey = this.columnKey(column)
+      if (columnKey === 'icon') {
+        return 'icon'
+      }
+      if (columnKey === 'color') {
+        return 'color'
+      }
+      return typeof value
+    },
     columnHeadingClass(columnHeading, i) {
       return columnHeading === this.computedSortedColumn ? 'sorted' : 'unsorted'
     },
@@ -161,11 +193,14 @@ export default {
     columnKey(column) {
       return this.columnKeys[column] || column
     },
-    sortByColumnEvent(columnHeading, i) {
+    sortByColumnEvent(columnHeading) {
       const same = columnHeading === this.computedSortedColumn
-      this.sortedHeading = columnHeading
       this.internalSortedColumn = columnHeading
       this.internalSortAscending = same ? !this.internalSortAscending : true
+      const reset = same && this.internalSortAscending
+      if (reset) {
+        this.internalSortedColumn = ''
+      }
       this.$emit('sortByColumn', {
         columnHeading,
         sortAscending: same ? !this.computedSortAscending : true
@@ -207,5 +242,13 @@ td {
   outline: 2px solid #FFF;
   background: #FAFAFA;
   padding: 5px;
+}
+.cell.property {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.cell.property > b {
+  margin: 0 0.5em 0 0;
 }
 </style>
