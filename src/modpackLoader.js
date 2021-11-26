@@ -18,7 +18,7 @@ async function readJson (filepath) {
   return JSON.parse(body)
 }
 
-function copyItemsIntoTarget(source, target) {
+function copyItemsIntoTarget (source, target) {
   Object.keys(source).forEach(key => {
     const sourceItems = source[key]
     const targetItems = target[key] || []
