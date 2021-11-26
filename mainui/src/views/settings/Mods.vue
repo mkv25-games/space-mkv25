@@ -42,3 +42,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.modpack {
+  border-left: 0.2em solid #999;
+  border-right: 0.2em solid #999;
+  padding-bottom: 0.5em;
+  margin: 0;
+}
+.modpack > h2 {
+  background: #AAA;
+  color: white;
+  padding: 0.2em;
+  margin-top: 0;
+}
+</style>
