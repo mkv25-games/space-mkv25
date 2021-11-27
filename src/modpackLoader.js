@@ -13,11 +13,6 @@ async function searchDirectory (directory) {
   return modpacks
 }
 
-async function readJson (filepath) {
-  const body = await read(filepath, 'utf8')
-  return JSON.parse(body)
-}
-
 function copyItemsIntoTarget (source, target) {
   Object.keys(source).forEach(key => {
     const sourceItems = source[key]

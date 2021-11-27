@@ -11,7 +11,8 @@ function defaultUserPreferences () {
     contactList: [],
     modpacks: [],
     allRegionTypes: [],
-    allStellarArchetypes: []
+    allStellarArchetypes: [],
+    gamedata: {}
   }
 }
 
@@ -69,6 +70,9 @@ function setup () {
       },
       modpacks (state, modpacks) {
         state.modpacks = modpacks
+      },
+      gamedata (state, gamedata) {
+        state.gamedata = gamedata
       }
     },
     actions: {
@@ -123,6 +127,7 @@ function setup () {
         const allModpackData = combineModpacks(modpacks)
         commit('regions', allModpackData['Stellar Region'])
         commit('stellarArchetypes', allModpackData['Stellar Archetype'])
+        commit('gamedata', allModpackData)
       },
       async hideDeveloperTools ({ commit, state }) {
         commit('hideDeveloperTools')

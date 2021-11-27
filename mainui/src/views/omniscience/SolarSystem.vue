@@ -5,7 +5,7 @@
         <pan-and-zoom class="darkmode">
           <template v-slot:default="{ zoom }">
             <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
-              <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="so.orbit" :symbolColor="so.color" :orbitColor="so.color" :label="so.name"  :key="so.name" :highlighted="hso.name === so.name" :zoom="zoom" />
+              <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="parseConfValue(so.orbit.radius).quantity" :symbolColor="so.color" :orbitColor="so.color" :label="so.name"  :key="so.name" :highlighted="hso.name === so.name" :zoom="zoom" />
             </svg>
           </template>
         </pan-and-zoom>
@@ -17,7 +17,7 @@
           <template v-slot:default="{ tile }">
             <div class="solar system info" v-on:mouseover="highlightedStellarObject = tile">
               <icon :icon="tile.icon || 'circle'" :style="`color: ${tile.color}`" />
-              <span>{{ tile.name }} - {{ tile.orbit }} lm</span>
+              <span>{{ tile.name }} - {{ tile.orbit.radius }}</span>
             </div>
           </template>
         </vertical-tile-grid>
@@ -27,55 +27,6 @@
 </template>
 
 <script>
-import Template from '../Template.vue'
-
-const stellarObjects = [{
-  name: 'Sol',
-  size: 1,
-  orbit: 0,
-  color: '#fff7c8'
-}, {
-  name: 'Mercury',
-  size: 1,
-  orbit: 3,
-  color: '#b1adad'
-}, {
-  name: 'Venus',
-  size: 1,
-  orbit: 6,
-  color: '#e3bb76'
-}, {
-  name: 'Earth',
-  size: 1,
-  orbit: 8,
-  color: '#6b93d6'
-}, {
-  name: 'Mars',
-  size: 1,
-  orbit: 13,
-  color: '#c1440e'
-}, {
-  name: 'Jupiter',
-  size: 1,
-  orbit: 43,
-  color: '#a59186'
-}, {
-  name: 'Saturn',
-  size: 1,
-  orbit: 79,
-  color: '#f4a15c'
-}, {
-  name: 'Uranus',
-  size: 1,
-  orbit: 160,
-  color: '#62aee7'
-}, {
-  name: 'Neptune',
-  size: 1,
-  orbit: 250,
-  color: '#74d6fd'
-}]
-
 export default {
   data() {
     return {
@@ -84,7 +35,7 @@ export default {
   },
   computed: {
     stellarObjects() {
-      return stellarObjects || []
+      return this.$store.state.gamedata.Planet || []
     },
     hso() {
       return this.highlightedStellarObject
@@ -96,6 +47,14 @@ export default {
         return a.orbit < b.orbit 
       })
     },
+    parseConfValue (value) {
+      const [val, unit] = value.split(' ')
+      const quantity = Number.parseFloat(val)
+      return {
+        quantity,
+        unit
+      }
+    }
   }
 }
 </script>
