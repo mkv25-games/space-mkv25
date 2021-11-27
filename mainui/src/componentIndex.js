@@ -14,6 +14,7 @@ import PanAndZoom from './components/ui/PanAndZoom.vue'
 import Property from './components/ui/Property.vue'
 import PropertyPanel from './components/ui/PropertyPanel.vue'
 import QuadrantBreakdown from './components/ui/QuadrantBreakdown.vue'
+import Tabulation from './components/ui/Tabulation.vue'
 import VerticalTileGrid from './components/ui/VerticalTileGrid.vue'
 import ContactManagement from './views/ContactManagement.vue'
 import Designer from './views/Designer.vue'
@@ -44,6 +45,7 @@ import OmniscienceNav from './views/omniscience/ui/OmniscienceNav.vue'
 import RegionTypes from './views/omniscience/ui/RegionTypes.vue'
 import ComponentTests from './views/settings/debug/ComponentTests.vue'
 import Debug from './views/settings/debug/Debug.vue'
+import Gamedata from './views/settings/Gamedata.vue'
 import Mods from './views/settings/Mods.vue'
 import Settings from './views/settings/Settings.vue'
 import SettingsNav from './views/settings/ui/SettingsNav.vue'
@@ -52,5 +54,5 @@ import Template from './views/Template.vue'
 import Universe from './views/Universe.vue'
 
 export default {
-  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, SolarSystem, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Mods, Settings, SettingsNav, SystemView, Template, Universe
+  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, Tabulation, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Regions, SolarSystem, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Gamedata, Mods, Settings, SettingsNav, SystemView, Template, Universe
 }

@@ -1,9 +1,5 @@
 function createModpack () {
-  return {
-    'Stellar Region': [],
-    'Stellar Archetype': [],
-    'Planet': []
-  }
+  return {}
 }
 
 module.exports = createModpack

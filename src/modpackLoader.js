@@ -5,11 +5,7 @@ async function searchDirectory (directory) {
   const location = position(directory)
   const query = location('./**/modpack.json')
   const modpackPaths = await find(query)
-
-  console.log('Found', modpackPaths.length, 'modpacks in', directory)
-
   const modpacks = await Promise.all(modpackPaths.map(loadModpack))
-
   return modpacks
 }
 
@@ -63,9 +59,6 @@ async function modpackLoader (directories) {
     acc.push(...results)
     return acc
   }, [])
-
-  console.log('Found', modpacks.length, 'modpacks in', directories.length, 'locations.')
-
   return modpacks
 }
 

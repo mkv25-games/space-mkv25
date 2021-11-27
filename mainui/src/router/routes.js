@@ -24,11 +24,13 @@ import StellarArchetypes from '../views/omniscience/StellarArchetypes.vue'
 import Systems from '../views/omniscience/Systems.vue'
 import ComponentTests from '../views/settings/debug/ComponentTests.vue'
 import Debug from '../views/settings/debug/Debug.vue'
+import Gamedata from '../views/settings/Gamedata.vue'
 import Mods from '../views/settings/Mods.vue'
 import Settings from '../views/settings/Settings.vue'
 import SystemView from '../views/SystemView.vue'
 import Template from '../views/Template.vue'
 import Universe from '../views/Universe.vue'
+
 
 const routes = [
   {
@@ -150,6 +152,11 @@ const routes = [
     path: '/settings/debug/debug',
     name: 'Debug',
     component: Debug
+  },
+  {
+    path: '/settings/gamedata',
+    name: 'Gamedata',
+    component: Gamedata
   },
   {
     path: '/settings/mods',

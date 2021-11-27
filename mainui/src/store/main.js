@@ -19,16 +19,17 @@ function defaultUserPreferences () {
 function combineModpacks (modpacks) {
   const combined = modpacks.reduce((acc, item) => {
     const modpack = clone(item)
-    Object.keys(acc).forEach(key => {
+    Object.keys(modpack.packdata).forEach(key => {
       const packdata = modpack.packdata || {}
       const items = packdata[key] || []
-      if (Array.isArray(acc[key]) && items.length > 0) {
-        acc[key].push(...items)
+      const target = acc[key] || []
+      if (Array.isArray(target) && items.length > 0) {
+        target.push(...items)
       }
+      acc[key] = target
     })
     return acc
   }, newModpack())
-  console.log('[main.js] Combined Modpacks:', combined)
   return combined
 }
 
@@ -122,7 +123,6 @@ function setup () {
       async loadModpacks ({ commit }) {
         const rpcProxy = await rpc.fetch()
         const modpacks = await rpcProxy.findModpacks()
-        console.log('Update Modpack List:', modpacks)
         commit('modpacks', modpacks)
         const allModpackData = combineModpacks(modpacks)
         commit('regions', allModpackData['Stellar Region'])

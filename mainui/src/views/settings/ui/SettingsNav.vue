@@ -8,6 +8,10 @@
       <icon icon="puzzle-piece" />
       <span>Mods</span>
     </router-link>
+    <router-link to="/settings/gamedata">
+      <icon icon="database" />
+      <span>Game Data</span>
+    </router-link>
     <router-link to="/settings/debug/debug">
       <icon icon="cogs" />
       <span>Debug</span>

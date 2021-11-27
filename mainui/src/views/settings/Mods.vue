@@ -18,11 +18,11 @@
 import Tabulation from '../../components/ui/Tabulation.vue'
 export default {
   components: { Tabulation },
-  async mounted() {
+  async mounted () {
     await this.$store.dispatch('loadModpacks')
   },
   computed: {
-    modpacks() {
+    modpacks () {
       return this.$store.state.modpacks || []
     }
   },
@@ -33,7 +33,7 @@ export default {
           return `${key} (${value.length})`
         })
     },
-    datasets(modpack) {
+    datasets (modpack) {
       return Object.entries(modpack.packdata)
         .filter(([key, value]) => {
           return key !== 'package'
