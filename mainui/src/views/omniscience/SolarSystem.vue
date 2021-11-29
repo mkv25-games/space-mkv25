@@ -5,7 +5,11 @@
         <pan-and-zoom class="darkmode">
           <template v-slot:default="{ zoom }">
             <svg viewBox="-500 -500 1000 1000" width="1000" height="1000" style="position: absolute; left: 0; right: 0;">
-              <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="parseConfValue(so.orbit.radius).quantity" :symbolColor="so.color" :orbitColor="so.color" :label="so.name"  :key="so.name" :highlighted="hso.name === so.name" :zoom="zoom" />
+              <orbit v-for="so in stellarObjects" :symbolSize="1" :radius="parseConfValue(so.orbit.radius).quantity"
+                :symbolColor="so.color" :orbitColor="so.color" :label="so.name" 
+                :parent="so.orbit.target"
+                :id="so.id || so.name" :key="so.id || so.name"
+                :highlighted="hso.name === so.name" :zoom="zoom" />
             </svg>
           </template>
         </pan-and-zoom>
@@ -17,7 +21,11 @@
           <template v-slot:default="{ tile }">
             <div class="solar system info" v-on:mouseover="highlightedStellarObject = tile">
               <icon :icon="tile.icon || 'circle'" :style="`color: ${tile.color}`" />
-              <span>{{ tile.name }} - {{ tile.orbit.radius }}</span>
+              <span>{{ [
+                tile.name,
+                tile.orbit.radius,
+                (tile.orbit.target || tile.location)
+              ].filter(n => n).join(' - ') }}</span>
             </div>
           </template>
         </vertical-tile-grid>
@@ -35,7 +43,9 @@ export default {
   },
   computed: {
     stellarObjects() {
-      return this.$store.state.gamedata.Planet || []
+      const solarObjects = this.$store.state.gamedata['Solar Object'] || []
+      console.log('Solar objects?', solarObjects)
+      return solarObjects.filter(so => so.orbit.target === 'Sol' || so.location === 'Sol' || so.orbit.target === 'Earth')
     },
     hso() {
       return this.highlightedStellarObject

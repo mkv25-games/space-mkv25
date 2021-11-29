@@ -93,7 +93,7 @@ export default {
     },
     minZoom: {
       type: Number,
-      default: 50
+      default: 50000
     }
   },
   computed: {

@@ -1,17 +1,21 @@
 <template>
   <g class="orbit group">
-    <circle class="orbit ring" :cx="cx" :cy="cy" :r="radius" :stroke="orbitColor" :stroke-width="strokeWidth" fill="none" />
-    <g class="orbit position" :transform="`translate(${ix} ${iy})`">
+    <circle class="orbit ring" :cx="cx + ox" :cy="cy + oy" :r="radius"
+      fill="none" :stroke="orbitColor" :stroke-width="strokeWidth * 2" />
+    <g class="orbit position" :transform="`translate(${ix + ox} ${iy + oy})`">
       <slot>
-        <circle class="orbit symbol" :r="symbolSize" :fill="symbolColor" />
-        <text class="orbit label" fill="white" :x="labelFont.x" :font-size="labelFont.fontSize">{{ label }}</text>
+        <circle class="orbit symbol" :r="Math.min(symbolSize / zoom, objectRadiusInLightMinutes)" :fill="symbolColor" />
+        <text class="orbit label" fill="white" :x="labelFont.x" :font-size="labelFont.fontSize / zoom">{{ label }}</text>
       </slot>
-      <circle v-if="highlighted" :cx="cx" :cy="cy" :r="Math.max(5, symbolSize * 20 / zoom)" fill="none" :stroke="orbitColor" :stroke-width="strokeWidth" />
+      <circle v-if="highlighted" cx="0" cy="0" :r="Math.max(2, symbolSize * 2 / zoom)"
+        fill="none" :stroke="orbitColor" :stroke-width="strokeWidth" :stroke-dasharray="`${5 / zoom},${5 / zoom}`" />
     </g>
   </g>
 </template>
 
 <script>
+const orbits = {}
+
 export default {
   data() {
     return {
@@ -20,6 +24,10 @@ export default {
     }
   },
   props: {
+    id: {
+      type: String,
+      default: ''
+    },
     radius: {
       type: Number,
       default: 100
@@ -59,6 +67,10 @@ export default {
     zoom: {
       type: Number,
       default: 1.0
+    },
+    parent: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -69,6 +81,21 @@ export default {
     iy() {
       const { radius, theta } = this
       return radius * Math.cos(theta) || 0
+    },
+    ox() {
+      const { parentOrbit } = this
+      const { cx, ix } = parentOrbit
+      return (cx || 0) + (ix || 0)
+    },
+    oy() {
+      const { parentOrbit } = this
+      const { cy, iy } = parentOrbit
+      return (cy || 0) + (iy || 0)
+    },
+    parentOrbit() {
+      const { parent } = this
+      this.highlighted ? console.log(parent, '????', orbits[parent]) : ''
+      return orbits[parent] || { ix: 0, iy : 0, cx: 0, cy: 0 }
     },
     theta() {
       const { startAngle, time, radius } = this
@@ -87,17 +114,22 @@ export default {
     strokeWidth() {
       const { zoom } = this
       return 2 / zoom
+    }, 
+    objectRadiusInLightMinutes() {
+      return 0.0007084
     }
   },
   methods: {
     advanceTime() {
       clearTimeout(this.timerId)
       this.timerId = setTimeout(this.advanceTime, 5)
-      this.time = this.time + 1
+      this.time = this.time + 0.0001
     }
   },
   mounted() {
-    this.advanceTime()
+    const { id, advanceTime } = this
+    advanceTime()
+    orbits[id] = this
   }
 }
 </script>
@@ -108,7 +140,6 @@ export default {
 }
 .orbit.ring {
   fill: none;
-  stroke-width: 1;
   opacity: 0.5;
 }
 .orbit.position {
