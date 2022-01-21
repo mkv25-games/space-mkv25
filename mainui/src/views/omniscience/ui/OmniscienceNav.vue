@@ -20,5 +20,9 @@
       <icon icon="sun" />
       <span>Solar System</span>
     </router-link>
+    <router-link to="/omniscience/ratios">
+      <icon icon="sun" />
+      <span>Ratios</span>
+    </router-link>
   </sidebar-nav>
 </template>

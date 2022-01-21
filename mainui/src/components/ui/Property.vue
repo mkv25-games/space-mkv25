@@ -68,7 +68,7 @@ span.property > span.value > span.va > input {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-weight: bold;
   text-align: right;
-  background: #EEE;
+  background: inherit;
   min-width: 60px;
   font-size: 1em;
 }

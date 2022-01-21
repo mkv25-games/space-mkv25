@@ -18,6 +18,7 @@ import Trade from '../views/galaxy/Trade.vue'
 import Home from '../views/Home.vue'
 import LocationView from '../views/LocationView.vue'
 import Omniscience from '../views/omniscience/Omniscience.vue'
+import Ratios from '../views/omniscience/Ratios.vue'
 import Regions from '../views/omniscience/Regions.vue'
 import SolarSystem from '../views/omniscience/SolarSystem.vue'
 import StellarArchetypes from '../views/omniscience/StellarArchetypes.vue'
@@ -122,6 +123,11 @@ const routes = [
     path: '/omniscience/omniscience',
     name: 'Omniscience',
     component: Omniscience
+  },
+  {
+    path: '/omniscience/ratios',
+    name: 'Ratios',
+    component: Ratios
   },
   {
     path: '/omniscience/regions',

@@ -90,7 +90,7 @@ export default {
         contact = newContact({ name: data.filename, galaxy: this.galaxy })
         await this.$store.dispatch('saveContact', contact)
         await this.$store.dispatch('loadContact', contact)
-        this.$router.push({ path: 'galaxy-view' })
+        this.$router.push({ path: '/galaxy/galaxy-view' })
       } catch (ex) {
         this.formErrors.push('Unable to create contact:', ex.message, contact)
         console.log('[EstablishContact.vue]', ex, 'Contact:', contact)

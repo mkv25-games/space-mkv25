@@ -143,6 +143,17 @@ function setup () {
     modules: {}
   })
 
+  main.getGamedataIndex = (type, property) => {
+    const { gamedata } = main.state
+    const dataset = gamedata[type] || []
+    const index = dataset.reduce((acc, item) => {
+      const key = item[property]
+      acc[key] = item
+      return acc
+    }, {})
+    return index
+  }
+
   return main
 }
 

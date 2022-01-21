@@ -52,7 +52,7 @@ export default {
     async loadContact(savefile) {
       try {
         await this.$store.dispatch('loadContact', savefile)
-        this.$router.push({ path: 'galaxy-view' })
+        this.$router.push({ path: '/galaxy/galaxy-view' })
       } catch (ex) {
         this.errors.push(`Unable to load contact ${savefile.filepath}.`)
       }
