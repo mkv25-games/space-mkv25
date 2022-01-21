@@ -16,11 +16,11 @@
     "start": "./build-scripts/start-dev.sh",
     "start:with-dev-tools": "FORCE_OPEN_DEV_TOOLS=true npm start -s",
     "start:predist": "./build-scripts/start-pre-dist.sh",
-    "test": "standard",
+    "test": "standard && mkvconf lint modpacks/**/*.conf",
     "forge-start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "lint": "standard --fix"
+    "lint": "standard --fix && mkvconf lint modpacks/**/*.conf --fix"
   },
   "keywords": [
     "space game"
@@ -43,7 +43,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "@vue/composition-api": "^1.2.2",
     "electron-squirrel-startup": "^1.0.0",
-    "mkvconf": "^1.1.0",
+    "mkvconf": "^1.2.0",
     "promise-path": "^1.4.1",
     "remote-model": "^1.1.0"
   },
