@@ -24,16 +24,16 @@
 
 <script>
 
-function parseNumberString(numberString) {
+function parseNumberString (numberString) {
   return Number.parseFloat(numberString)
 }
 
-function parseRatioToNumber(ratioString) {
+function parseRatioToNumber (ratioString) {
   const [left,right] = ratioString.split(':').map(parseNumberString)
   return left / right
 }
 
-function findRatio(targetUnit, ratiosFrom, ratiosTo) {
+function findRatio (targetUnit, ratiosFrom, ratiosTo) {
   let target = ratiosTo[targetUnit]
   if (target) {
     target.ratioAsNumber = parseRatioToNumber(target.ratio)
@@ -41,11 +41,11 @@ function findRatio(targetUnit, ratiosFrom, ratiosTo) {
   return target
 }
 
-function clone(obj) {
+function clone (obj) {
   return JSON.parse(JSON.stringify(obj))
 }
 
-function parseQuantityUnit(input, unitIndex) {
+function parseQuantityUnit (input, unitIndex) {
   const [quantity, suffix] = input.split(' ')
   const unit = clone(unitIndex[suffix] || { suffix })
   return {
@@ -54,7 +54,7 @@ function parseQuantityUnit(input, unitIndex) {
   }
 }
 
-function calculateConversion(inputRatio, targetRatio) {
+function calculateConversion (inputRatio, targetRatio) {
 
 }
 

@@ -32,7 +32,6 @@ import SystemView from '../views/SystemView.vue'
 import Template from '../views/Template.vue'
 import Universe from '../views/Universe.vue'
 
-
 const routes = [
   {
     path: '/contact-management',
