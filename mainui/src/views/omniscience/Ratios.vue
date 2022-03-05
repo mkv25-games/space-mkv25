@@ -29,7 +29,7 @@ function parseNumberString (numberString) {
   const [quantityString, exponentString] = numberString.split('^')
   const quantity = Number.parseFloat(quantityString)
   const exponent = Number.parseInt(exponentString) || 1
-  return  Math.pow(quantity, exponent)
+  return Math.pow(quantity, exponent)
 }
 
 function parseRatioToNumber (ratioString) {
@@ -44,6 +44,19 @@ function findRatio (startUnit, targetUnit, ratioMap) {
     target.ratioAsNumber = parseRatioToNumber(target.ratio)
   }
   return target
+}
+
+function reverseRatio (item) {
+  const name = item.name.split(' to ').reverse().join(' to ')
+  const ratio = item.ratio.split(':').reverse().join(':')
+  const ratioAsNumber = item.ratioAsNumber ? 1 / item.ratioAsNumber : undefined
+  return Object.assign(clone(item), {
+    name,
+    ratio,
+    ratioAsNumber,
+    from: item.to,
+    to: item.from
+  })
 }
 
 function clone (obj) {
@@ -80,6 +93,11 @@ export default {
       ratios.reduce((acc, item) => {
         const index = [item.from, item.to].join(':')
         acc[index] = item
+        return acc
+      }, map)
+      ratios.reduce((acc, item) => {
+        const index = [item.to, item.from].join(':')
+        acc[index] = reverseRatio(item)
         return acc
       }, map)
       return map
