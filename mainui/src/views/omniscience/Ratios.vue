@@ -15,27 +15,32 @@
       <h3>Units</h3>
       <tabulation :items="units" />
     </div>
-    <h4>To:</h4>
-    <pre>{{ ratiosTo }}</pre>
-    <h4>From:</h4>
-    <pre>{{ ratiosFrom }}</pre>
+    <div class="dataset">
+      <h3>Ratio Map</h3>
+      <tabulation :items="Object.entries(ratioMap)" />
+    </div>
   </omniscience>
 </template>
 
 <script>
 
 function parseNumberString (numberString) {
-  return Number.parseFloat(numberString)
+  numberString = numberString.replace(/[,\s]+/g, '')
+  const [quantityString, exponentString] = numberString.split('^')
+  const quantity = Number.parseFloat(quantityString)
+  const exponent = Number.parseInt(exponentString) || 1
+  return  Math.pow(quantity, exponent)
 }
 
 function parseRatioToNumber (ratioString) {
-  const [left,right] = ratioString.split(':').map(parseNumberString)
-  return left / right
+  const [left, right] = ratioString.split(':').map(parseNumberString)
+  return right / left
 }
 
-function findRatio (targetUnit, ratiosFrom, ratiosTo) {
-  let target = ratiosTo[targetUnit]
-  if (target) {
+function findRatio (startUnit, targetUnit, ratioMap) {
+  const targetRatio = [startUnit, targetUnit].join(':')
+  const target = ratioMap[targetRatio]
+  if (target && !target.ratioAsNumber) {
     target.ratioAsNumber = parseRatioToNumber(target.ratio)
   }
   return target
@@ -46,7 +51,7 @@ function clone (obj) {
 }
 
 function parseQuantityUnit (input, unitIndex) {
-  const [quantity, suffix] = input.split(' ')
+  const [quantity, suffix] = (input + '').trim().split(' ')
   const unit = clone(unitIndex[suffix] || { suffix })
   return {
     quantity,
@@ -54,12 +59,8 @@ function parseQuantityUnit (input, unitIndex) {
   }
 }
 
-function calculateConversion (inputRatio, targetRatio) {
-
-}
-
 export default {
-  data() {
+  data () {
     return {
       quantity: '',
       targetUnit: '',
@@ -70,33 +71,46 @@ export default {
     gamedata () {
       return this.$store.state.gamedata || {}
     },
-    ratios() {
+    ratios () {
       return this.gamedata.Ratio || []
     },
-    ratiosFrom() {
-      return this.$store.getGamedataIndex('Ratio', 'from')
+    ratioMap () {
+      const map = {}
+      const { ratios } = this
+      ratios.reduce((acc, item) => {
+        const index = [item.from, item.to].join(':')
+        acc[index] = item
+        return acc
+      }, map)
+      return map
     },
-    ratiosTo() {
-      return this.$store.getGamedataIndex('Ratio', 'to')
-    },
-    units() {
+    units () {
       return this.gamedata.Unit || []
     },
-    unitIndex() {
+    unitIndex () {
       return this.$store.getGamedataIndex('Unit', 'suffix')
     },
-    result() {
-      const { quantity, targetUnit, ratiosFrom, ratiosTo, unitIndex } = this
+    result () {
+      const { quantity, targetUnit, ratioMap, unitIndex } = this
       const quantityUnit = parseQuantityUnit(quantity, unitIndex)
-      const targetRatio = findRatio(targetUnit, ratiosFrom, ratiosTo)
-      if (!quantityUnit) {
-        return 'No quantity unit found'
+      const targetRatio = findRatio(quantityUnit.unit.suffix, targetUnit, ratioMap)
+      if (!quantityUnit.quantity) {
+        return 'No quantity provided'
+      }
+      if (!quantityUnit.unit.suffix) {
+        return 'Quantity provided without unit'
+      }
+      if (!targetUnit) {
+        return 'No target unit provided'
+      }
+      if (quantityUnit.unit.suffix === targetUnit) {
+        return [quantityUnit.quantity, quantityUnit.unit.suffix].join(' ')
       }
       if (!targetRatio) {
-        return 'No target ratio found'
+        return `Conversion ratio from ${quantityUnit.unit.suffix} to ${targetUnit} not found`
       }
-      this.debug = [quantityUnit, targetRatio].map(JSON.stringify).join(' needs converting to ')
-      return [targetRatio.ratioAsNumber * quantityUnit.quantity, targetRatio.to].join(' ')
+      const conversionQuantity = targetRatio.ratioAsNumber * quantityUnit.quantity
+      return [conversionQuantity.toPrecision(5), targetRatio.to].join(' ')
     }
   }
 }
