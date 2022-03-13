@@ -1,7 +1,7 @@
 import clone from './clone'
 import { parseNumberString, parseQuantityUnit } from './numbers'
 
-export  function convert(quantity, toUnit, ratioMap, unitIndex) {
+export function convert (quantity, toUnit, ratioMap, unitIndex) {
   const quantityUnit = parseQuantityUnit(quantity, unitIndex)
   const targetRatio = findRatio(quantityUnit.unit.suffix, toUnit, ratioMap)
   if (!quantityUnit.quantity) {
@@ -20,7 +20,7 @@ export  function convert(quantity, toUnit, ratioMap, unitIndex) {
     }
   }
   if (!targetRatio) {
-    return { error:  `Conversion ratio from ${quantityUnit.unit.suffix} to ${toUnit} not found` }
+    return { error: `Conversion ratio from ${quantityUnit.unit.suffix} to ${toUnit} not found` }
   }
   const conversionQuantity = targetRatio.ratioAsNumber * quantityUnit.quantity
   return {
