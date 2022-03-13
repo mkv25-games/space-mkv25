@@ -24,53 +24,7 @@
 
 <script>
 
-function parseNumberString (numberString) {
-  numberString = numberString.replace(/[,\s]+/g, '')
-  const [quantityString, exponentString] = numberString.split('^')
-  const quantity = Number.parseFloat(quantityString)
-  const exponent = Number.parseInt(exponentString) || 1
-  return Math.pow(quantity, exponent)
-}
-
-function parseRatioToNumber (ratioString) {
-  const [left, right] = ratioString.split(':').map(parseNumberString)
-  return right / left
-}
-
-function findRatio (startUnit, targetUnit, ratioMap) {
-  const targetRatio = [startUnit, targetUnit].join(':')
-  const target = ratioMap[targetRatio]
-  if (target && !target.ratioAsNumber) {
-    target.ratioAsNumber = parseRatioToNumber(target.ratio)
-  }
-  return target
-}
-
-function reverseRatio (item) {
-  const name = item.name.split(' to ').reverse().join(' to ')
-  const ratio = item.ratio.split(':').reverse().join(':')
-  const ratioAsNumber = item.ratioAsNumber ? 1 / item.ratioAsNumber : undefined
-  return Object.assign(clone(item), {
-    name,
-    ratio,
-    ratioAsNumber,
-    from: item.to,
-    to: item.from
-  })
-}
-
-function clone (obj) {
-  return JSON.parse(JSON.stringify(obj))
-}
-
-function parseQuantityUnit (input, unitIndex) {
-  const [quantity, suffix] = (input + '').trim().split(' ')
-  const unit = clone(unitIndex[suffix] || { suffix })
-  return {
-    quantity,
-    unit
-  }
-}
+import { convert, mapRatios } from '../../utils/ratios'
 
 export default {
   data () {
@@ -88,19 +42,8 @@ export default {
       return this.gamedata.Ratio || []
     },
     ratioMap () {
-      const map = {}
       const { ratios } = this
-      ratios.reduce((acc, item) => {
-        const index = [item.from, item.to].join(':')
-        acc[index] = item
-        return acc
-      }, map)
-      ratios.reduce((acc, item) => {
-        const index = [item.to, item.from].join(':')
-        acc[index] = reverseRatio(item)
-        return acc
-      }, map)
-      return map
+      return mapRatios(ratios)
     },
     units () {
       return this.gamedata.Unit || []
@@ -110,25 +53,8 @@ export default {
     },
     result () {
       const { quantity, targetUnit, ratioMap, unitIndex } = this
-      const quantityUnit = parseQuantityUnit(quantity, unitIndex)
-      const targetRatio = findRatio(quantityUnit.unit.suffix, targetUnit, ratioMap)
-      if (!quantityUnit.quantity) {
-        return 'No quantity provided'
-      }
-      if (!quantityUnit.unit.suffix) {
-        return 'Quantity provided without unit'
-      }
-      if (!targetUnit) {
-        return 'No target unit provided'
-      }
-      if (quantityUnit.unit.suffix === targetUnit) {
-        return [quantityUnit.quantity, quantityUnit.unit.suffix].join(' ')
-      }
-      if (!targetRatio) {
-        return `Conversion ratio from ${quantityUnit.unit.suffix} to ${targetUnit} not found`
-      }
-      const conversionQuantity = targetRatio.ratioAsNumber * quantityUnit.quantity
-      return [conversionQuantity.toPrecision(5), targetRatio.to].join(' ')
+      const result = convert(quantity, targetUnit, ratioMap, unitIndex)
+      return result.error || [result.quantity.toPrecision(5), result.targetRatio.to].join(' ')
     }
   }
 }
