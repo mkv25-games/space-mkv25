@@ -4,6 +4,10 @@
       <icon icon="dot-circle" />
       <span>Omniscience</span>
     </router-link>
+    <router-link to="/omniscience/ratios">
+      <icon icon="wave-square" />
+      <span>Ratios</span>
+    </router-link>
     <router-link to="/omniscience/regions">
       <icon icon="border-all" />
       <span>Regions</span>
@@ -20,9 +24,9 @@
       <icon icon="sun" />
       <span>Solar System</span>
     </router-link>
-    <router-link to="/omniscience/ratios">
-      <icon icon="wave-square" />
-      <span>Ratios</span>
+    <router-link to="/omniscience/technology">
+      <icon icon="flask" />
+      <span>Technologies</span>
     </router-link>
   </sidebar-nav>
 </template>

@@ -42,8 +42,10 @@ import Regions from './views/omniscience/Regions.vue'
 import SolarSystem from './views/omniscience/SolarSystem.vue'
 import StellarArchetypes from './views/omniscience/StellarArchetypes.vue'
 import Systems from './views/omniscience/Systems.vue'
+import Technology from './views/omniscience/Technology.vue'
 import OmniscienceNav from './views/omniscience/ui/OmniscienceNav.vue'
 import RegionTypes from './views/omniscience/ui/RegionTypes.vue'
+import TechnologyDiagram from './views/omniscience/ui/TechnologyDiagram.vue'
 import ComponentTests from './views/settings/debug/ComponentTests.vue'
 import Debug from './views/settings/debug/Debug.vue'
 import Gamedata from './views/settings/Gamedata.vue'
@@ -55,5 +57,5 @@ import Template from './views/Template.vue'
 import Universe from './views/Universe.vue'
 
 export default {
-  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, Tabulation, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Ratios, Regions, SolarSystem, StellarArchetypes, Systems, OmniscienceNav, RegionTypes, ComponentTests, Debug, Gamedata, Mods, Settings, SettingsNav, SystemView, Template, Universe
+  PrimaryNav, SidebarNav, Orbit, StoryTeller, ColumnLayout, GridFill, HighlightedQuadrantInfo, HorizontalTileGrid, Icon, IconButton, PanAndZoom, Property, PropertyPanel, QuadrantBreakdown, Tabulation, VerticalTileGrid, ContactManagement, Designer, EstablishContact, Diplomacy, Fleets, GalaxyView, History, Intelligence, KnownLifeforms, Outposts, Planets, Research, Statistics, Threats, Trade, GalaxyInputs, GalaxyNav, GalaxySVG, Home, LocationView, Omniscience, Ratios, Regions, SolarSystem, StellarArchetypes, Systems, Technology, OmniscienceNav, RegionTypes, TechnologyDiagram, ComponentTests, Debug, Gamedata, Mods, Settings, SettingsNav, SystemView, Template, Universe
 }
