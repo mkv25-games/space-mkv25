@@ -40,3 +40,13 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.tech > rect {
+  fill: rgb(248, 169, 116)
+}
+
+.facility > rect {
+  fill: rgb(146, 184, 255);
+}
+</style>

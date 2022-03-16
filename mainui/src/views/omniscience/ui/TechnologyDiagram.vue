@@ -6,7 +6,7 @@
     </g>
     <g>
       <tech-box v-for="tech in layout.children" :key="tech.id"
-        :className="tech.className"
+        :class="tech.className"
         :tech="tech" />
     </g>
   </svg>
