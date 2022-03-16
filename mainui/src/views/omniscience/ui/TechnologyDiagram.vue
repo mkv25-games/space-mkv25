@@ -6,6 +6,7 @@
     </g>
     <g>
       <tech-box v-for="tech in layout.children" :key="tech.id"
+        :className="tech.className"
         :tech="tech" />
     </g>
   </svg>
@@ -16,7 +17,7 @@ const ELK = require('elkjs')
 const elk = new ELK()
 
 const graph = {
-  id: 'root',
+  id: 'technology-root',
   layoutOptions: {
     'elk.algorithm': 'layered',
     'spacing.nodeNodeBetweenLayers': 50,
@@ -33,6 +34,12 @@ const graph = {
   ]
 }
 
+function removeEmptyEdges(edge) {
+  const hasTargets = edge.targets && edge.targets.length > 0
+  const hasSources = edge.sources && edge.sources.length > 0
+  return hasTargets && hasSources
+}
+
 export default {
   data() {
     return {
@@ -45,6 +52,9 @@ export default {
   computed: {
     technologies() {
       return this.$store.state.gamedata.Technology || []
+    },
+    facilities() {
+      return this.$store.state.gamedata.Facility || []
     }
   },
   async mounted() {
@@ -55,23 +65,52 @@ export default {
   },
   methods: {
     async updateGraph() {
-      const { technologies } = this
-      graph.children = technologies.map((tech => {
+      const { technologies, facilities } = this
+      const techChildren = technologies.map((tech => {
         return {
-          id: tech.name,
+          id: `t_${tech.name}`,
           width: 120,
           height: 60,
-          label: tech.name
+          label: tech.name,
+          className: 'tech'
         }
       }))
+      const facilityChildren = facilities.map(facility => {
+        return {
+          id: `f_${facility.name}`,
+          width: 120,
+          height: 60,
+          label: facility.name,
+          className: 'facility',
+          data: facility
+        }
+      })
+      graph.children = [ ...techChildren, ...facilityChildren ]
       console.log('Children:', graph.children)
-      const a = graph.children[0] || { id: 'Chemistry' }
-      const b = graph.children[1] || { id: 'Biology' }
-      graph.edges = [{
-        id: 'e1',
-        sources: [a.id],
-        targets: [b.id]
-      }]
+
+      const facilityEdges = []
+      facilities.forEach((facility, i) => {
+        const requires = (facility.tech.requires || '').split(', ').filter(n => n)
+        const supports = (facility.tech.supports || '').split(', ').filter(n => n)
+        requires.forEach((item, n) => {
+          facilityEdges.push({
+            id: `fse_${i}_${n}`,
+            sources: [`t_${item}`],
+            targets: [`f_${facility.name}`],
+            facility
+          })
+        })
+        supports.forEach((item, n) => {
+          facilityEdges.push({
+            id: `fte_${i}_${n}`,
+            sources: [`f_${facility.name}`],
+            targets: [`t_${item}`],
+            facility
+          })
+        })
+      })
+      graph.edges = [ ...facilityEdges ].filter(removeEmptyEdges)
+      console.log('Technology Diagram ????', graph.edges)
     },
     async computeLayout() {
       let result = {}
