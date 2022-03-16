@@ -42,16 +42,41 @@ export default {
       }
     }
   },
+  computed: {
+    technologies() {
+      return this.$store.state.gamedata.Technology || []
+    }
+  },
   async mounted() {
+    await this.updateGraph()
     const layout = await this.computeLayout()
     console.log('Technology Diagram Mounted:', layout)
     this.layout = layout
   },
   methods: {
+    async updateGraph() {
+      const { technologies } = this
+      graph.children = technologies.map((tech => {
+        return {
+          id: tech.name,
+          width: 120,
+          height: 60,
+          label: tech.name
+        }
+      }))
+      console.log('Children:', graph.children)
+      const a = graph.children[0] || { id: 'Chemistry' }
+      const b = graph.children[1] || { id: 'Biology' }
+      graph.edges = [{
+        id: 'e1',
+        sources: [a.id],
+        targets: [b.id]
+      }]
+    },
     async computeLayout() {
       let result = {}
       try {
-        result = elk.layout(graph)
+        result = await elk.layout(graph)
         console.log('Technology Diagram, ELKJS Result:', result)
       } catch (ex) {
         console.error('Technology Diagram, ELKJS Error:', ex)

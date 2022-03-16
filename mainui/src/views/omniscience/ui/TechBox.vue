@@ -8,9 +8,12 @@
     <text 
       fill="black" stroke="none"
       font-family="Avenir, Helvetica, Arial, sans-serif"
-      :x="hw" :y="`${hh + 5}`"
-      font-size="20"
-      text-anchor="middle">{{ tech.label || 'No label' }}</text>
+      :y="5"
+      font-size="15"
+      text-anchor="middle">
+      <tspan v-for="(line, index) in labelLines" :key="`la_${index}`"
+        :x="hw" dy="19px">{{ line }}</tspan>
+    </text>
   </g>
 </template>
 
@@ -19,7 +22,9 @@ export default {
   props: {
     tech: {
       type: Object,
-      default: {}
+      default: {
+        label: 'No label'
+      }
     }
   },
   computed: {
@@ -28,6 +33,9 @@ export default {
     },
     hh() {
       return (this.tech.height || 0) / 2
+    },
+    labelLines() {
+      return this.tech.label.split(' ')
     }
   }
 }
