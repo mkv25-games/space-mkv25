@@ -13,7 +13,7 @@
     }
   },
   "scripts": {
-    "start": "./build-scripts/start-dev.sh",
+    "start": "sh ./build-scripts/start-dev.sh",
     "start:with-dev-tools": "FORCE_OPEN_DEV_TOOLS=true npm start -s",
     "start:predist": "./build-scripts/start-pre-dist.sh",
     "test": "standard && mkvconf lint modpacks/**/*.conf",

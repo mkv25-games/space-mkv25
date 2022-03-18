@@ -9,7 +9,8 @@ async function run () {
   const mainui = position(__dirname, '../mainui/src')
   const search = mainui('**/*.vue')
   const vueFilepaths = await find(search)
-  const vueFiles = vueFilepaths.map(s => s.replace(mainui('./'), '')).filter(file => file !== 'App.vue')
+  const mainuiPath = mainui('./').split('\\').join('/')
+  const vueFiles = vueFilepaths.map(s => s.replace(mainuiPath, '')).filter(file => file !== 'App.vue')
   const importStatements = vueFiles.map(vueFile => {
     const filename = filenameFromPath(vueFile)
     return `import ${filename} from './${vueFile}'`
